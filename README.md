@@ -29,7 +29,7 @@ SyntaxView(
 
 ## Themes
 <p align="center">
-  <img src="https://github.com/BaderEddineOuaich/flutter_syntax_view/blob/master/SyntaxThemes.png" title="ScreenShots">
+  <img src="https://raw.githubusercontent.com/BaderEddineOuaich/flutter_syntax_view/master/SyntaxThemes.png" title="ScreenShots">
 </p>
 
 ## TODO

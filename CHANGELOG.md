@@ -5,3 +5,7 @@
 ## [0.1.0] - 04/27/2019
 
 * First stable release.
+
+## [0.1.1] - 04/27/2019
+
+* Fixed a Warning.
