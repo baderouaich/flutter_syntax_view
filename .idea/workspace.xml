@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e87031d3-26d6-4863-b715-a8f0d35e0c68" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="e87031d3-26d6-4863-b715-a8f0d35e0c68" name="Default Changelist" comment="README.md updated." />
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
     <ignored path="$PROJECT_DIR$/.pub/" />
@@ -58,13 +56,14 @@
     <session id="-637631846">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="dart" value="27" />
+          <entry key="dart" value="28" />
           <entry key="h" value="1" />
           <entry key="java" value="4" />
           <entry key="m" value="1" />
@@ -76,7 +75,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Dart" value="27" />
+          <entry key="Dart" value="28" />
           <entry key="Image" value="1" />
           <entry key="JAVA" value="4" />
           <entry key="ObjectiveC" value="2" />
@@ -90,7 +89,7 @@
           <entry key="h" value="1" />
           <entry key="java" value="1" />
           <entry key="m" value="1" />
-          <entry key="md" value="235" />
+          <entry key="md" value="237" />
           <entry key="txt" value="25" />
           <entry key="xcconfig" value="1" />
           <entry key="yaml" value="97" />
@@ -101,33 +100,14 @@
           <entry key="Dart" value="863" />
           <entry key="JAVA" value="1" />
           <entry key="ObjectiveC" value="2" />
-          <entry key="PLAIN_TEXT" value="261" />
+          <entry key="PLAIN_TEXT" value="263" />
           <entry key="YAML" value="97" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pubspec.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="105" lean-forward="true" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="105" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="31" column="98" selection-start-line="31" selection-start-column="98" selection-end-line="31" selection-end-column="98" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -347,9 +327,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1105" height="1013" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21148326" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21148326" />
       <window_info id="Structure" order="1" side_tool="true" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -359,7 +338,7 @@
       <window_info anchor="bottom" id="Run" order="1" weight="0.30044842" />
       <window_info anchor="bottom" id="TODO" order="2" weight="0.14349777" />
       <window_info anchor="bottom" id="Debug" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="4" visible="true" weight="0.298066" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="4" visible="true" weight="0.298066" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Flutter Performance" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
@@ -520,27 +499,10 @@
     <entry file="file://$PROJECT_DIR$/SyntaxThemes.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/flutter_syntax_view.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-255">
-          <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
-          <folding>
-            <element signature="e#30#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="105" lean-forward="true" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="105" />
         </state>
       </provider>
     </entry>
@@ -567,8 +529,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="31" column="98" selection-start-line="31" selection-start-column="98" selection-end-line="31" selection-end-column="98" />
+        <state relative-caret-position="289">
+          <caret line="23" column="2" lean-forward="true" selection-start-line="23" selection-start-column="2" selection-end-line="23" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="105" lean-forward="true" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/flutter_syntax_view.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+          <folding>
+            <element signature="e#30#49#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
