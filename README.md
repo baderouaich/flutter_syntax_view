@@ -24,7 +24,7 @@ SyntaxView(
 ## Supported Syntax
 
 - [x] Dart
-More will be added.
+- More will be added.
 
 
 ## Themes
