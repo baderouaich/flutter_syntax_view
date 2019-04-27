@@ -28,8 +28,9 @@ More will be added.
 
 
 ## Themes
-
-![Screenshots](https://pub.dartlang.org/packages/flutter_syntax_view/SyntaxThemes.png)
+<p align="center">
+  <img src="https://pub.dartlang.org/packages/flutter_syntax_view/SyntaxThemes.png" width="350" title="ScreenShots">
+</p>
 
 ## TODO
 
