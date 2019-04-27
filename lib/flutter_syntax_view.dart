@@ -28,7 +28,6 @@ class SyntaxView extends StatefulWidget {
   final Syntax syntax;
   final bool withZoom;
   final SyntaxTheme syntaxTheme;
-  double textScaleFactor = 1.0;
 
   dynamic getSyntax(Syntax syntax) {
     switch (syntax) {
@@ -44,6 +43,8 @@ class SyntaxView extends StatefulWidget {
 }
 
 class SyntaxViewState extends State<SyntaxView> {
+  double textScaleFactor = 1.0;
+
   @override
   Widget build(BuildContext context) {
     assert(widget.code != null,
@@ -65,7 +66,7 @@ class SyntaxViewState extends State<SyntaxView> {
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: RichText(
-                  textScaleFactor: widget.textScaleFactor,
+                  textScaleFactor: textScaleFactor,
                   text: TextSpan(
                     style: TextStyle(fontFamily: 'monospace', fontSize: 12.0),
                     children: <TextSpan>[
@@ -85,15 +86,14 @@ class SyntaxViewState extends State<SyntaxView> {
                       icon: Icon(Icons.zoom_out,
                           color: widget.syntaxTheme.zoomIconColor),
                       onPressed: () => setState(() {
-                            widget.textScaleFactor =
-                                max(0.8, widget.textScaleFactor - 0.1);
+                            textScaleFactor = max(0.8, textScaleFactor - 0.1);
                           })),
                   IconButton(
                       icon: Icon(Icons.zoom_in,
                           color: widget.syntaxTheme.zoomIconColor),
                       onPressed: () => setState(() {
-                            widget.textScaleFactor <= 4.0
-                                ? widget.textScaleFactor += 0.1
+                            textScaleFactor <= 4.0
+                                ? textScaleFactor += 0.1
                                 : print(
                                     "Maximun zoomable scale (4.0) has been reached. more zooming can cause a crash.");
                           })),
