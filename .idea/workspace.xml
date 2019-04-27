@@ -65,9 +65,12 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="dart" value="27" />
+          <entry key="h" value="1" />
           <entry key="java" value="4" />
+          <entry key="m" value="1" />
           <entry key="md" value="3" />
           <entry key="png" value="1" />
+          <entry key="xcconfig" value="1" />
           <entry key="yaml" value="3" />
         </counts>
       </usages-collector>
@@ -76,15 +79,20 @@
           <entry key="Dart" value="27" />
           <entry key="Image" value="1" />
           <entry key="JAVA" value="4" />
-          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="ObjectiveC" value="2" />
+          <entry key="PLAIN_TEXT" value="4" />
           <entry key="YAML" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dart" value="863" />
+          <entry key="h" value="1" />
           <entry key="java" value="1" />
+          <entry key="m" value="1" />
           <entry key="md" value="235" />
+          <entry key="txt" value="25" />
+          <entry key="xcconfig" value="1" />
           <entry key="yaml" value="97" />
         </counts>
       </usages-collector>
@@ -92,7 +100,8 @@
         <counts>
           <entry key="Dart" value="863" />
           <entry key="JAVA" value="1" />
-          <entry key="PLAIN_TEXT" value="235" />
+          <entry key="ObjectiveC" value="2" />
+          <entry key="PLAIN_TEXT" value="261" />
           <entry key="YAML" value="97" />
         </counts>
       </usages-collector>
@@ -112,8 +121,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+            <state relative-caret-position="425">
+              <caret line="31" column="98" selection-start-line="31" selection-start-column="98" selection-end-line="31" selection-end-column="98" />
             </state>
           </provider>
         </entry>
@@ -165,6 +174,9 @@
         <option value="$PROJECT_DIR$/test/flutter_syntax_view_test.dart" />
         <option value="$PROJECT_DIR$/CHANGELOG.md" />
         <option value="$PROJECT_DIR$/pubspec.yaml" />
+        <option value="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.h" />
+        <option value="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.m" />
+        <option value="$PROJECT_DIR$/ios/Flutter/Generated.xcconfig" />
         <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
@@ -188,6 +200,23 @@
             <path>
               <item name="flutter_syntax_view" type="b2602c69:ProjectViewProjectNode" />
               <item name="flutter_syntax_view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flutter_syntax_view" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flutter_syntax_view" type="462c0819:PsiDirectoryNode" />
+              <item name="ios" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flutter_syntax_view" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flutter_syntax_view" type="462c0819:PsiDirectoryNode" />
+              <item name="ios" type="462c0819:PsiDirectoryNode" />
+              <item name="Flutter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flutter_syntax_view" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flutter_syntax_view" type="462c0819:PsiDirectoryNode" />
+              <item name="ios" type="462c0819:PsiDirectoryNode" />
+              <item name="Runner" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="flutter_syntax_view" type="b2602c69:ProjectViewProjectNode" />
@@ -268,6 +297,14 @@
       <option name="presentableId" value="Default" />
       <updated>1556282419811</updated>
     </task>
+    <task id="LOCAL-00001" summary="README.md updated.">
+      <created>1556378372815</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1556378372815</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -360,6 +397,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="README.md updated." />
+    <option name="LAST_COMMIT_MESSAGE" value="README.md updated." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/example/lib/flutter_syntax_view.dart" />
@@ -503,10 +544,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ios/Flutter/Generated.xcconfig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+        <state relative-caret-position="425">
+          <caret line="31" column="98" selection-start-line="31" selection-start-column="98" selection-end-line="31" selection-end-column="98" />
         </state>
       </provider>
     </entry>

@@ -29,7 +29,7 @@ More will be added.
 
 ## Themes
 <p align="center">
-  <img src="https://pub.dartlang.org/packages/flutter_syntax_view/SyntaxThemes.png" width="350" title="ScreenShots">
+  <img src="https://github.com/BaderEddineOuaich/flutter_syntax_view/blob/master/SyntaxThemes.png" title="ScreenShots">
 </p>
 
 ## TODO
