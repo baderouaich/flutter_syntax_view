@@ -6,6 +6,9 @@ import 'package:flutter_syntax_view/syntax_theme.dart';
 
 ///Import Available Syntaxes
 import 'package:flutter_syntax_view/syntaxes/dart.dart';
+import 'package:flutter_syntax_view/syntaxes/java.dart';
+import 'package:flutter_syntax_view/syntaxes/kotlin.dart';
+import 'package:flutter_syntax_view/syntaxes/swift.dart';
 
 ///Export classes to include them here. user will have to import the needed classes if you didn't export from here.
 export 'package:flutter_syntax_view/syntax_theme.dart';
@@ -13,6 +16,10 @@ export 'package:flutter_syntax_view/syntax_theme.dart';
 ///Supported Syntaxes Enum
 enum Syntax {
   DART,
+  JAVA,
+  KOTLIN,
+  SWIFT
+
   ///TODO SUPPORT MORE SYNTAXES
 }
 
@@ -33,6 +40,12 @@ class SyntaxView extends StatefulWidget {
     switch (syntax) {
       case Syntax.DART:
         return DartSyntaxHighlighter(this.syntaxTheme);
+      case Syntax.JAVA:
+        return JavaSyntaxHighlighter(this.syntaxTheme);
+      case Syntax.KOTLIN:
+        return KotlinSyntaxHighlighter(this.syntaxTheme);
+      case Syntax.SWIFT:
+        return SwiftSyntaxHighlighter(this.syntaxTheme);
       default:
         return DartSyntaxHighlighter(this.syntaxTheme);
     }

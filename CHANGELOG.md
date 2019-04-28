@@ -9,3 +9,8 @@
 ## [0.1.1] - 04/27/2019
 
 * Fixed a Warning.
+
+## [0.1.2] - 04/28/2019
+
+* New Syntax Added (Java, Kotlin, Swift).
+* New Theme Added (Ocean Sunset).
