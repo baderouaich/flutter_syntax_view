@@ -14,3 +14,7 @@
 
 * New Syntax Added (Java, Kotlin, Swift).
 * New Theme Added (Ocean Sunset).
+
+## [0.1.3] - 04/28/2019
+
+* Fixed README.md

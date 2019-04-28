@@ -24,6 +24,9 @@ SyntaxView(
 ## Supported Syntax
 
 - [x] Dart
+- [x] Java
+- [x] Kotlin
+- [x] Swift
 - More will be added.
 
 
@@ -38,9 +41,15 @@ SyntaxView(
 - [ ] Add More Themes.
 
 
+## Contributing
+
+- Please if you are familiar with Regular Expressions in Dart and would like contribute in adding further syntax support. it will be very appreciated!.
+
+## Contributors
+- void
+
 ## Installing
 [Package](https://pub.dartlang.org/packages/flutter_syntax_view)
-
 
 
 ## Features and bugs
