@@ -1,10 +1,10 @@
 # flutter_syntax_view
-A SyntaxView Widget which highlights code text according to the programming language syntax.
+A SyntaxView Widget which highlights code text according to the programming language syntax using Native Dart code.
 
 ## Usage
 
 ```dart
-// Load code text from assets/your_code.txt
+// Load code text from your assets path.
 // Use DefaultAssetBundle. Recommended ( it allows switching asset bundles at runtime ).
 
 String code = "";
@@ -27,6 +27,7 @@ SyntaxView(
 - [x] Java
 - [x] Kotlin
 - [x] Swift
+- [x] JAVASCRIPT
 - More will be added.
 
 
@@ -46,7 +47,7 @@ SyntaxView(
 - Please if you are familiar with Regular Expressions in Dart and would like contribute in adding further syntax support. it will be very appreciated!.
 
 ## Contributors
-- void
+- null
 
 ## Installing
 [Package](https://pub.dartlang.org/packages/flutter_syntax_view)

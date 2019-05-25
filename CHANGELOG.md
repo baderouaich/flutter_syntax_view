@@ -18,3 +18,8 @@
 ## [0.1.3] - 04/28/2019
 
 * Fixed README.md
+
+
+## [0.2.0] - 05/25/2019
+
+* JavaScript Syntax Added & Fixed Duplicated Syntax KeyWord in Swift.

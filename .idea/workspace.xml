@@ -4,8 +4,8 @@
     <list default="true" id="e87031d3-26d6-4863-b715-a8f0d35e0c68" name="Default Changelist" comment="## [0.1.2] - 04/28/2019&#10;&#10;* New Syntax Added (Java, Kotlin, Swift).&#10;* New Theme Added (Ocean Sunset).">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/flutter_syntax_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flutter_syntax_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/syntaxes/swift.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/syntaxes/swift.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -61,24 +61,25 @@
     <session id="-637631846">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="cpt" value="1" />
-          <entry key="dart" value="56" />
+          <entry key="dart" value="58" />
           <entry key="h" value="1" />
           <entry key="java" value="4" />
           <entry key="m" value="1" />
-          <entry key="md" value="11" />
+          <entry key="md" value="12" />
           <entry key="png" value="5" />
           <entry key="xcconfig" value="1" />
           <entry key="yaml" value="6" />
@@ -87,10 +88,10 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Concept" value="1" />
-          <entry key="Dart" value="56" />
+          <entry key="Dart" value="58" />
           <entry key="Image" value="5" />
           <entry key="JAVA" value="4" />
-          <entry key="Markdown" value="6" />
+          <entry key="Markdown" value="7" />
           <entry key="ObjectiveC" value="2" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="YAML" value="6" />
@@ -98,11 +99,11 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dart" value="1739" />
+          <entry key="dart" value="1752" />
           <entry key="h" value="1" />
           <entry key="java" value="1" />
           <entry key="m" value="1" />
-          <entry key="md" value="675" />
+          <entry key="md" value="728" />
           <entry key="txt" value="84" />
           <entry key="xcconfig" value="1" />
           <entry key="yaml" value="100" />
@@ -110,9 +111,9 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Dart" value="1740" />
+          <entry key="Dart" value="1753" />
           <entry key="JAVA" value="1" />
-          <entry key="Markdown" value="413" />
+          <entry key="Markdown" value="466" />
           <entry key="ObjectiveC" value="2" />
           <entry key="PLAIN_TEXT" value="346" />
           <entry key="YAML" value="100" />
@@ -121,12 +122,36 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/syntaxes/swift.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="29" column="1" lean-forward="true" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
+            <state relative-caret-position="170">
+              <caret line="94" selection-start-line="94" selection-end-line="94" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/flutter_syntax_view.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+              <folding>
+                <element signature="e#30#49#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="13" lean-forward="true" selection-start-column="13" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -187,14 +212,14 @@
         <option value="$PROJECT_DIR$/lib/syntaxes/kotlin.dart" />
         <option value="$PROJECT_DIR$/lib/syntaxes/objective_c.dart" />
         <option value="$PROJECT_DIR$/lib/syntax_theme.dart" />
-        <option value="$PROJECT_DIR$/lib/flutter_syntax_view.dart" />
         <option value="$PROJECT_DIR$/example/flutter_syntax_view_example.dart" />
         <option value="$PROJECT_DIR$/test/flutter_syntax_view_test.dart" />
         <option value="$PROJECT_DIR$/lib/syntaxes/dart.dart" />
-        <option value="$PROJECT_DIR$/lib/syntaxes/swift.dart" />
-        <option value="$PROJECT_DIR$/CHANGELOG.md" />
         <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/lib/syntaxes/swift.dart" />
+        <option value="$PROJECT_DIR$/CHANGELOG.md" />
+        <option value="$PROJECT_DIR$/lib/flutter_syntax_view.dart" />
       </list>
     </option>
   </component>
@@ -210,7 +235,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -218,11 +242,23 @@
               <item name="flutter_syntax_view" type="b2602c69:ProjectViewProjectNode" />
               <item name="flutter_syntax_view" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="flutter_syntax_view" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flutter_syntax_view" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flutter_syntax_view" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flutter_syntax_view" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="syntaxes" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
         <option name="show-excluded-files" value="false" />
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -378,7 +414,7 @@
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.148533" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15036675" />
       <window_info id="Structure" order="1" side_tool="true" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -388,12 +424,12 @@
       <window_info anchor="bottom" id="Run" order="1" weight="0.3003413" />
       <window_info anchor="bottom" id="TODO" order="2" weight="0.14349777" />
       <window_info anchor="bottom" id="Debug" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="4" weight="0.29351535" />
+      <window_info anchor="bottom" id="Terminal" order="4" visible="true" weight="0.2926009" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Flutter Performance" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.32847533" />
-      <window_info active="true" anchor="bottom" id="Messages" order="9" visible="true" weight="0.10313901" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.53139013" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Theme Preview" order="1" />
       <window_info anchor="right" id="Flutter Inspector" order="2" />
@@ -499,9 +535,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -529,27 +562,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/flutter_syntax_view.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/syntaxes/java.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="12" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/syntaxes/swift.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="89" column="12" lean-forward="true" selection-start-line="89" selection-start-column="12" selection-end-line="89" selection-end-column="12" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -573,17 +589,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="29" column="1" lean-forward="true" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/syntaxes/swift.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="94" selection-start-line="94" selection-end-line="94" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" lean-forward="true" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/flutter_syntax_view.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+          <folding>
+            <element signature="e#30#49#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
