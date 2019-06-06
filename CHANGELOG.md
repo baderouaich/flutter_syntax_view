@@ -23,3 +23,9 @@
 ## [0.2.0] - 05/25/2019
 
 * JavaScript Syntax Added & Fixed Duplicated Syntax KeyWord in Swift.
+
+## [0.2.1] - 05/25/2019
+
+* Syntax Theme is not required (Default: dracula).
+* SDK minimun support upgraded from 2.1.0 to 2.2.2.
+* Syntax Lines counter is now available. 

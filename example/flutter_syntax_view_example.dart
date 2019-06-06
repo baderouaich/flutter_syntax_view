@@ -29,11 +29,7 @@ class MyAppState extends State<MyApp> {
     // Use DefaultAssetBundle. Recommended ( it allows switching asset bundles at runtime ).
     DefaultAssetBundle.of(context)
         .loadString('assets/dart_code.txt')
-        .then((codeText) {
-      setState(() {
-        code = codeText ?? "null";
-      });
-    });
+        .then((codeText) => setState(() => code = codeText));
   }
 
   @override
@@ -41,14 +37,15 @@ class MyAppState extends State<MyApp> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Flutter Syntax View Example"),
-        backgroundColor: Colors.deepOrange[300],
+        backgroundColor: Colors.blueGrey[800],
         elevation: 7,
       ),
       body: SyntaxView(
         code: code,
-        withZoom: true,
         syntax: Syntax.DART,
         syntaxTheme: SyntaxTheme.dracula(),
+        withZoom: true,
+        withLinesCount: true,
       ),
     );
   }

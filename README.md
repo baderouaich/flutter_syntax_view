@@ -8,17 +8,16 @@ A SyntaxView Widget which highlights code text according to the programming lang
 // Use DefaultAssetBundle. Recommended ( it allows switching asset bundles at runtime ).
 
 String code = "";
-DefaultAssetBundle.of(context).loadString('assets/your_code.txt').then((codeText) {
-  setState(() {
-    code = codeText;
-  });
-});
+DefaultAssetBundle.of(context)
+    .loadString('assets/dart_code.txt')
+    .then((codeText) => setState(() => code = codeText));
 SyntaxView(
         code: code,
         syntax: Syntax.DART,
         syntaxTheme: SyntaxTheme.dracula(),
         withZoom: true,
-       );
+        withLinesCount: true,
+      );
 ```
 
 ## Supported Syntax
@@ -27,7 +26,7 @@ SyntaxView(
 - [x] Java
 - [x] Kotlin
 - [x] Swift
-- [x] JAVASCRIPT
+- [x] JavaScript
 - More will be added.
 
 

@@ -10,6 +10,7 @@ class SyntaxTheme {
     this.punctuationStyle,
     this.classStyle,
     this.constantStyle,
+    this.linesCountColor,
     this.backgroundColor,
     this.zoomIconColor,
   });
@@ -22,11 +23,13 @@ class SyntaxTheme {
   final TextStyle punctuationStyle;
   final TextStyle classStyle;
   final TextStyle constantStyle;
+  final Color linesCountColor;
   final Color backgroundColor;
   final Color zoomIconColor;
 
   static SyntaxTheme standard() {
     return SyntaxTheme(
+      linesCountColor: const Color(0xFF37474F).withOpacity(.7),
       backgroundColor: const Color(0xFFFFFFFF),
       baseStyle: const TextStyle(color: const Color(0xFF000000)),
       numberStyle: const TextStyle(color: const Color(0xFF1565C0)),
@@ -42,7 +45,8 @@ class SyntaxTheme {
 
   static SyntaxTheme dracula() {
     return SyntaxTheme(
-        backgroundColor: const Color(0xFF607D8B),
+        linesCountColor: const Color(0xFFFFFFFF).withOpacity(.7),
+        backgroundColor: const Color(0xFF263238),
         baseStyle: const TextStyle(color: const Color(0xFFFFFFFF)),
         numberStyle: const TextStyle(color: const Color(0xFF6BC1FF)),
         commentStyle: const TextStyle(color: const Color(0xFF9E9E9E)),
@@ -56,6 +60,7 @@ class SyntaxTheme {
 
   static SyntaxTheme ayuLight() {
     return SyntaxTheme(
+        linesCountColor: const Color(0xFF37474F).withOpacity(.7),
         backgroundColor: const Color(0xFFFAFAFA),
         baseStyle: const TextStyle(color: const Color(0xFF202734)),
         numberStyle: const TextStyle(color: const Color(0xFF42BEDF)),
@@ -70,6 +75,7 @@ class SyntaxTheme {
 
   static SyntaxTheme ayuDark() {
     return SyntaxTheme(
+        linesCountColor: const Color(0xFFFFFFFF).withOpacity(.8),
         backgroundColor: const Color(0xFF202734),
         baseStyle: const TextStyle(color: const Color(0xFFFFFFFF)),
         numberStyle: const TextStyle(color: const Color(0xFFDCC76D)),
@@ -84,6 +90,7 @@ class SyntaxTheme {
 
   static SyntaxTheme gravityLight() {
     return SyntaxTheme(
+        linesCountColor: const Color(0xFF37474F).withOpacity(.7),
         backgroundColor: const Color(0xFFFAFAFA),
         baseStyle: const TextStyle(color: const Color(0xFF202734)),
         numberStyle: const TextStyle(color: const Color(0xFF3D94FC)),
@@ -98,6 +105,7 @@ class SyntaxTheme {
 
   static SyntaxTheme gravityDark() {
     return SyntaxTheme(
+        linesCountColor: const Color(0xFFFFFFFF).withOpacity(.8),
         backgroundColor: const Color(0xFF202734),
         baseStyle: const TextStyle(color: const Color(0xFFFFFFFF)),
         numberStyle: const TextStyle(color: const Color(0xFF68B3BD)),
@@ -112,6 +120,7 @@ class SyntaxTheme {
 
   static SyntaxTheme monokaiSublime() {
     return SyntaxTheme(
+        linesCountColor: const Color(0xFFFFFFFF).withOpacity(.7),
         backgroundColor: const Color(0xFF272822),
         baseStyle: const TextStyle(color: const Color(0xFF7FEC21)),
         numberStyle: const TextStyle(color: const Color(0xFF38C9E6)),
@@ -126,6 +135,7 @@ class SyntaxTheme {
 
   static SyntaxTheme obsidian() {
     return SyntaxTheme(
+        linesCountColor: const Color(0xFFFFFFFF).withOpacity(.7),
         backgroundColor: const Color(0xFF293134),
         baseStyle: const TextStyle(color: const Color(0xFFE8E2B7)),
         numberStyle: const TextStyle(color: const Color(0xFFFFCD22)),
@@ -140,27 +150,16 @@ class SyntaxTheme {
 
   static SyntaxTheme oceanSunset() {
     return SyntaxTheme(
+        linesCountColor: const Color(0xFFFFFFFF).withOpacity(.7),
         backgroundColor: const Color(0xFF33353B),
         baseStyle: const TextStyle(color: const Color(0xFFEBCB7B)),
-
-        /// main fibonacci...
         numberStyle: const TextStyle(color: const Color(0xFFD08770)),
         commentStyle: const TextStyle(color: const Color(0xFF908995)),
         keywordStyle: const TextStyle(color: const Color(0xFF62AED2)),
-
-        /// return import .. _keyWords
         stringStyle: const TextStyle(color: const Color(0xFFD9C0A5)),
-
-        /// "content"
         punctuationStyle: const TextStyle(color: const Color(0xFFFFFFFF)),
-
-        /// { () ; . ? < > - + * /
         classStyle: const TextStyle(color: const Color(0xFF4C77A2)),
-
-        /// math.PI => PI color
         constantStyle: const TextStyle(color: const Color(0xFF428CB4)),
-
-        /// const
         zoomIconColor: const Color(0xFFF8F6EB));
   }
 }
