@@ -43,7 +43,7 @@ SyntaxView(
 
 ## Contributing
 
-- Please if you are familiar with Regular Expressions in Dart and would like contribute in adding further syntax support. it will be very appreciated!.
+- if you are familiar with Regular Expressions in Dart and would like contribute in adding further syntax support. it will be very appreciated!
 
 ## Contributors
 - null
