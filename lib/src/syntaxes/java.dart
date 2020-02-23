@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_syntax_view/syntax_theme.dart';
 import 'package:string_scanner/string_scanner.dart';
 
 import 'base.dart';
+import 'index.dart';
 
 class JavaSyntaxHighlighter extends SyntaxBase {
   JavaSyntaxHighlighter([this.syntaxTheme]) {

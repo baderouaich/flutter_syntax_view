@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../syntax_theme.dart';
 import 'index.dart';
 
 abstract class SyntaxBase {

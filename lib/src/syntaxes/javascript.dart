@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_syntax_view/syntax_theme.dart';
 import 'package:string_scanner/string_scanner.dart';
 
-import 'base.dart';
+import 'index.dart';
 
-class DartSyntaxHighlighter extends SyntaxBase {
-  DartSyntaxHighlighter([this.syntaxTheme]) {
+class JavaScriptSyntaxHighlighter extends SyntaxBase {
+  JavaScriptSyntaxHighlighter([this.syntaxTheme]) {
     _spans = <_HighlightSpan>[];
     syntaxTheme ??= SyntaxTheme.dracula();
   }
@@ -14,67 +13,57 @@ class DartSyntaxHighlighter extends SyntaxBase {
   SyntaxTheme syntaxTheme;
 
   static const List<String> _keywords = const <String>[
-    'abstract',
-    'as',
-    'assert',
-    'async',
-    'await',
     'break',
-    'case',
-    'catch',
-    'class',
-    'const',
-    'continue',
-    'default',
-    'deferred',
-    'do',
-    'dynamic',
-    'else',
-    'enum',
+    'debugger',
     'export',
-    'external',
-    'extends',
-    'factory',
-    'false',
-    'final',
     'finally',
-    'for',
-    'get',
-    'if',
-    'implements',
-    'import',
     'in',
-    'is',
-    'library',
-    'new',
+    'let',
     'null',
-    'operator',
-    'part',
-    'rethrow',
-    'return',
-    'set',
-    'static',
+    'public',
     'super',
-    'switch',
-    'sync',
-    'this',
-    'throw',
-    'true',
     'try',
-    'typedef',
-    'var',
-    'void',
+    'arguments',
+    'byte',
+    'class',
+    'default',
+    'else',
+    'extends',
+    'if',
+    'instanceof',
+    'package',
+    'return',
+    'switch',
+    'typeof',
     'while',
+    'await',
+    'case',
+    'delete',
+    'enum',
+    'false',
+    'implements',
+    'private',
     'with',
-    'yield',
-    'show'
+    'catch',
+    'continue',
+    'do',
+    'eval',
+    'function',
+    'import',
+    'interface',
+    'new',
+    'protected',
+    'static',
+    'this',
+    'true',
+    'void',
+    'yield'
   ];
 
   static const List<String> _builtInTypes = const <String>[
-    'int',
-    'double',
-    'num',
-    'bool'
+    'let',
+    'var',
+    'const'
   ];
 
   String _src;
@@ -174,28 +163,28 @@ class DartSyntaxHighlighter extends SyntaxBase {
         continue;
       }
 
-      /// "String"
+      /// "String" "value"
       if (_scanner.scan(RegExp(r'"(?:[^"\\]|\\.)*"'))) {
         _spans.add(_HighlightSpan(_HighlightType.string,
             _scanner.lastMatch.start, _scanner.lastMatch.end));
         continue;
       }
 
-      /// 'String'
+      /// 'String' 'value'
       if (_scanner.scan(RegExp(r"'(?:[^'\\]|\\.)*'"))) {
         _spans.add(_HighlightSpan(_HighlightType.string,
             _scanner.lastMatch.start, _scanner.lastMatch.end));
         continue;
       }
 
-      /// Double
+      /// Double value
       if (_scanner.scan(RegExp(r'\d+\.\d+'))) {
         _spans.add(_HighlightSpan(_HighlightType.number,
             _scanner.lastMatch.start, _scanner.lastMatch.end));
         continue;
       }
 
-      /// Integer
+      /// Integer value
       if (_scanner.scan(RegExp(r'\d+'))) {
         _spans.add(_HighlightSpan(_HighlightType.number,
             _scanner.lastMatch.start, _scanner.lastMatch.end));

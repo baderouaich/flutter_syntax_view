@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_syntax_view/syntaxes/base.dart';
-export 'syntaxes/index.dart';
+
+import 'syntaxes/index.dart';
 
 class CodeEditingController extends TextEditingController {
   final SyntaxBase syntax;

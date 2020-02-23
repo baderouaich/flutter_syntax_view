@@ -4,3 +4,4 @@ export 'java.dart';
 export 'javascript.dart';
 export 'kotlin.dart';
 export 'swift.dart';
+export 'theme.dart';

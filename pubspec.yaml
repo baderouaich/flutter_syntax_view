@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  string_scanner: ^1.0.4
+  string_scanner: ^1.0.5
 
 dev_dependencies:
   flutter_test:
