@@ -10,6 +10,9 @@ class SwiftSyntaxHighlighter extends SyntaxBase {
   }
 
   @override
+  Syntax get type => Syntax.SWIFT;
+
+  @override
   SyntaxTheme syntaxTheme;
 
   static const List<String> _keywords = const <String>[

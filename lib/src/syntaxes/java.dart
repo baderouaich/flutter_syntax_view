@@ -11,6 +11,9 @@ class JavaSyntaxHighlighter extends SyntaxBase {
   }
 
   @override
+  Syntax get type => Syntax.JAVA;
+
+  @override
   SyntaxTheme syntaxTheme;
 
   static const List<String> _keywords = const <String>[

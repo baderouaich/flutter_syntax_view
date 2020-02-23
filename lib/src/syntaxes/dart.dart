@@ -10,6 +10,9 @@ class DartSyntaxHighlighter extends SyntaxBase {
   }
 
   @override
+  Syntax get type => Syntax.DART;
+
+  @override
   SyntaxTheme syntaxTheme;
 
   static const List<String> _keywords = const <String>[
@@ -91,19 +94,27 @@ class DartSyntaxHighlighter extends SyntaxBase {
       int currentPosition = 0;
 
       for (_HighlightSpan span in _spans) {
-        if (currentPosition != span.start)
-          formattedText
-              .add(TextSpan(text: _src.substring(currentPosition, span.start)));
+        if (currentPosition > span.start) continue;
+        if (currentPosition != span.start) {
+          formattedText.add(
+            TextSpan(
+              text: _src.substring(currentPosition, span.start),
+            ),
+          );
+        }
 
         formattedText.add(TextSpan(
-            style: span.textStyle(syntaxTheme), text: span.textForSpan(_src)));
+          style: span.textStyle(syntaxTheme),
+          text: span.textForSpan(_src),
+        ));
 
         currentPosition = span.end;
       }
 
       if (currentPosition != _src.length)
-        formattedText
-            .add(TextSpan(text: _src.substring(currentPosition, _src.length)));
+        formattedText.add(TextSpan(
+          text: _src.substring(currentPosition, _src.length),
+        ));
 
       return TextSpan(style: syntaxTheme.baseStyle, children: formattedText);
     } else {

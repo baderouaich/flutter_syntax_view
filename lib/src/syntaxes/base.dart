@@ -5,6 +5,7 @@ import 'index.dart';
 abstract class SyntaxBase {
   SyntaxTheme get syntaxTheme;
   TextSpan format(String src);
+  Syntax get type;
 }
 
 ///Supported Syntaxes Enum

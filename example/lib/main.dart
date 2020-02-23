@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_syntax_view/flutter_syntax_view.dart';
 
 void main() => runApp(App());
@@ -20,23 +21,27 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
-  final _controller = CodeEditingController(
-    DartSyntaxHighlighter(SyntaxTheme.dracula()),
-  );
+  TextEditingController _controller;
 
   @override
   void initState() {
     super.initState();
+    _controller = CodeEditingController();
 
-    DefaultAssetBundle.of(context)
-        .loadString('assets/dart_code.txt')
-        .then((codeText) {
-      if (mounted)
-        setState(() {
-          _controller.text = codeText;
-        });
-    });
+    _controller.text = """
+import 'package:flutter/material.dart';
+
+class HomeScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
+}
+
+""";
+  }
+
+  bool _editing = true;
 
   @override
   Widget build(BuildContext context) {
@@ -45,13 +50,31 @@ class MyAppState extends State<MyApp> {
         title: Text("Flutter Syntax View Example"),
         backgroundColor: Colors.blueGrey[800],
         elevation: 7,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(_editing ? Icons.visibility : Icons.edit),
+            onPressed: () {
+              if (mounted)
+                setState(() {
+                  _editing = !_editing;
+                });
+            },
+          ),
+        ],
       ),
-      body: SyntaxEditableView(
-        syntax: Syntax.DART,
-        controller: _controller,
-        withZoom: true,
-        withLinesCount: true,
-      ),
+      body: _editing
+          ? SyntaxEditableView(
+              syntax: Syntax.DART,
+              controller: _controller,
+              withZoom: true,
+              withLinesCount: true,
+            )
+          : SyntaxView(
+              syntax: Syntax.DART,
+              code: _controller.text,
+              withZoom: true,
+              withLinesCount: true,
+            ),
     );
   }
 }

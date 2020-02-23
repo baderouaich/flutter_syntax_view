@@ -10,6 +10,9 @@ class KotlinSyntaxHighlighter extends SyntaxBase {
   }
 
   @override
+  Syntax get type => Syntax.KOTLIN;
+
+  @override
   SyntaxTheme syntaxTheme;
 
   static const List<String> _keywords = const <String>[

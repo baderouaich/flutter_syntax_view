@@ -3,14 +3,15 @@ import 'package:flutter/material.dart';
 import 'syntaxes/index.dart';
 
 class CodeEditingController extends TextEditingController {
-  final SyntaxBase syntax;
-
-  CodeEditingController(this.syntax, {String text}) : super(text: text);
+  SyntaxBase syntax;
 
   @override
   TextSpan buildTextSpan({TextStyle style, bool withComposing}) {
-    syntax.syntaxTheme.merge(style);
-    return syntax.format(value.text);
+    return getTextSpan(value.text);
+  }
+
+  TextSpan getTextSpan(String source) {
+    return getSyntax(syntax.type, syntax.syntaxTheme).format(source);
   }
 
   TextSelection get selection => value.selection;

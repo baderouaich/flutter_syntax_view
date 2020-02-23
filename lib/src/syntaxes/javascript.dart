@@ -9,6 +9,9 @@ class JavaScriptSyntaxHighlighter extends SyntaxBase {
     syntaxTheme ??= SyntaxTheme.dracula();
   }
 
+    @override
+  Syntax get type => Syntax.JAVASCRIPT;
+
   @override
   SyntaxTheme syntaxTheme;
 
