@@ -75,21 +75,23 @@ class _SyntaxEditableViewState extends State<SyntaxEditableView> {
   }
 
   int _getLineCount(BuildContext context) {
-    if (size == null) {
-      return '\n'.allMatches(code).length + 1;
-    }
-
-    final span = getSyntax(widget.syntax, widget.syntaxTheme).format(code);
-    final tp = TextPainter(
-      text: span,
-      textDirection: Directionality.of(context),
-      maxLines: null,
-      textScaleFactor: textScaleFactor,
-    );
-    tp.layout(maxWidth: size.maxWidth);
-    print('Length: ${tp.computeLineMetrics().length}');
-    final int numLines = tp.computeLineMetrics().length + 1;
-    return numLines;
+    // if (size != null) {
+    //   final span = getSyntax(widget.syntax, widget.syntaxTheme).format(code);
+    //   final tp = TextPainter(
+    //     text: span,
+    //     textDirection: Directionality.of(context),
+    //     maxLines: null,
+    //     textScaleFactor: textScaleFactor,
+    //   );
+    //   tp.layout(maxWidth: size.maxWidth);
+    //   final _lines = tp.computeLineMetrics()?.length;
+    //   if (_lines != null) {
+    //     print('Length: ${tp.computeLineMetrics().length}');
+    //     final int numLines = _lines + 1;
+    //     return numLines;
+    //   }
+    // }
+    return '\n'.allMatches(code).length + 1;
   }
 
   Row _buildZoomControlls() {
