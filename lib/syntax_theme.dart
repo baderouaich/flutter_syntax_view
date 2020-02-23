@@ -15,17 +15,28 @@ class SyntaxTheme {
     this.zoomIconColor,
   });
 
-  final TextStyle baseStyle;
-  final TextStyle numberStyle;
-  final TextStyle commentStyle;
-  final TextStyle keywordStyle;
-  final TextStyle stringStyle;
-  final TextStyle punctuationStyle;
-  final TextStyle classStyle;
-  final TextStyle constantStyle;
-  final Color linesCountColor;
-  final Color backgroundColor;
-  final Color zoomIconColor;
+  TextStyle baseStyle;
+  TextStyle numberStyle;
+  TextStyle commentStyle;
+  TextStyle keywordStyle;
+  TextStyle stringStyle;
+  TextStyle punctuationStyle;
+  TextStyle classStyle;
+  TextStyle constantStyle;
+  Color linesCountColor;
+  Color backgroundColor;
+  Color zoomIconColor;
+
+  void merge(TextStyle style) {
+    this.baseStyle = this.baseStyle.merge(style);
+    this.numberStyle = this.numberStyle.merge(style);
+    this.commentStyle = this.commentStyle.merge(style);
+    this.keywordStyle = this.keywordStyle.merge(style);
+    this.stringStyle = this.stringStyle.merge(style);
+    this.punctuationStyle = this.punctuationStyle.merge(style);
+    this.classStyle = this.classStyle.merge(style);
+    this.constantStyle = this.constantStyle.merge(style);
+  }
 
   static SyntaxTheme standard() {
     return SyntaxTheme(

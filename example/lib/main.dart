@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_syntax_view/flutter_syntax_view.dart';
+
+import 'package:flutter_syntax_view/flutter_syntax_edit.dart';
 
 void main() => runApp(App());
 
@@ -20,16 +21,22 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
-  String code = "";
+  final _controller = CodeEditingController(
+    DartSyntaxHighlighter(SyntaxTheme.dracula()),
+  );
+
   @override
   void initState() {
     super.initState();
 
-    // Loading code text from assets/dart_code.txt
-    // Use DefaultAssetBundle. Recommended ( it allows switching asset bundles at runtime ).
     DefaultAssetBundle.of(context)
         .loadString('assets/dart_code.txt')
-        .then((codeText) => setState(() => code = codeText));
+        .then((codeText) {
+      if (mounted)
+        setState(() {
+          _controller.text = codeText;
+        });
+    });
   }
 
   @override
@@ -40,10 +47,9 @@ class MyAppState extends State<MyApp> {
         backgroundColor: Colors.blueGrey[800],
         elevation: 7,
       ),
-      body: SyntaxView(
-        code: code,
+      body: SyntaxEditableView(
         syntax: Syntax.DART,
-        syntaxTheme: SyntaxTheme.dracula(),
+        controller: _controller,
         withZoom: true,
         withLinesCount: true,
       ),

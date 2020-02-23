@@ -11,19 +11,11 @@ import 'package:flutter_syntax_view/syntaxes/kotlin.dart';
 import 'package:flutter_syntax_view/syntaxes/swift.dart';
 import 'package:flutter_syntax_view/syntaxes/javascript.dart';
 
+import 'syntaxes/base.dart';
+
 ///Export themes class.
 export 'package:flutter_syntax_view/syntax_theme.dart';
-
-///Supported Syntaxes Enum
-enum Syntax {
-  DART,
-  JAVA,
-  KOTLIN,
-  SWIFT,
-  JAVASCRIPT
-
-  ///TODO SUPPORT MORE SYNTAXES
-}
+export 'package:flutter_syntax_view/syntaxes/base.dart';
 
 class SyntaxView extends StatefulWidget {
   SyntaxView(
@@ -38,23 +30,6 @@ class SyntaxView extends StatefulWidget {
   final bool withZoom;
   final bool withLinesCount;
   final SyntaxTheme syntaxTheme;
-
-  dynamic getSyntax(Syntax syntax) {
-    switch (syntax) {
-      case Syntax.DART:
-        return DartSyntaxHighlighter(this.syntaxTheme);
-      case Syntax.JAVA:
-        return JavaSyntaxHighlighter(this.syntaxTheme);
-      case Syntax.KOTLIN:
-        return KotlinSyntaxHighlighter(this.syntaxTheme);
-      case Syntax.SWIFT:
-        return SwiftSyntaxHighlighter(this.syntaxTheme);
-      case Syntax.JAVASCRIPT:
-        return JavaScriptSyntaxHighlighter(this.syntaxTheme);
-      default:
-        return DartSyntaxHighlighter(this.syntaxTheme);
-    }
-  }
 
   @override
   State<StatefulWidget> createState() => SyntaxViewState();
@@ -112,8 +87,8 @@ class SyntaxViewState extends State<SyntaxView> {
                                             fontFamily: 'monospace',
                                             fontSize: 12.0),
                                         children: <TextSpan>[
-                                          widget
-                                              .getSyntax(widget.syntax)
+                                          getSyntax(widget.syntax,
+                                                  widget.syntaxTheme)
                                               .format(widget.code)
                                         ],
                                       ),
@@ -127,8 +102,8 @@ class SyntaxViewState extends State<SyntaxView> {
                                         fontFamily: 'monospace',
                                         fontSize: 12.0),
                                     children: <TextSpan>[
-                                      widget
-                                          .getSyntax(widget.syntax)
+                                      getSyntax(
+                                              widget.syntax, widget.syntaxTheme)
                                           .format(widget.code)
                                     ],
                                   ),

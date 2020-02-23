@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_syntax_view/syntax_theme.dart';
 import 'package:string_scanner/string_scanner.dart';
 
-class DartSyntaxHighlighter {
+import 'base.dart';
+
+class DartSyntaxHighlighter extends SyntaxBase {
   DartSyntaxHighlighter([this.syntaxTheme]) {
     _spans = <_HighlightSpan>[];
     syntaxTheme ??= SyntaxTheme.dracula();
   }
 
+  @override
   SyntaxTheme syntaxTheme;
 
   static const List<String> _keywords = const <String>[
