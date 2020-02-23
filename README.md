@@ -1,4 +1,5 @@
 # flutter_syntax_view
+
 A SyntaxView Widget which highlights code text according to the programming language syntax using Native Dart code.
 
 ## Usage
@@ -29,8 +30,8 @@ SyntaxView(
 - [x] JavaScript
 - More will be added.
 
-
 ## Themes
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/BaderEddineOuaich/flutter_syntax_view/master/SyntaxThemes.png" title="ScreenShots">
 </p>
@@ -40,17 +41,18 @@ SyntaxView(
 - [ ] Add More Syntax Support.
 - [ ] Add More Themes.
 
-
 ## Contributing
 
 - if you are familiar with Regular Expressions in Dart and would like contribute in adding further syntax support. it will be very appreciated!
 
 ## Contributors
-- null
+
+- Bader Eddine Ouaich <badereddineouaich@gmail.com>
+- Rody Davis Jr <rody.davis.jr@gmail.com>
 
 ## Installing
-[Package](https://pub.dartlang.org/packages/flutter_syntax_view)
 
+[Package](https://pub.dartlang.org/packages/flutter_syntax_view)
 
 ## Features and bugs
 
@@ -58,3 +60,6 @@ If you face any problems feel free to open an issue at the [issue tracker][track
 
 [tracker]: https://github.com/BaderEddineOuaich/flutter_syntax_view/issues
 
+## Editing on Flutter Web
+
+flutter run --release --dart-define=FLUTTER_WEB_USE_SKIA=true -d chrome
