@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e87031d3-26d6-4863-b715-a8f0d35e0c68" name="Default Changelist" comment="## [0.1.2] - 04/28/2019&#10;&#10;* New Syntax Added (Java, Kotlin, Swift).&#10;* New Theme Added (Ocean Sunset)." />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Concept" />
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1YWiV0C6MdJKj1XSVM3VXXaTIaz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="showcolor&#9;ACTION&#9;ShowColorPicker&#10;colorpicker&#9;ACTION&#9;ShowColorPicker&#10;ShowColorPicker&#9;ACTION&#9;ShowColorPicker" />
+    <property name="dart.analysis.tool.window.force.activate" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../example/flutter_syntax_view_example" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bader\Desktop\FlutterSyntaxViewPackage\flutter_syntax_view\lib\syntaxes" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\bader\Desktop\FlutterSyntaxViewPackage\flutter_syntax_view" />
+      <recent name="C:\Users\bader\Desktop\flutter_syntax_view\example\lib" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Flutter.main.dart">
+    <configuration name="main.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/example/lib/main.dart" />
+      <option name="workingDirectory" value="$PROJECT_DIR$/example" />
+      <method v="2" />
+    </configuration>
+    <configuration name="flutter_syntax_view_example.dart" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/example/flutter_syntax_view_example.dart" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/example/flutter_syntax_view_example/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tests in flutter_syntax_view_test.dart" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
+      <option name="testFile" value="$PROJECT_DIR$/test/flutter_syntax_view_test.dart" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Dart Command Line App.main.dart" />
+      <item itemvalue="Flutter.main.dart" />
+      <item itemvalue="Flutter.flutter_syntax_view_example.dart" />
+      <item itemvalue="Flutter Test.tests in flutter_syntax_view_test.dart" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Flutter.flutter_syntax_view_example.dart" />
+        <item itemvalue="Flutter Test.tests in flutter_syntax_view_test.dart" />
+        <item itemvalue="Flutter.main.dart" />
+        <item itemvalue="Dart Command Line App.main.dart" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e87031d3-26d6-4863-b715-a8f0d35e0c68" name="Default Changelist" comment="" />
+      <created>1556282419811</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1556282419811</updated>
+    </task>
+    <task id="LOCAL-00001" summary="README.md updated.">
+      <created>1556378372815</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1556378372815</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Screenshots updated">
+      <created>1556379596187</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1556379596187</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Fixed a Warning.">
+      <created>1556380073007</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1556380073007</updated>
+    </task>
+    <task id="LOCAL-00004" summary="README.md updated.">
+      <created>1556381029735</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1556381029735</updated>
+    </task>
+    <task id="LOCAL-00005" summary="## [0.1.2] - 04/28/2019&#10;&#10;* New Syntax Added (Java, Kotlin, Swift).&#10;* New Theme Added (Ocean Sunset).">
+      <created>1556476160420</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1556476160421</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="tests_in_flutter_syntax_view_test_dart - 2019.04.26 at 13h 54m 48s.xml">
+      <configuration name="tests in flutter_syntax_view_test.dart" configurationId="FlutterTestConfigType" />
+    </history-entry>
+    <history-entry file="tests_in_flutter_syntax_view_test_dart - 2019.04.26 at 13h 55m 07s.xml">
+      <configuration name="tests in flutter_syntax_view_test.dart" configurationId="FlutterTestConfigType" />
+    </history-entry>
+    <history-entry file="tests_in_flutter_syntax_view_test_dart - 2019.04.26 at 13h 58m 39s.xml">
+      <configuration name="tests in flutter_syntax_view_test.dart" configurationId="FlutterTestConfigType" />
+    </history-entry>
+    <history-entry file="tests_in_flutter_syntax_view_test_dart - 2019.04.26 at 13h 59m 08s.xml">
+      <configuration name="tests in flutter_syntax_view_test.dart" configurationId="FlutterTestConfigType" />
+    </history-entry>
+    <history-entry file="tests_in_flutter_syntax_view_test_dart - 2019.04.26 at 14h 01m 54s.xml">
+      <configuration name="tests in flutter_syntax_view_test.dart" configurationId="FlutterTestConfigType" />
+    </history-entry>
+    <history-entry file="tests_in_flutter_syntax_view_test_dart - 2019.04.26 at 14h 04m 49s.xml">
+      <configuration name="tests in flutter_syntax_view_test.dart" configurationId="FlutterTestConfigType" />
+    </history-entry>
+    <history-entry file="tests_in_flutter_syntax_view_test_dart - 2019.04.26 at 18h 16m 02s.xml">
+      <configuration name="tests in flutter_syntax_view_test.dart" configurationId="FlutterTestConfigType" />
+    </history-entry>
+    <history-entry file="tests_in_flutter_syntax_view_test_dart - 2019.04.26 at 18h 32m 38s.xml">
+      <configuration name="tests in flutter_syntax_view_test.dart" configurationId="FlutterTestConfigType" />
+    </history-entry>
+    <history-entry file="tests_in_flutter_syntax_view_test_dart - 2019.04.26 at 18h 33m 42s.xml">
+      <configuration name="tests in flutter_syntax_view_test.dart" configurationId="FlutterTestConfigType" />
+    </history-entry>
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/flutter_syntax_view" />
+    </ignored-roots>
+    <MESSAGE value="Screenshots updated" />
+    <MESSAGE value="Fixed a Warning." />
+    <MESSAGE value="README.md updated." />
+    <MESSAGE value="## [0.1.2] - 04/28/2019&#10;&#10;* New Syntax Added (Java, Kotlin, Swift).&#10;* New Theme Added (Ocean Sunset)." />
+    <option name="LAST_COMMIT_MESSAGE" value="## [0.1.2] - 04/28/2019&#10;&#10;* New Syntax Added (Java, Kotlin, Swift).&#10;* New Theme Added (Ocean Sunset)." />
+  </component>
+</project>
