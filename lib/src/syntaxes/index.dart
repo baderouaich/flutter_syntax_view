@@ -5,3 +5,4 @@ export 'javascript.dart';
 export 'kotlin.dart';
 export 'swift.dart';
 export 'theme.dart';
+export 'yaml.dart';

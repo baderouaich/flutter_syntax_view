@@ -32,6 +32,7 @@ A SyntaxView Widget which highlights code text according to the programming lang
 - [x] Kotlin
 - [x] Swift
 - [x] JavaScript
+- [x] yaml
 - More will be added.
 
 ## Themes

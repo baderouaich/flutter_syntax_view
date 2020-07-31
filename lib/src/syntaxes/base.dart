@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_syntax_view/src/syntaxes/yaml.dart';
+
 import 'index.dart';
 
 abstract class SyntaxBase {
@@ -13,7 +15,8 @@ enum Syntax {
   JAVA,
   KOTLIN,
   SWIFT,
-  JAVASCRIPT
+  JAVASCRIPT,
+  YAML,
 
   ///TODO SUPPORT MORE SYNTAXES
 }
@@ -30,6 +33,8 @@ SyntaxBase getSyntax(Syntax syntax, SyntaxTheme theme) {
       return SwiftSyntaxHighlighter(theme);
     case Syntax.JAVASCRIPT:
       return JavaScriptSyntaxHighlighter(theme);
+    case Syntax.YAML:
+      return YamlSyntaxHighlighter(theme);
     default:
       return DartSyntaxHighlighter(theme);
   }

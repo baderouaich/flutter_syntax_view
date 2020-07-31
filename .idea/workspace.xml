@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e87031d3-26d6-4863-b715-a8f0d35e0c68" name="Default Changelist" comment="## [0.1.2] - 04/28/2019&#10;&#10;* New Syntax Added (Java, Kotlin, Swift).&#10;* New Theme Added (Ocean Sunset).">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/src/syntaxes/yaml.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/syntaxes/dart.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/syntaxes/dart.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/syntaxes/base.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/syntaxes/base.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/syntaxes/index.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/syntaxes/index.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +26,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1YWiV0C6MdJKj1XSVM3VXXaTIaz" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="abbreviatePackageNames" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -36,7 +38,7 @@
     <property name="SearchEverywhereHistoryKey" value="showcolor&#9;ACTION&#9;ShowColorPicker&#10;colorpicker&#9;ACTION&#9;ShowColorPicker&#10;ShowColorPicker&#9;ACTION&#9;ShowColorPicker" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/src/syntaxes" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
