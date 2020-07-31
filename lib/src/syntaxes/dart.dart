@@ -129,6 +129,7 @@ class DartSyntaxHighlighter extends SyntaxBase {
     while (!_scanner.isDone) {
       /// Skip White space
       _scanner.scan(RegExp(r'\s+'));
+      _scanner.scan(RegExp(r'\$'));
 
       /// Block comments
       if (_scanner.scan(RegExp('/\\*+[^*]*\\*+(?:[^/*][^*]*\\*+)*/'))) {
