@@ -3,113 +3,76 @@ import 'package:string_scanner/string_scanner.dart';
 
 import 'index.dart';
 
-class KotlinSyntaxHighlighter extends SyntaxBase {
-  KotlinSyntaxHighlighter([this.syntaxTheme]) {
-    _spans = <_HighlightSpan>[];
+class JavaScriptSyntaxHighlighter extends SyntaxBase {
+  JavaScriptSyntaxHighlighter([this.syntaxTheme]) {
+    _spans = <HighlightSpan>[];
     syntaxTheme ??= SyntaxTheme.dracula();
   }
 
   @override
-  Syntax get type => Syntax.KOTLIN;
+  Syntax get type => Syntax.JAVASCRIPT;
 
   @override
   SyntaxTheme syntaxTheme;
 
   static const List<String> _keywords = const <String>[
-    'as',
-    'as?',
     'break',
-    'class',
-    'yield',
-    'continue',
-    'do',
-    'else',
-    'false',
-    'for',
-    'fun',
-    'if',
+    'debugger',
+    'export',
+    'finally',
     'in',
-    '!in',
-    'interface',
-    'is',
-    '!is',
+    'let',
     'null',
-    'object',
+    'public',
+    'super',
+    'try',
+    'arguments',
+    'byte',
+    'class',
+    'default',
+    'else',
+    'extends',
+    'if',
+    'instanceof',
     'package',
     'return',
-    'super',
-    'this',
-    'throw',
-    'true',
-    'try',
-    'typealias',
-    'val',
-    'var',
-    'when',
+    'switch',
+    'typeof',
     'while',
-    'by',
-    'catch',
-    'constructor',
-    'delegrate',
-    'dynamic',
-    'field',
-    'file',
-    'finally',
-    'get',
-    'import',
-    'init',
-    'param',
-    'property',
-    'receiver',
-    'set',
-    'setparam',
-    'where',
-    'actual',
-    'abstract',
-    'annotation',
-    'companion',
-    'const',
-    'crossinline',
-    'data',
+    'await',
+    'case',
+    'delete',
     'enum',
-    'except',
-    'external',
-    'final',
-    'infix',
-    'inline',
-    'inner',
-    'internal',
-    'lateinit',
-    'noinline',
-    'open',
-    'operator',
-    'out',
-    'override',
+    'false',
+    'implements',
     'private',
+    'with',
+    'catch',
+    'continue',
+    'do',
+    'eval',
+    'function',
+    'import',
+    'interface',
+    'new',
     'protected',
-    'public',
-    'reified',
-    'sealed',
-    'suspend',
-    'tailrec',
-    'vararg'
+    'static',
+    'this',
+    'true',
+    'void',
+    'yield'
   ];
 
   static const List<String> _builtInTypes = const <String>[
-    'Byte',
-    'Short',
-    'Int',
-    'Long',
-    'Float',
-    'Double',
-    'Boolean',
-    'Char'
+    'let',
+    'var',
+    'const'
   ];
 
   String _src;
   StringScanner _scanner;
 
-  List<_HighlightSpan> _spans;
+  List<HighlightSpan> _spans;
 
   TextSpan format(String src) {
     _src = src;
@@ -120,7 +83,7 @@ class KotlinSyntaxHighlighter extends SyntaxBase {
       final List<TextSpan> formattedText = <TextSpan>[];
       int currentPosition = 0;
 
-      for (_HighlightSpan span in _spans) {
+      for (HighlightSpan span in _spans) {
         if (currentPosition != span.start)
           formattedText
               .add(TextSpan(text: _src.substring(currentPosition, span.start)));
@@ -151,7 +114,7 @@ class KotlinSyntaxHighlighter extends SyntaxBase {
 
       /// Block comments
       if (_scanner.scan(RegExp('/\\*+[^*]*\\*+(?:[^/*][^*]*\\*+)*/'))) {
-        _spans.add(_HighlightSpan(_HighlightType.comment,
+        _spans.add(HighlightSpan(HighlightType.comment,
             _scanner.lastMatch.start, _scanner.lastMatch.end));
         continue;
       }
@@ -168,7 +131,7 @@ class KotlinSyntaxHighlighter extends SyntaxBase {
           endComment = _src.length;
         }
         _spans.add(
-            _HighlightSpan(_HighlightType.comment, startComment, endComment));
+            HighlightSpan(HighlightType.comment, startComment, endComment));
 
         if (eof) break;
 
@@ -177,94 +140,94 @@ class KotlinSyntaxHighlighter extends SyntaxBase {
 
       /// Raw r"String"
       if (_scanner.scan(RegExp(r'r".*"'))) {
-        _spans.add(_HighlightSpan(_HighlightType.string,
-            _scanner.lastMatch.start, _scanner.lastMatch.end));
+        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch.start,
+            _scanner.lastMatch.end));
         continue;
       }
 
       /// Raw r'String'
       if (_scanner.scan(RegExp(r"r'.*'"))) {
-        _spans.add(_HighlightSpan(_HighlightType.string,
-            _scanner.lastMatch.start, _scanner.lastMatch.end));
+        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch.start,
+            _scanner.lastMatch.end));
         continue;
       }
 
       /// Multiline """String"""
       if (_scanner.scan(RegExp(r'"""(?:[^"\\]|\\(.|\n))*"""'))) {
-        _spans.add(_HighlightSpan(_HighlightType.string,
-            _scanner.lastMatch.start, _scanner.lastMatch.end));
+        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch.start,
+            _scanner.lastMatch.end));
         continue;
       }
 
       /// Multiline '''String'''
       if (_scanner.scan(RegExp(r"'''(?:[^'\\]|\\(.|\n))*'''"))) {
-        _spans.add(_HighlightSpan(_HighlightType.string,
-            _scanner.lastMatch.start, _scanner.lastMatch.end));
+        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch.start,
+            _scanner.lastMatch.end));
         continue;
       }
 
       /// "String" "value"
       if (_scanner.scan(RegExp(r'"(?:[^"\\]|\\.)*"'))) {
-        _spans.add(_HighlightSpan(_HighlightType.string,
-            _scanner.lastMatch.start, _scanner.lastMatch.end));
+        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch.start,
+            _scanner.lastMatch.end));
         continue;
       }
 
       /// 'String' 'value'
       if (_scanner.scan(RegExp(r"'(?:[^'\\]|\\.)*'"))) {
-        _spans.add(_HighlightSpan(_HighlightType.string,
-            _scanner.lastMatch.start, _scanner.lastMatch.end));
+        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch.start,
+            _scanner.lastMatch.end));
         continue;
       }
 
       /// Double value
       if (_scanner.scan(RegExp(r'\d+\.\d+'))) {
-        _spans.add(_HighlightSpan(_HighlightType.number,
-            _scanner.lastMatch.start, _scanner.lastMatch.end));
+        _spans.add(HighlightSpan(HighlightType.number, _scanner.lastMatch.start,
+            _scanner.lastMatch.end));
         continue;
       }
 
       /// Integer value
       if (_scanner.scan(RegExp(r'\d+'))) {
-        _spans.add(_HighlightSpan(_HighlightType.number,
-            _scanner.lastMatch.start, _scanner.lastMatch.end));
+        _spans.add(HighlightSpan(HighlightType.number, _scanner.lastMatch.start,
+            _scanner.lastMatch.end));
         continue;
       }
 
       /// Punctuation
       if (_scanner.scan(RegExp(r'[\[\]{}().!=<>&\|\?\+\-\*/%\^~;:,]'))) {
-        _spans.add(_HighlightSpan(_HighlightType.punctuation,
+        _spans.add(HighlightSpan(HighlightType.punctuation,
             _scanner.lastMatch.start, _scanner.lastMatch.end));
         continue;
       }
 
       /// Meta data
       if (_scanner.scan(RegExp(r'@\w+'))) {
-        _spans.add(_HighlightSpan(_HighlightType.keyword,
+        _spans.add(HighlightSpan(HighlightType.keyword,
             _scanner.lastMatch.start, _scanner.lastMatch.end));
         continue;
       }
 
       /// Words
       if (_scanner.scan(RegExp(r'\w+'))) {
-        _HighlightType type;
+        HighlightType type;
 
         String word = _scanner.lastMatch[0];
         if (word.startsWith('_')) word = word.substring(1);
 
         if (_keywords.contains(word))
-          type = _HighlightType.keyword;
+          type = HighlightType.keyword;
         else if (_builtInTypes.contains(word))
-          type = _HighlightType.keyword;
+          type = HighlightType.keyword;
         else if (_firstLetterIsUpperCase(word))
-          type = _HighlightType.klass;
+          type = HighlightType.klass;
         else if (word.length >= 2 &&
             word.startsWith('k') &&
             _firstLetterIsUpperCase(word.substring(1)))
-          type = _HighlightType.constant;
+          type = HighlightType.constant;
 
         if (type != null) {
-          _spans.add(_HighlightSpan(
+          _spans.add(HighlightSpan(
               type, _scanner.lastMatch.start, _scanner.lastMatch.end));
         }
       }
@@ -286,7 +249,7 @@ class KotlinSyntaxHighlighter extends SyntaxBase {
       if (_spans[i].type == _spans[i + 1].type &&
           _spans[i].end == _spans[i + 1].start) {
         _spans[i] =
-            _HighlightSpan(_spans[i].type, _spans[i].start, _spans[i + 1].end);
+            HighlightSpan(_spans[i].type, _spans[i].start, _spans[i + 1].end);
         _spans.removeAt(i + 1);
       }
     }
@@ -299,44 +262,4 @@ class KotlinSyntaxHighlighter extends SyntaxBase {
     }
     return false;
   }
-}
-
-class _HighlightSpan {
-  _HighlightSpan(this.type, this.start, this.end);
-  final _HighlightType type;
-  final int start;
-  final int end;
-
-  String textForSpan(String src) {
-    return src.substring(start, end);
-  }
-
-  TextStyle textStyle(SyntaxTheme syntaxTheme) {
-    if (type == _HighlightType.number)
-      return syntaxTheme.numberStyle;
-    else if (type == _HighlightType.comment)
-      return syntaxTheme.commentStyle;
-    else if (type == _HighlightType.keyword)
-      return syntaxTheme.keywordStyle;
-    else if (type == _HighlightType.string)
-      return syntaxTheme.stringStyle;
-    else if (type == _HighlightType.punctuation)
-      return syntaxTheme.punctuationStyle;
-    else if (type == _HighlightType.klass)
-      return syntaxTheme.classStyle;
-    else if (type == _HighlightType.constant)
-      return syntaxTheme.constantStyle;
-    else
-      return syntaxTheme.baseStyle;
-  }
-}
-
-enum _HighlightType {
-  number,
-  comment,
-  keyword,
-  string,
-  punctuation,
-  klass,
-  constant
 }

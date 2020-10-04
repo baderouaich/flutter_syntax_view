@@ -1,8 +1,6 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 
-import 'syntaxes/base.dart';
-import 'syntaxes/index.dart';
+import 'syntax/index.dart';
 
 class SyntaxView extends StatefulWidget {
   SyntaxView(
@@ -24,7 +22,10 @@ class SyntaxView extends StatefulWidget {
 
 class SyntaxViewState extends State<SyntaxView> {
   /// Zoom Controls
-  double textScaleFactor = 1.0;
+  double _fontSize = 12.0;
+  final double _baseFontSize = 12.0;
+  double _fontScale = 1.0;
+  double _baseFontScale = 1.0;
 
   @override
   Widget build(BuildContext context) {
@@ -33,12 +34,34 @@ class SyntaxViewState extends State<SyntaxView> {
     assert(widget.syntax != null,
         "Syntax must not be null. select a Syntax by calling Syntax.(Language)");
 
-    final int numLines = (widget.withLinesCount ?? true)
-        ? '\n'.allMatches(widget.code).length + 1
-        : 0;
+    return GestureDetector(
+      onScaleStart: (final ScaleStartDetails scaleStartDetails) {
+        /// Dont apply zooming if disabled
+        if (!widget.withZoom) {
+          return;
+        }
+        _baseFontScale = _fontScale;
+      },
+      onScaleUpdate: (final ScaleUpdateDetails scaleUpdateDetails) {
+        /// Dont apply zooming if disabled
+        if (!widget.withZoom) {
+          return;
+        }
 
-    return Stack(alignment: AlignmentDirectional.bottomEnd, children: <Widget>[
-      Container(
+        /// don't update the UI if the scale didn't change
+        if (scaleUpdateDetails.scale == 1.0) {
+          return;
+        }
+
+        if (mounted) {
+          setState(() {
+            _fontScale =
+                (_baseFontScale * scaleUpdateDetails.scale).clamp(0.5, 6.0);
+            _fontSize = _fontScale * _baseFontSize;
+          });
+        }
+      },
+      child: Container(
           padding: (widget.withLinesCount ?? true)
               ? EdgeInsets.only(left: 5, top: 10, right: 10, bottom: 10)
               : EdgeInsets.all(10),
@@ -52,85 +75,58 @@ class SyntaxViewState extends State<SyntaxView> {
 
                           /// Lines Count in the left with Code view
                           (widget.withLinesCount ?? true)
-                              ? Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Column(children: <Widget>[
-                                      for (int i = 1; i <= numLines; i++)
-                                        RichText(
-                                            textScaleFactor: textScaleFactor,
-                                            text: TextSpan(
-                                                style: TextStyle(
-                                                    fontFamily: 'monospace',
-                                                    fontSize: 12.0,
-                                                    color:
-                                                        (widget.syntaxTheme ??
-                                                                SyntaxTheme
-                                                                    .dracula())
-                                                            .linesCountColor),
-                                                text: "$i"))
-                                    ]),
-                                    VerticalDivider(width: 5),
-                                    RichText(
-                                      textScaleFactor: textScaleFactor,
-                                      text: TextSpan(
-                                        style: TextStyle(
-                                            fontFamily: 'monospace',
-                                            fontSize: 12.0),
-                                        children: <TextSpan>[
-                                          getSyntax(widget.syntax,
-                                                  widget.syntaxTheme)
-                                              .format(widget.code)
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                )
+                              ? _linesCountWidget()
                               :
 
-                              /// Only Code view
-                              RichText(
-                                  textScaleFactor: textScaleFactor,
-                                  text: TextSpan(
-                                    style: TextStyle(
-                                        fontFamily: 'monospace',
-                                        fontSize: 12.0),
-                                    children: <TextSpan>[
-                                      getSyntax(
-                                              widget.syntax, widget.syntaxTheme)
-                                          .format(widget.code)
-                                    ],
-                                  ),
-                                ))))),
+                              /// Or Only Code view
+                              _codeTextWidget())))),
+    );
+  }
 
-      /// Zoom Controls
-      if (widget.withZoom ?? false)
-        Row(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            IconButton(
-                icon: Icon(Icons.zoom_out,
-                    color: (widget.syntaxTheme ?? SyntaxTheme.dracula())
-                        .zoomIconColor),
-                onPressed: () => setState(() {
-                      if (mounted)
-                        textScaleFactor = max(0.8, textScaleFactor - 0.1);
-                    })),
-            IconButton(
-                icon: Icon(Icons.zoom_in,
-                    color: (widget.syntaxTheme ?? SyntaxTheme.dracula())
-                        .zoomIconColor),
-                onPressed: () => setState(() {
-                      if (mounted) {
-                        if (textScaleFactor <= 4.0)
-                          textScaleFactor += 0.1;
-                        else
-                          print(
-                              "Maximun zoomable scale (4.0) has been reached. more zooming can cause a crash.");
-                      }
-                    })),
-          ],
-        )
-    ]);
+  /// Widgets parts
+  Widget _linesCountWidget() {
+    final int numLines = (widget.withLinesCount ?? true)
+        ? '\n'.allMatches(widget.code).length + 1
+        : 0;
+
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Column(children: <Widget>[
+          for (int i = 1; i <= numLines; i++)
+            RichText(
+                textScaleFactor: _baseFontScale,
+                text: TextSpan(
+                    style: TextStyle(
+                        fontFamily: 'monospace',
+                        fontSize: _fontSize,
+                        color: (widget.syntaxTheme ?? SyntaxTheme.dracula())
+                            .linesCountColor),
+                    text: "$i"))
+        ]),
+        VerticalDivider(width: 5),
+        RichText(
+          textScaleFactor: _baseFontScale,
+          text: TextSpan(
+            style: TextStyle(fontFamily: 'monospace', fontSize: _fontSize),
+            children: <TextSpan>[
+              getSyntax(widget.syntax, widget.syntaxTheme).format(widget.code)
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _codeTextWidget() {
+    return RichText(
+      textScaleFactor: _baseFontScale,
+      text: TextSpan(
+        style: TextStyle(fontFamily: 'monospace', fontSize: 12.0),
+        children: <TextSpan>[
+          getSyntax(widget.syntax, widget.syntaxTheme).format(widget.code)
+        ],
+      ),
+    );
   }
 }

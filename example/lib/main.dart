@@ -21,16 +21,17 @@ class MyApp extends StatefulWidget {
 
 class MyAppState extends State<MyApp> {
   String code = """
-                // Importing core libraries
-                import 'dart:math';
-                int fibonacci(int n) {
-                  if (n == 0 || n == 1) return n;
-                  return fibonacci(n - 1) + fibonacci(n - 2);
-                }          
-                var result = fibonacci(20);
-                /* and there 
-                   you have it! */
-                """;
+// Importing core libraries
+import 'dart:math';
+int fibonacci(int n) {
+  if (n == 0 || n == 1) return n;
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}          
+var result = fibonacci(20);
+/* and there 
+    you have it! */
+""";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +45,7 @@ class MyAppState extends State<MyApp> {
         syntax: Syntax.DART,
         syntaxTheme: SyntaxTheme.dracula(),
         withZoom: true,
-        withLinesCount: true,
+        withLinesCount: true
       ),
     );
   }

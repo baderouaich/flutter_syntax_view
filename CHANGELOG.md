@@ -38,3 +38,11 @@
 ## [1.0.0] - 05/25/2019
 
 * Removed (Editable Rich Text due some platform errors)
+
+## [2.0.0] - 05/25/2019
+
+* Code Cleanup
+* Now Zooming depends on gesture
+* Added C Syntax Support
+* Added C++ Syntax Support
+

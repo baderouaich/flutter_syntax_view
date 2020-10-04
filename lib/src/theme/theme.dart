@@ -27,17 +27,6 @@ class SyntaxTheme {
   Color backgroundColor;
   Color zoomIconColor;
 
-  void merge(TextStyle style) {
-    this.baseStyle = this.baseStyle.merge(style);
-    this.numberStyle = this.numberStyle.merge(style);
-    this.commentStyle = this.commentStyle.merge(style);
-    this.keywordStyle = this.keywordStyle.merge(style);
-    this.stringStyle = this.stringStyle.merge(style);
-    this.punctuationStyle = this.punctuationStyle.merge(style);
-    this.classStyle = this.classStyle.merge(style);
-    this.constantStyle = this.constantStyle.merge(style);
-  }
-
   static SyntaxTheme standard() {
     return SyntaxTheme(
       linesCountColor: const Color(0xFF37474F).withOpacity(.7),
