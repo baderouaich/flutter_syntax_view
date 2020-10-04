@@ -35,14 +35,17 @@
 * implemented abstraction.
 * Added Editable Rich Text
 
-## [1.0.0] - 05/25/2019
+## [1.0.0] - 02/23/2020
 
 * Removed (Editable Rich Text due some platform errors)
 
-## [2.0.0] - 05/25/2019
+## [2.0.0] - 10/04/2020
 
 * Code Cleanup
 * Now Zooming depends on gesture
 * Added C Syntax Support
 * Added C++ Syntax Support
 
+## [2.1.0] - 10/04/2020
+
+* Added YAML Syntax Support

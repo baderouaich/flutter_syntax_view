@@ -34,6 +34,7 @@ var result = fibonacci(20);
 - [x] Kotlin
 - [x] Swift
 - [x] JavaScript
+- [x] YAML
 - More will be added.
 
 ## Themes
@@ -63,6 +64,16 @@ Thanks goes to these wonderful people!<br>
   <tr>
     <a href="https://github.com/rodydavis">
       <img width="50" height="50" src="https://github.com/rodydavis.png">
+    </a>
+  </tr>
+  <tr>
+    <a href="https://github.com/LuodiJackShen">
+      <img width="50" height="50" src="https://github.com/LuodiJackShen.png">
+    </a>
+  </tr>
+  <tr>
+    <a href="https://github.com/luodijack">
+      <img width="50" height="50" src="https://github.com/luodijack.png">
     </a>
   </tr>
 </table>

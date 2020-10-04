@@ -15,7 +15,8 @@ enum Syntax {
   JAVASCRIPT,
   KOTLIN,
   JAVA,
-  SWIFT
+  SWIFT,
+  YAML
 
   ///TODO SUPPORT MORE SYNTAXES
 }
@@ -76,6 +77,8 @@ SyntaxBase getSyntax(Syntax syntax, SyntaxTheme theme) {
       return SwiftSyntaxHighlighter(theme);
     case Syntax.JAVASCRIPT:
       return JavaScriptSyntaxHighlighter(theme);
+    case Syntax.YAML:
+      return YamlSyntaxHighlighter(theme);
     default:
       return DartSyntaxHighlighter(theme);
   }
