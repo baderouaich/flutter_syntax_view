@@ -39,8 +39,7 @@ var result = fibonacci(20);
 
 ## Themes
 
-<img width="300" src="theme_shots/ayuDark.png"> <img width="300" src="theme_shots/ayuLight.png"><img width="300" src="theme_shots/dracula.png"><img width="300" src="theme_shots/gravityDark.png"><img width="300" src="theme_shots/gravityLight.png"><img width="300" src="theme_shots/monokaiSublime.png"><img width="300" src="theme_shots/obsidian.png"><img width="300" src="theme_shots/oceanSunset.png"><img width="300" src="theme_shots/standard.png"><img width="300" src="theme_shots/vscodeDark.png"><img width="300" src="theme_shots/vscodeLight.png">
-
+<img width="270" src="theme_shots/ayuDark.png"> <img width="270" src="theme_shots/ayuLight.png"><img width="270" src="theme_shots/dracula.png"><img width="270" src="theme_shots/gravityDark.png"><img width="270" src="theme_shots/gravityLight.png"><img width="270" src="theme_shots/monokaiSublime.png"><img width="270" src="theme_shots/obsidian.png"><img width="270" src="theme_shots/oceanSunset.png"><img width="270" src="theme_shots/standard.png"><img width="270" src="theme_shots/vscodeDark.png"><img width="270" src="theme_shots/vscodeLight.png">
 
 
 ## Installing
