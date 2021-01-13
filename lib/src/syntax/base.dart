@@ -8,18 +8,7 @@ abstract class SyntaxBase {
 }
 
 ///Supported Syntaxes Enum
-enum Syntax {
-  DART,
-  C,
-  CPP,
-  JAVASCRIPT,
-  KOTLIN,
-  JAVA,
-  SWIFT,
-  YAML
-
-  ///TODO SUPPORT MORE SYNTAXES
-}
+enum Syntax { DART, C, CPP, JAVASCRIPT, KOTLIN, JAVA, SWIFT, YAML }
 
 enum HighlightType {
   number,

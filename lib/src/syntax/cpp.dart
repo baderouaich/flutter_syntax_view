@@ -17,8 +17,8 @@ class CPPSyntaxHighlighter extends SyntaxBase {
   SyntaxTheme syntaxTheme;
 
   static const List<String> _keywords = const <String>[
-    'include'
-        'alignas',
+    'include',
+    'alignas',
     'alignof',
     'and',
     'and_eq',
@@ -228,8 +228,8 @@ class CPPSyntaxHighlighter extends SyntaxBase {
         continue;
       }
 
-      /// Punctuation TEST: https://www.regexpal.com/100066
-      if (_scanner.scan(RegExp(r'[\[\]{}().!=><#&\|\?\+\-\*/%\^~;:,]'))) {
+      /// Punctuation (<>#(){}!::) TEST: https://www.regexpal.com/100066
+      if (_scanner.scan(RegExp(r'[\[\]{}().!=#<>&\|\?\+\-\*/%\^~;:,]'))) {
         _spans.add(HighlightSpan(HighlightType.punctuation,
             _scanner.lastMatch.start, _scanner.lastMatch.end));
         continue;

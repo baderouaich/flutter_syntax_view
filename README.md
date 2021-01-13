@@ -39,7 +39,8 @@ var result = fibonacci(20);
 
 ## Themes
 
-<img src="https://raw.githubusercontent.com/BaderEddineOuaich/flutter_syntax_view/master/SyntaxThemes.png" title="ScreenShots">
+<img width="200" src="theme_shots/ayuDark.png"> <img width="200" src="theme_shots/ayuLight.png"><img width="200" src="theme_shots/dacula.png"><img width="200" src="theme_shots/gravityDark.png"><img width="200" src="theme_shots/gravityLight.png"><img width="200" src="theme_shots/monokaiSublime.png"><img width="200" src="theme_shots/obsidian.png"><img width="200" src="theme_shots/oceanSunset.png"><img width="200" src="theme_shots/standard.png"><img width="200" src="theme_shots/vscodeDark.png"><img width="200" src="theme_shots/vscodeLight.png">
+
 
 
 ## Installing
@@ -74,6 +75,11 @@ Thanks goes to these wonderful people!<br>
   <tr>
     <a href="https://github.com/luodijack">
       <img width="50" height="50" src="https://github.com/luodijack.png">
+    </a>
+  </tr>
+  <tr>
+    <a href="https://github.com/marwenx">
+      <img width="50" height="50" src="https://github.com/marwenx.png">
     </a>
   </tr>
 </table>

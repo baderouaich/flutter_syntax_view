@@ -49,3 +49,9 @@
 ## [2.1.0] - 10/04/2020
 
 * Added YAML Syntax Support
+
+
+## [2.2.0] - 13/01/2021
+
+* Added vscode dark and light themes
+* Added new themes screenshots
