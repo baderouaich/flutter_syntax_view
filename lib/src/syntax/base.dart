@@ -7,9 +7,10 @@ abstract class SyntaxBase {
   Syntax get type;
 }
 
-///Supported Syntaxes Enum
+/// Supported Syntaxes Enum
 enum Syntax { DART, C, CPP, JAVASCRIPT, KOTLIN, JAVA, SWIFT, YAML }
 
+/// Tokens
 enum HighlightType {
   number,
   comment,

@@ -59,3 +59,7 @@
 ## [2.2.1] - 13/01/2021
 
 * Fixed Theme screenshots not showing due invalid link
+
+## [2.2.1] - 13/01/2021
+
+* Fixed duplicated themes issue
