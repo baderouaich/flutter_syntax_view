@@ -55,3 +55,7 @@
 
 * Added vscode dark and light themes
 * Added new themes screenshots
+
+## [2.2.1] - 13/01/2021
+
+* Fixed Theme screenshots not showing due invalid link
