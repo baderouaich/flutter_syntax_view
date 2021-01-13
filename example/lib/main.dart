@@ -20,7 +20,7 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
-  String code = """
+  static final String code = """
 // Importing core libraries
 import 'dart:math';
 int fibonacci(int n) {
@@ -32,6 +32,75 @@ var result = fibonacci(20);
     you have it! */
 """;
 
+  static final syntaxViews = {
+    "Standard": SyntaxView(
+        code: code,
+        syntax: Syntax.DART,
+        syntaxTheme: SyntaxTheme.standard(),
+        withZoom: true,
+        withLinesCount: true),
+    "Dracula": SyntaxView(
+        code: code,
+        syntax: Syntax.DART,
+        syntaxTheme: SyntaxTheme.dracula(),
+        withZoom: true,
+        withLinesCount: true),
+    "AyuLight": SyntaxView(
+        code: code,
+        syntax: Syntax.DART,
+        syntaxTheme: SyntaxTheme.ayuLight(),
+        withZoom: true,
+        withLinesCount: true),
+    "AyuDark": SyntaxView(
+        code: code,
+        syntax: Syntax.DART,
+        syntaxTheme: SyntaxTheme.ayuDark(),
+        withZoom: true,
+        withLinesCount: true),
+    "GravityLight": SyntaxView(
+        code: code,
+        syntax: Syntax.DART,
+        syntaxTheme: SyntaxTheme.gravityLight(),
+        withZoom: true,
+        withLinesCount: true),
+    "GravityDark": SyntaxView(
+        code: code,
+        syntax: Syntax.DART,
+        syntaxTheme: SyntaxTheme.gravityDark(),
+        withZoom: true,
+        withLinesCount: true),
+    "MonokaiSublime": SyntaxView(
+        code: code,
+        syntax: Syntax.DART,
+        syntaxTheme: SyntaxTheme.monokaiSublime(),
+        withZoom: true,
+        withLinesCount: true),
+    "Obsidian": SyntaxView(
+        code: code,
+        syntax: Syntax.DART,
+        syntaxTheme: SyntaxTheme.obsidian(),
+        withZoom: true,
+        withLinesCount: true),
+    "OceanSunset": SyntaxView(
+        code: code,
+        syntax: Syntax.DART,
+        syntaxTheme: SyntaxTheme.oceanSunset(),
+        withZoom: true,
+        withLinesCount: true),
+    "vscodeDark": SyntaxView(
+        code: code,
+        syntax: Syntax.DART,
+        syntaxTheme: SyntaxTheme.vscodeDark(),
+        withZoom: true,
+        withLinesCount: true),
+    "vscodeLight": SyntaxView(
+        code: code,
+        syntax: Syntax.DART,
+        syntaxTheme: SyntaxTheme.vscodeLight(),
+        withZoom: true,
+        withLinesCount: true)
+  };
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,13 +109,39 @@ var result = fibonacci(20);
         backgroundColor: Colors.blueGrey[800],
         elevation: 7,
       ),
-      body: SyntaxView(
-        code: code,
-        syntax: Syntax.DART,
-        syntaxTheme: SyntaxTheme.dracula(),
-        withZoom: true,
-        withLinesCount: true
-      ),
+      body: ListView.builder(
+          padding: const EdgeInsets.all(8),
+          itemCount: syntaxViews.length,
+          itemBuilder: (BuildContext context, int index) {
+            String themeName = syntaxViews.keys.elementAt(index);
+            SyntaxView syntaxView = syntaxViews.values.elementAt(index);
+            return Card(
+              margin: const EdgeInsets.all(10),
+              elevation: 6.0,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(3.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.brush_sharp),
+                        Text(
+                          themeName,
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Icon(Icons.brush_sharp),
+                      ],
+                    ),
+                  ),
+                  Divider(),
+                  Container(
+                      height: MediaQuery.of(context).size.height / 2.5,
+                      child: syntaxView)
+                ],
+              ),
+            );
+          }),
     );
   }
 }
