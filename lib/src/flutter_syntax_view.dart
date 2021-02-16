@@ -10,6 +10,7 @@ class SyntaxView extends StatefulWidget {
     this.withZoom,
     this.withLinesCount,
     this.fontSize = 12.0,
+    this.expanded = false,
   });
 
   final String code;
@@ -18,6 +19,7 @@ class SyntaxView extends StatefulWidget {
   final bool withLinesCount;
   final SyntaxTheme syntaxTheme;
   final double fontSize;
+  final bool expanded;
 
   @override
   State<StatefulWidget> createState() => SyntaxViewState();
@@ -75,7 +77,7 @@ class SyntaxViewState extends State<SyntaxView> {
               ? EdgeInsets.only(left: 5, top: 10, right: 10, bottom: 10)
               : EdgeInsets.all(10),
           color: (widget.syntaxTheme ?? SyntaxTheme.dracula()).backgroundColor,
-          constraints: BoxConstraints.expand(),
+          constraints: widget.expanded ? BoxConstraints.expand() : null,
           child: Scrollbar(
               child: SingleChildScrollView(
                   child: SingleChildScrollView(
