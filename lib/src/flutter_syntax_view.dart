@@ -3,26 +3,35 @@ import 'package:flutter/material.dart';
 import 'syntax/index.dart';
 
 class SyntaxView extends StatefulWidget {
-  SyntaxView(
-      {@required this.code,
-      @required this.syntax,
-      this.syntaxTheme,
-      this.withZoom,
-      this.withLinesCount});
+  SyntaxView({
+    @required this.code,
+    @required this.syntax,
+    this.syntaxTheme,
+    this.withZoom,
+    this.withLinesCount,
+    this.fontSize = 12.0,
+  });
 
   final String code;
   final Syntax syntax;
   final bool withZoom;
   final bool withLinesCount;
   final SyntaxTheme syntaxTheme;
+  final double fontSize;
 
   @override
   State<StatefulWidget> createState() => SyntaxViewState();
 }
 
 class SyntaxViewState extends State<SyntaxView> {
+  @override
+  void initState() {
+    super.initState();
+    _fontSize = widget.fontSize;
+  }
+
   /// Zoom Controls
-  double _fontSize = 12.0;
+  double _fontSize;
   final double _baseFontSize = 12.0;
   double _fontScale = 1.0;
   double _baseFontScale = 1.0;
@@ -122,7 +131,7 @@ class SyntaxViewState extends State<SyntaxView> {
     return RichText(
       textScaleFactor: _baseFontScale,
       text: TextSpan(
-        style: TextStyle(fontFamily: 'monospace', fontSize: 12.0),
+        style: TextStyle(fontFamily: 'monospace', fontSize: _fontSize),
         children: <TextSpan>[
           getSyntax(widget.syntax, widget.syntaxTheme).format(widget.code)
         ],
