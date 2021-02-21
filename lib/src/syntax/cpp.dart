@@ -102,7 +102,8 @@ class CPPSyntaxHighlighter extends SyntaxBase {
     'volatile',
     'while',
     'xor',
-    'xor_eq'
+    'xor_eq',
+    'void'
   ];
 
   static const List<String> _builtInTypes = const <String>[
@@ -113,7 +114,23 @@ class CPPSyntaxHighlighter extends SyntaxBase {
     'long long',
     'double',
     'float',
-    'bool'
+    'bool',
+
+    // <cstdint> stuff
+    "intmax_t", "uintmax_t",
+    "int8_t", "uint8_t",
+    "int16_t", "uint16_t",
+    "int32_t", "uint32_t",
+    "int64_t", "uint64_t",
+    "int_least8_t", "uint_least8_t",
+    "int_least16_t", "uint_least16_t",
+    "int_least32_t", "uint_least32_t",
+    "int_least64_t", "uint_least64_t",
+    "int_fast8_t", "uint_fast8_t",
+    "int_fast16_t", "uint_fast16_t",
+    "int_fast32_t", "uint_fast32_t",
+    "int_fast64_t", "uint_fast64_t",
+    "intptr_t", "uintptr_t"
   ];
 
   String _src;
@@ -225,6 +242,14 @@ class CPPSyntaxHighlighter extends SyntaxBase {
       if (_scanner.scan(RegExp(r'\d+'))) {
         _spans.add(HighlightSpan(HighlightType.number, _scanner.lastMatch.start,
             _scanner.lastMatch.end));
+        continue;
+      }
+
+      /// Preprocessor Conditional compilation () #if, #else, #elif, #ifdef, #ifndef and #endif ) and #pragma
+      if (_scanner.scan(RegExp(
+          r'(#ifdef)|(#ifndef)|(#if)|(#else)|(#elif)|(#endif)|(#pragma)'))) {
+        _spans.add(HighlightSpan(HighlightType.keyword,
+            _scanner.lastMatch.start, _scanner.lastMatch.end));
         continue;
       }
 

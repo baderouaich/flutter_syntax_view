@@ -13,12 +13,25 @@ class SyntaxView extends StatefulWidget {
     this.expanded = false,
   });
 
+  /// Code text
   final String code;
+
+  /// Syntax/Langauge (Dart, C, C++...)
   final Syntax syntax;
+
+  /// Enable/Disable touch zooming
   final bool withZoom;
+
+  /// Enable/Disable line number in left
   final bool withLinesCount;
+
+  /// Theme of syntax view example SyntaxTheme.dracula()
   final SyntaxTheme syntaxTheme;
+
+  /// Font Size with a default value of 12.0
   final double fontSize;
+
+  /// Expansion (default to false) which allows the SyntaxView to be used inside a Column or a ListView...
   final bool expanded;
 
   @override

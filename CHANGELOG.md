@@ -60,6 +60,12 @@
 
 * Fixed Theme screenshots not showing due invalid link
 
-## [2.2.1] - 13/01/2021
+## [2.2.2] - 13/01/2021
 
 * Fixed duplicated themes issue
+
+## [3.2.2] - 21/02/2021
+
+* Added Font size with a default value of 12.0 by @marwenx.
+* Added Expansion (default to false) which allows the SyntaxView to be used inside a Column or a ListView... @marwenx.
+* Added void, <cstdint> types and Preprocessor Conditional compilation ( #if, #else, #elif, #ifdef, #ifndef, #endif, and #pragma ) to C/C++ built in types parser
