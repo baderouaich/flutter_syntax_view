@@ -3,26 +3,37 @@ import 'package:flutter/material.dart';
 import 'syntax/index.dart';
 
 class SyntaxView extends StatefulWidget {
-  SyntaxView(
-      {@required this.code,
-      @required this.syntax,
-      this.syntaxTheme,
-      this.withZoom,
-      this.withLinesCount});
+  SyntaxView({
+    @required this.code,
+    @required this.syntax,
+    this.syntaxTheme,
+    this.withZoom,
+    this.withLinesCount,
+    this.fontSize = 12.0,
+    this.expanded = false,
+  });
 
   final String code;
   final Syntax syntax;
   final bool withZoom;
   final bool withLinesCount;
   final SyntaxTheme syntaxTheme;
+  final double fontSize;
+  final bool expanded;
 
   @override
   State<StatefulWidget> createState() => SyntaxViewState();
 }
 
 class SyntaxViewState extends State<SyntaxView> {
+  @override
+  void initState() {
+    super.initState();
+    _fontSize = widget.fontSize;
+  }
+
   /// Zoom Controls
-  double _fontSize = 12.0;
+  double _fontSize;
   final double _baseFontSize = 12.0;
   double _fontScale = 1.0;
   double _baseFontScale = 1.0;
@@ -66,7 +77,7 @@ class SyntaxViewState extends State<SyntaxView> {
               ? EdgeInsets.only(left: 5, top: 10, right: 10, bottom: 10)
               : EdgeInsets.all(10),
           color: (widget.syntaxTheme ?? SyntaxTheme.dracula()).backgroundColor,
-          constraints: BoxConstraints.expand(),
+          constraints: widget.expanded ? BoxConstraints.expand() : null,
           child: Scrollbar(
               child: SingleChildScrollView(
                   child: SingleChildScrollView(
@@ -122,7 +133,7 @@ class SyntaxViewState extends State<SyntaxView> {
     return RichText(
       textScaleFactor: _baseFontScale,
       text: TextSpan(
-        style: TextStyle(fontFamily: 'monospace', fontSize: 12.0),
+        style: TextStyle(fontFamily: 'monospace', fontSize: _fontSize),
         children: <TextSpan>[
           getSyntax(widget.syntax, widget.syntaxTheme).format(widget.code)
         ],
