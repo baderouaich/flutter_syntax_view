@@ -20,7 +20,7 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
-  static final String code = """
+  static const String code = """
 // Importing core libraries
 import 'dart:math';
 int fibonacci(int n) {
@@ -37,9 +37,11 @@ var result = fibonacci(20);
       code: code,
       syntax: Syntax.DART,
       syntaxTheme: SyntaxTheme.standard(),
-      withZoom: true,
+      fontSize: 12.0,
+      withZoom: false,
       withLinesCount: true,
       expanded: false,
+      softWrap: true,
     ),
     "Dracula": SyntaxView(
       code: code,
@@ -48,6 +50,7 @@ var result = fibonacci(20);
       withZoom: true,
       withLinesCount: true,
       expanded: false,
+      softWrap: true,
     ),
     "AyuLight": SyntaxView(
       code: code,
@@ -127,7 +130,7 @@ var result = fibonacci(20);
       appBar: AppBar(
         title: Text("Flutter Syntax View Example"),
         backgroundColor: Colors.blueGrey[800],
-        elevation: 7,
+        elevation: 6,
       ),
       body: ListView.builder(
           padding: const EdgeInsets.all(8),

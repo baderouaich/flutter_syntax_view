@@ -69,3 +69,8 @@
 * Added Font size with a default value of 12.0 by @marwenx.
 * Added Expansion (default to false) which allows the SyntaxView to be used inside a Column or a ListView... @marwenx.
 * Added void, <cstdint> types and Preprocessor Conditional compilation ( #if, #else, #elif, #ifdef, #ifndef, #endif, and #pragma ) to C/C++ built in types parser
+
+## [4.2.2] - 16/03/2021
+
+* Removed Zooming with gestures due instability, now zooming is only supported with icon controls
+* Added softWrap, which wraps line instead of scrolling horizontally to see it all

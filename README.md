@@ -16,13 +16,17 @@ var result = fibonacci(20);
 /* and there 
     you have it! */
 """;
+
   SyntaxView(
-        code: code,
-        syntax: Syntax.DART,
-        syntaxTheme: SyntaxTheme.dracula(),
-        withZoom: true,
-        withLinesCount: true
-      );
+      code: code,
+      syntax: Syntax.DART,
+      syntaxTheme: SyntaxTheme.dracula(),
+      fontSize: 12.0,
+      withZoom: true,
+      withLinesCount: true,
+      expanded: false,
+      softWrap: true
+    )
 ```
 
 ## Supported Syntax
