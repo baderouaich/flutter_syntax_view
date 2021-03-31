@@ -18,14 +18,13 @@ var result = fibonacci(20);
 """;
 
   SyntaxView(
-      code: code,
-      syntax: Syntax.DART,
-      syntaxTheme: SyntaxTheme.dracula(),
-      fontSize: 12.0,
-      withZoom: true,
-      withLinesCount: true,
-      expanded: false,
-      softWrap: true
+      code: code,	// Code text
+      syntax: Syntax.DART,	// Language
+      syntaxTheme: SyntaxTheme.vscodeDark(),	// Theme
+      fontSize: 12.0,	// Font size
+      withZoom: true,	// Enable/Disable zoom icon controls
+      withLinesCount: true,	// Enable/Disable line number
+      expanded: false,	// Enable/Disable container expansion
     )
 ```
 
@@ -39,7 +38,6 @@ var result = fibonacci(20);
 - [x] Swift
 - [x] JavaScript
 - [x] YAML
-- More will be added.
 
 ## Themes
 
@@ -49,12 +47,6 @@ var result = fibonacci(20);
 ## Installing
 
 [Package](https://pub.dartlang.org/packages/flutter_syntax_view)
-
-
-## TODO
-
-- [ ] Add More Syntax Support.
-- [ ] Add More Themes.
 
 
 ## Contributing

@@ -10,11 +10,11 @@ class YamlSyntaxHighlighter extends SyntaxBase {
     syntaxTheme ??= SyntaxTheme.dracula();
   }
 
-  String _src;
+  late String _src;
 
-  StringScanner _scanner;
+  late StringScanner _scanner;
 
-  List<HighlightSpan> _spans;
+  late List<HighlightSpan> _spans;
 
   List<String> noKeywords = [
     'http',
@@ -22,7 +22,7 @@ class YamlSyntaxHighlighter extends SyntaxBase {
   ];
 
   @override
-  SyntaxTheme syntaxTheme;
+  SyntaxTheme? syntaxTheme;
 
   @override
   Syntax get type => Syntax.YAML;
@@ -60,10 +60,10 @@ class YamlSyntaxHighlighter extends SyntaxBase {
           text: _src.substring(currentPosition, _src.length),
         ));
 
-      return TextSpan(style: syntaxTheme.baseStyle, children: formattedText);
+      return TextSpan(style: syntaxTheme!.baseStyle, children: formattedText);
     } else {
       /// Parsing failed, return with only basic formatting
-      return TextSpan(style: syntaxTheme.baseStyle, text: src);
+      return TextSpan(style: syntaxTheme!.baseStyle, text: src);
     }
   }
 
@@ -76,53 +76,53 @@ class YamlSyntaxHighlighter extends SyntaxBase {
 
       /// Raw r"String"
       if (_scanner.scan(RegExp(r'r".*"'))) {
-        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch.start,
-            _scanner.lastMatch.end));
+        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch!.start,
+            _scanner.lastMatch!.end));
         continue;
       }
 
       /// Raw r'String'
       if (_scanner.scan(RegExp(r"r'.*'"))) {
-        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch.start,
-            _scanner.lastMatch.end));
+        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch!.start,
+            _scanner.lastMatch!.end));
         continue;
       }
 
       /// Multiline """String"""
       if (_scanner.scan(RegExp(r'"""(?:[^"\\]|\\(.|\n))*"""'))) {
-        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch.start,
-            _scanner.lastMatch.end));
+        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch!.start,
+            _scanner.lastMatch!.end));
         continue;
       }
 
       /// Multiline '''String'''
       if (_scanner.scan(RegExp(r"'''(?:[^'\\]|\\(.|\n))*'''"))) {
-        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch.start,
-            _scanner.lastMatch.end));
+        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch!.start,
+            _scanner.lastMatch!.end));
         continue;
       }
 
       /// "String"
       if (_scanner.scan(RegExp(r'"(?:[^"\\]|\\.)*"'))) {
-        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch.start,
-            _scanner.lastMatch.end));
+        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch!.start,
+            _scanner.lastMatch!.end));
         continue;
       }
 
       /// 'String'
       if (_scanner.scan(RegExp(r"'(?:[^'\\]|\\.)*'"))) {
-        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch.start,
-            _scanner.lastMatch.end));
+        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch!.start,
+            _scanner.lastMatch!.end));
         continue;
       }
 
       /// Line comments
       if (_scanner.scan('#')) {
-        final int startComment = _scanner.lastMatch.start;
+        final int startComment = _scanner.lastMatch!.start;
         bool eof = false;
         int endComment;
         if (_scanner.scan(RegExp(r'.*'))) {
-          endComment = _scanner.lastMatch.end;
+          endComment = _scanner.lastMatch!.end;
         } else {
           eof = true;
           endComment = _src.length;
@@ -139,8 +139,8 @@ class YamlSyntaxHighlighter extends SyntaxBase {
       if (_scanner.scan(RegExp(r'(\^)?[0-9]*\.[0-9]*\.[0-9]*(\+)?[0-9]*'))) {
         _spans.add(HighlightSpan(
           HighlightType.klass,
-          _scanner.lastMatch.start,
-          _scanner.lastMatch.end,
+          _scanner.lastMatch!.start,
+          _scanner.lastMatch!.end,
         ));
         continue;
       }
@@ -148,15 +148,15 @@ class YamlSyntaxHighlighter extends SyntaxBase {
       /// Punctuation
       if (_scanner.scan(RegExp(r'[\[\]{}().!=<>&\|\?\+\-\*/%\^~;:,""<>@]'))) {
         _spans.add(HighlightSpan(HighlightType.punctuation,
-            _scanner.lastMatch.start, _scanner.lastMatch.end));
+            _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         continue;
       }
 
       /// Words
       if (_scanner.scan(RegExp(r'\w+'))) {
         HighlightType type;
-        String word = _scanner.lastMatch[0];
-        int wordEndIndex = _scanner.lastMatch.end;
+        String? word = _scanner.lastMatch![0];
+        int wordEndIndex = _scanner.lastMatch!.end;
         if (wordEndIndex + 1 < _src.length &&
             (_src.substring(wordEndIndex, wordEndIndex + 1) == ':' ||
                 _src.substring(wordEndIndex, wordEndIndex + 1) == '-') &&
@@ -167,7 +167,7 @@ class YamlSyntaxHighlighter extends SyntaxBase {
         }
 
         _spans.add(HighlightSpan(
-            type, _scanner.lastMatch.start, _scanner.lastMatch.end));
+            type, _scanner.lastMatch!.start, _scanner.lastMatch!.end));
       }
 
       /// Check if this loop did anything

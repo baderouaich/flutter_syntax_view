@@ -20,17 +20,35 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
-  static const String code = """
-// Importing core libraries
-import 'dart:math';
-int fibonacci(int n) {
-  if (n == 0 || n == 1) return n;
-  return fibonacci(n - 1) + fibonacci(n - 2);
-}          
-var result = fibonacci(20);
-/* and there 
-    you have it! */
-""";
+  static const String code = r"""
+import 'dart:math' as math;
+
+// Coffee class is the best!
+class Coffee {
+  late int _temperature;
+
+  void heat() => _temperature = 100;
+  void chill() => _temperature = -5;
+
+  void sip() {
+    final bool isTooHot = math.max(37, _temperature) > 37;
+    if (isTooHot)
+      print("myyy liiips!");
+    else
+      print("mmmmm refreshing!");
+  }
+
+  int? get temperature => temperature;
+}
+void main() {
+  var coffee = Coffee();
+  coffee.heat();
+  coffee.sip();
+  coffee.chill();
+  coffee.sip();
+}
+/* And there
+        you have it */""";
 
   static final syntaxViews = {
     "Standard": SyntaxView(
@@ -38,64 +56,69 @@ var result = fibonacci(20);
       syntax: Syntax.DART,
       syntaxTheme: SyntaxTheme.standard(),
       fontSize: 12.0,
-      withZoom: false,
+      withZoom: true,
       withLinesCount: true,
-      expanded: false,
-      softWrap: true,
+      expanded: true,
     ),
     "Dracula": SyntaxView(
       code: code,
       syntax: Syntax.DART,
       syntaxTheme: SyntaxTheme.dracula(),
+      fontSize: 12.0,
       withZoom: true,
-      withLinesCount: true,
+      withLinesCount: false,
       expanded: false,
-      softWrap: true,
     ),
     "AyuLight": SyntaxView(
       code: code,
       syntax: Syntax.DART,
       syntaxTheme: SyntaxTheme.ayuLight(),
-      withZoom: true,
+      fontSize: 12.0,
+      withZoom: false,
       withLinesCount: true,
-      expanded: false,
+      expanded: true,
     ),
     "AyuDark": SyntaxView(
       code: code,
       syntax: Syntax.DART,
       syntaxTheme: SyntaxTheme.ayuDark(),
+      fontSize: 12.0,
       withZoom: true,
-      withLinesCount: true,
+      withLinesCount: false,
       expanded: false,
     ),
     "GravityLight": SyntaxView(
       code: code,
       syntax: Syntax.DART,
       syntaxTheme: SyntaxTheme.gravityLight(),
+      fontSize: 12.0,
       withZoom: true,
       withLinesCount: true,
-      expanded: false,
+      expanded: true,
     ),
     "GravityDark": SyntaxView(
       code: code,
       syntax: Syntax.DART,
       syntaxTheme: SyntaxTheme.gravityDark(),
-      withZoom: true,
-      withLinesCount: true,
+      fontSize: 12.0,
+      withZoom: false,
+      withLinesCount: false,
       expanded: false,
     ),
     "MonokaiSublime": SyntaxView(
       code: code,
       syntax: Syntax.DART,
       syntaxTheme: SyntaxTheme.monokaiSublime(),
+      fontSize: 12.0,
       withZoom: true,
       withLinesCount: true,
-      expanded: false,
+      expanded: true,
     ),
     "Obsidian": SyntaxView(
       code: code,
       syntax: Syntax.DART,
       syntaxTheme: SyntaxTheme.obsidian(),
+      fontSize: 12.0,
       withZoom: true,
       withLinesCount: true,
       expanded: false,
@@ -104,14 +127,16 @@ var result = fibonacci(20);
       code: code,
       syntax: Syntax.DART,
       syntaxTheme: SyntaxTheme.oceanSunset(),
-      withZoom: true,
+      fontSize: 12.0,
+      withZoom: false,
       withLinesCount: true,
-      expanded: false,
+      expanded: true,
     ),
     "vscodeDark": SyntaxView(
       code: code,
       syntax: Syntax.DART,
       syntaxTheme: SyntaxTheme.vscodeDark(),
+      fontSize: 12.0,
       withZoom: true,
       withLinesCount: true,
       expanded: false,
@@ -120,8 +145,10 @@ var result = fibonacci(20);
         code: code,
         syntax: Syntax.DART,
         syntaxTheme: SyntaxTheme.vscodeLight(),
+        fontSize: 12.0,
         withZoom: true,
-        withLinesCount: true)
+        withLinesCount: true,
+        expanded: true)
   };
 
   @override

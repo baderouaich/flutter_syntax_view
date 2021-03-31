@@ -14,7 +14,7 @@ class JavaSyntaxHighlighter extends SyntaxBase {
   Syntax get type => Syntax.JAVA;
 
   @override
-  SyntaxTheme syntaxTheme;
+  SyntaxTheme? syntaxTheme;
 
   static const List<String> _keywords = const <String>[
     'abstract',
@@ -67,10 +67,10 @@ class JavaSyntaxHighlighter extends SyntaxBase {
     'char'
   ];
 
-  String _src;
-  StringScanner _scanner;
+  late String _src;
+  late StringScanner _scanner;
 
-  List<HighlightSpan> _spans;
+  late List<HighlightSpan> _spans;
 
   TextSpan format(String src) {
     _src = src;
@@ -96,10 +96,10 @@ class JavaSyntaxHighlighter extends SyntaxBase {
         formattedText
             .add(TextSpan(text: _src.substring(currentPosition, _src.length)));
 
-      return TextSpan(style: syntaxTheme.baseStyle, children: formattedText);
+      return TextSpan(style: syntaxTheme!.baseStyle, children: formattedText);
     } else {
       /// Parsing failed, return with only basic formatting
-      return TextSpan(style: syntaxTheme.baseStyle, text: src);
+      return TextSpan(style: syntaxTheme!.baseStyle, text: src);
     }
   }
 
@@ -113,17 +113,17 @@ class JavaSyntaxHighlighter extends SyntaxBase {
       /// Block comments
       if (_scanner.scan(RegExp('/\\*+[^*]*\\*+(?:[^/*][^*]*\\*+)*/'))) {
         _spans.add(HighlightSpan(HighlightType.comment,
-            _scanner.lastMatch.start, _scanner.lastMatch.end));
+            _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         continue;
       }
 
       /// Line comments
       if (_scanner.scan('//')) {
-        final int startComment = _scanner.lastMatch.start;
+        final int startComment = _scanner.lastMatch!.start;
         bool eof = false;
         int endComment;
         if (_scanner.scan(RegExp(r'.*'))) {
-          endComment = _scanner.lastMatch.end;
+          endComment = _scanner.lastMatch!.end;
         } else {
           eof = true;
           endComment = _src.length;
@@ -138,72 +138,72 @@ class JavaSyntaxHighlighter extends SyntaxBase {
 
       /// Raw r"String"
       if (_scanner.scan(RegExp(r'r".*"'))) {
-        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch.start,
-            _scanner.lastMatch.end));
+        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch!.start,
+            _scanner.lastMatch!.end));
         continue;
       }
 
       /// Multiline """String"""
       if (_scanner.scan(RegExp(r'"""(?:[^"\\]|\\(.|\n))*"""'))) {
-        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch.start,
-            _scanner.lastMatch.end));
+        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch!.start,
+            _scanner.lastMatch!.end));
         continue;
       }
 
       /// Multiline '''String'''
       if (_scanner.scan(RegExp(r"'''(?:[^'\\]|\\(.|\n))*'''"))) {
-        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch.start,
-            _scanner.lastMatch.end));
+        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch!.start,
+            _scanner.lastMatch!.end));
         continue;
       }
 
       /// "String" "value"
       if (_scanner.scan(RegExp(r'"(?:[^"\\]|\\.)*"'))) {
-        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch.start,
-            _scanner.lastMatch.end));
+        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch!.start,
+            _scanner.lastMatch!.end));
         continue;
       }
 
       /// 'String' 'value'
       if (_scanner.scan(RegExp(r"'(?:[^'\\]|\\.)*'"))) {
-        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch.start,
-            _scanner.lastMatch.end));
+        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch!.start,
+            _scanner.lastMatch!.end));
         continue;
       }
 
       /// Double value
       if (_scanner.scan(RegExp(r'\d+\.\d+'))) {
-        _spans.add(HighlightSpan(HighlightType.number, _scanner.lastMatch.start,
-            _scanner.lastMatch.end));
+        _spans.add(HighlightSpan(HighlightType.number, _scanner.lastMatch!.start,
+            _scanner.lastMatch!.end));
         continue;
       }
 
       /// Integer value
       if (_scanner.scan(RegExp(r'\d+'))) {
-        _spans.add(HighlightSpan(HighlightType.number, _scanner.lastMatch.start,
-            _scanner.lastMatch.end));
+        _spans.add(HighlightSpan(HighlightType.number, _scanner.lastMatch!.start,
+            _scanner.lastMatch!.end));
         continue;
       }
 
       /// Punctuation
       if (_scanner.scan(RegExp(r'[\[\]{}().!=<>&\|\?\+\-\*/%\^~;:,]'))) {
         _spans.add(HighlightSpan(HighlightType.punctuation,
-            _scanner.lastMatch.start, _scanner.lastMatch.end));
+            _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         continue;
       }
 
       /// Meta data
       if (_scanner.scan(RegExp(r'@\w+'))) {
         _spans.add(HighlightSpan(HighlightType.keyword,
-            _scanner.lastMatch.start, _scanner.lastMatch.end));
+            _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         continue;
       }
 
       /// Words
       if (_scanner.scan(RegExp(r'\w+'))) {
-        HighlightType type;
+        HighlightType? type;
 
-        String word = _scanner.lastMatch[0];
+        String word = _scanner.lastMatch![0]!;
         if (word.startsWith('_')) word = word.substring(1);
 
         if (_keywords.contains(word))
@@ -219,7 +219,7 @@ class JavaSyntaxHighlighter extends SyntaxBase {
 
         if (type != null) {
           _spans.add(HighlightSpan(
-              type, _scanner.lastMatch.start, _scanner.lastMatch.end));
+              type, _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         }
       }
 

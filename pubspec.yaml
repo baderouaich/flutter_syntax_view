@@ -1,21 +1,21 @@
 name: flutter_syntax_view
 description: A static syntax highlighter widget which highlights code text according to the programming language syntax using native Dart code.
-version: 4.2.2
+version: 4.0.0
 authors:
-  - Bader Eddine Ouaich <badereddineouaich@gmail.com>
-  - Rody Davis Jr <rody.davis.jr@gmail.com> 
+  - Bader Eddine Ouaich <https://github.com/BaderEddineOuaich>
+  - Rody Davis Jr <https://github.com/rodydavis> 
   - LuodiJackShen <luodijack@163.com>
   - luodijack <https://github.com/luodijack>
   - Marwén Benromdhan <https://github.com/marwenx>
 homepage: https://github.com/BaderEddineOuaich/flutter_syntax_view
 
 environment:
-  sdk: ">=2.2.2 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-  string_scanner: ^1.0.5
+  string_scanner: ^1.1.0
 
 dev_dependencies:
   flutter_test:

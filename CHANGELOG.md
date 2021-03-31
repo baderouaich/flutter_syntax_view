@@ -70,7 +70,10 @@
 * Added Expansion (default to false) which allows the SyntaxView to be used inside a Column or a ListView... @marwenx.
 * Added void, <cstdint> types and Preprocessor Conditional compilation ( #if, #else, #elif, #ifdef, #ifndef, #endif, and #pragma ) to C/C++ built in types parser
 
-## [4.2.2] - 16/03/2021
-
+## [4.0.0] - 31/03/2021
+* Revert softWrap for now due instability
 * Removed Zooming with gestures due instability, now zooming is only supported with icon controls
-* Added softWrap, which wraps line instead of scrolling horizontally to see it all
+* Upgraded string_scanner dependency to null safety stable version 1.1.0
+* Executed $ dart migrate command which enabled Null safety support automatically
+* Added late and required to Dart syntax keywords
+* Added publish_to: "none" to example project's pubspec.yaml

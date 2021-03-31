@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'index.dart';
 
 abstract class SyntaxBase {
-  SyntaxTheme get syntaxTheme;
+  SyntaxTheme? get syntaxTheme;
   TextSpan format(String src);
   Syntax get type;
 }
@@ -31,27 +31,27 @@ class HighlightSpan {
     return src.substring(start, end);
   }
 
-  TextStyle textStyle(SyntaxTheme syntaxTheme) {
+  TextStyle? textStyle(SyntaxTheme? syntaxTheme) {
     if (type == HighlightType.number)
-      return syntaxTheme.numberStyle;
+      return syntaxTheme!.numberStyle;
     else if (type == HighlightType.comment)
-      return syntaxTheme.commentStyle;
+      return syntaxTheme!.commentStyle;
     else if (type == HighlightType.keyword)
-      return syntaxTheme.keywordStyle;
+      return syntaxTheme!.keywordStyle;
     else if (type == HighlightType.string)
-      return syntaxTheme.stringStyle;
+      return syntaxTheme!.stringStyle;
     else if (type == HighlightType.punctuation)
-      return syntaxTheme.punctuationStyle;
+      return syntaxTheme!.punctuationStyle;
     else if (type == HighlightType.klass)
-      return syntaxTheme.classStyle;
+      return syntaxTheme!.classStyle;
     else if (type == HighlightType.constant)
-      return syntaxTheme.constantStyle;
+      return syntaxTheme!.constantStyle;
     else
-      return syntaxTheme.baseStyle;
+      return syntaxTheme!.baseStyle;
   }
 }
 
-SyntaxBase getSyntax(Syntax syntax, SyntaxTheme theme) {
+SyntaxBase getSyntax(Syntax syntax, SyntaxTheme? theme) {
   switch (syntax) {
     case Syntax.DART:
       return DartSyntaxHighlighter(theme);

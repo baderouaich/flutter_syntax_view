@@ -15,17 +15,17 @@ class SyntaxTheme {
     this.zoomIconColor,
   });
 
-  TextStyle baseStyle;
-  TextStyle numberStyle;
-  TextStyle commentStyle;
-  TextStyle keywordStyle;
-  TextStyle stringStyle;
-  TextStyle punctuationStyle;
-  TextStyle classStyle;
-  TextStyle constantStyle;
-  Color linesCountColor;
-  Color backgroundColor;
-  Color zoomIconColor;
+  TextStyle? baseStyle;
+  TextStyle? numberStyle;
+  TextStyle? commentStyle;
+  TextStyle? keywordStyle;
+  TextStyle? stringStyle;
+  TextStyle? punctuationStyle;
+  TextStyle? classStyle;
+  TextStyle? constantStyle;
+  Color? linesCountColor;
+  Color? backgroundColor;
+  Color? zoomIconColor;
 
   static SyntaxTheme standard() {
     return SyntaxTheme(
