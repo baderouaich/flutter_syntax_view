@@ -11,7 +11,8 @@ class SyntaxView extends StatefulWidget {
       this.withZoom = true,
       this.withLinesCount = true,
       this.fontSize = 12.0,
-      this.expanded = false});
+      this.expanded = false,
+      this.selectable = true});
 
   /// Code text
   final String code;
@@ -33,6 +34,9 @@ class SyntaxView extends StatefulWidget {
 
   /// Expansion which allows the SyntaxView to be used inside a Column or a ListView... (default: false)
   final bool expanded;
+
+  /// selectable allow user to let user select the code
+  final bool selectable;
 
   @override
   State<StatefulWidget> createState() => SyntaxViewState();
@@ -94,7 +98,7 @@ class SyntaxViewState extends State<SyntaxView> {
   }
 
   // Code text
-  Widget buildCode() {
+  /*Widget buildCode() {
     return RichText(
         textScaleFactor: _fontScaleFactor,
         text: /* formatted text */ TextSpan(
@@ -103,6 +107,31 @@ class SyntaxViewState extends State<SyntaxView> {
             getSyntax(widget.syntax, widget.syntaxTheme).format(widget.code)
           ],
         ));
+  }*/
+
+  Widget buildCode() {
+    if (widget.selectable) {
+      return SelectableText.rich(
+        /* formatted text */
+        TextSpan(
+          style: TextStyle(fontFamily: 'monospace', fontSize: widget.fontSize),
+          children: <TextSpan>[
+            getSyntax(widget.syntax, widget.syntaxTheme).format(widget.code)
+          ],
+        ),
+        textScaleFactor: _fontScaleFactor,
+      );
+    } else {
+      return RichText(
+        textScaleFactor: _fontScaleFactor,
+        text: /* formatted text */ TextSpan(
+          style: TextStyle(fontFamily: 'monospace', fontSize: widget.fontSize),
+          children: <TextSpan>[
+            getSyntax(widget.syntax, widget.syntaxTheme).format(widget.code)
+          ],
+        ),
+      );
+    }
   }
 
   Widget zoomControls() {
