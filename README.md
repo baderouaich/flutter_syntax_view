@@ -25,6 +25,7 @@ var result = fibonacci(20);
       withZoom: true,	// Enable/Disable zoom icon controls
       withLinesCount: true,	// Enable/Disable line number
       expanded: false,	// Enable/Disable container expansion
+      selectable: true // Enable/Disable code text selection
     )
 ```
 
@@ -75,6 +76,11 @@ Thanks goes to these wonderful people!<br>
   <tr>
     <a href="https://github.com/marwenx">
       <img width="50" height="50" src="https://github.com/marwenx.png">
+    </a>
+  </tr>
+  <tr>
+    <a href="https://github.com/shyam1s15">
+      <img width="50" height="50" src="https://github.com/shyam1s15.png">
     </a>
   </tr>
 </table>
