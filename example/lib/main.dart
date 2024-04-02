@@ -59,6 +59,7 @@ void main() {
       withZoom: true,
       withLinesCount: true,
       expanded: true,
+      selectable: true,
     ),
     "Dracula": SyntaxView(
       code: code,
@@ -68,6 +69,7 @@ void main() {
       withZoom: true,
       withLinesCount: false,
       expanded: false,
+      selectable: true,
     ),
     "AyuLight": SyntaxView(
       code: code,
@@ -97,32 +99,32 @@ void main() {
       expanded: true,
     ),
     "GravityDark": SyntaxView(
-      code: code,
-      syntax: Syntax.DART,
-      syntaxTheme: SyntaxTheme.gravityDark(),
-      fontSize: 12.0,
-      withZoom: false,
-      withLinesCount: false,
-      expanded: false,
-    ),
+        code: code,
+        syntax: Syntax.DART,
+        syntaxTheme: SyntaxTheme.gravityDark(),
+        fontSize: 12.0,
+        withZoom: false,
+        withLinesCount: false,
+        expanded: false,
+        selectable: true),
     "MonokaiSublime": SyntaxView(
-      code: code,
-      syntax: Syntax.DART,
-      syntaxTheme: SyntaxTheme.monokaiSublime(),
-      fontSize: 12.0,
-      withZoom: true,
-      withLinesCount: true,
-      expanded: true,
-    ),
+        code: code,
+        syntax: Syntax.DART,
+        syntaxTheme: SyntaxTheme.monokaiSublime(),
+        fontSize: 12.0,
+        withZoom: true,
+        withLinesCount: true,
+        expanded: true,
+        selectable: true),
     "Obsidian": SyntaxView(
-      code: code,
-      syntax: Syntax.DART,
-      syntaxTheme: SyntaxTheme.obsidian(),
-      fontSize: 12.0,
-      withZoom: true,
-      withLinesCount: true,
-      expanded: false,
-    ),
+        code: code,
+        syntax: Syntax.DART,
+        syntaxTheme: SyntaxTheme.obsidian(),
+        fontSize: 12.0,
+        withZoom: true,
+        withLinesCount: true,
+        expanded: false,
+        selectable: true),
     "OceanSunset": SyntaxView(
       code: code,
       syntax: Syntax.DART,
@@ -131,16 +133,17 @@ void main() {
       withZoom: false,
       withLinesCount: true,
       expanded: true,
+      selectable: true,
     ),
     "vscodeDark": SyntaxView(
-      code: code,
-      syntax: Syntax.DART,
-      syntaxTheme: SyntaxTheme.vscodeDark(),
-      fontSize: 12.0,
-      withZoom: true,
-      withLinesCount: true,
-      expanded: false,
-    ),
+        code: code,
+        syntax: Syntax.DART,
+        syntaxTheme: SyntaxTheme.vscodeDark(),
+        fontSize: 12.0,
+        withZoom: true,
+        withLinesCount: true,
+        expanded: false,
+        selectable: true),
     "vscodeLight": SyntaxView(
         code: code,
         syntax: Syntax.DART,
@@ -148,7 +151,8 @@ void main() {
         fontSize: 12.0,
         withZoom: true,
         withLinesCount: true,
-        expanded: true)
+        expanded: true,
+        selectable: true)
   };
 
   @override
@@ -185,12 +189,7 @@ void main() {
                     ),
                   ),
                   Divider(),
-                  if (syntaxView.expanded)
-                    Container(
-                        height: MediaQuery.of(context).size.height / 2.5,
-                        child: syntaxView)
-                  else
-                    syntaxView
+                  if (syntaxView.expanded) Container(height: MediaQuery.of(context).size.height / 2.5, child: syntaxView) else syntaxView
                 ],
               ),
             );

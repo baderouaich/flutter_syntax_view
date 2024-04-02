@@ -77,3 +77,7 @@
 * Executed $ dart migrate command which enabled Null safety support automatically
 * Added late and required to Dart syntax keywords
 * Added publish_to: "none" to example project's pubspec.yaml
+
+## [4.1.0] - 02/04/2024
+* Syntax view text is now selectable thanks to @shyam1s15 PR #14
+* Updated example
