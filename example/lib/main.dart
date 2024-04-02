@@ -189,7 +189,12 @@ void main() {
                     ),
                   ),
                   Divider(),
-                  if (syntaxView.expanded) Container(height: MediaQuery.of(context).size.height / 2.5, child: syntaxView) else syntaxView
+                  if (syntaxView.expanded)
+                    Container(
+                        height: MediaQuery.of(context).size.height / 2.5,
+                        child: syntaxView)
+                  else
+                    syntaxView
                 ],
               ),
             );

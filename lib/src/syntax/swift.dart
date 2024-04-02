@@ -171,57 +171,57 @@ class SwiftSyntaxHighlighter extends SyntaxBase {
 
       /// Raw r"String"
       if (_scanner.scan(RegExp(r'r".*"'))) {
-        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch!.start,
-            _scanner.lastMatch!.end));
+        _spans.add(HighlightSpan(HighlightType.string,
+            _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         continue;
       }
 
       /// Raw r'String'
       if (_scanner.scan(RegExp(r"r'.*'"))) {
-        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch!.start,
-            _scanner.lastMatch!.end));
+        _spans.add(HighlightSpan(HighlightType.string,
+            _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         continue;
       }
 
       /// Multiline """String"""
       if (_scanner.scan(RegExp(r'"""(?:[^"\\]|\\(.|\n))*"""'))) {
-        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch!.start,
-            _scanner.lastMatch!.end));
+        _spans.add(HighlightSpan(HighlightType.string,
+            _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         continue;
       }
 
       /// Multiline '''String'''
       if (_scanner.scan(RegExp(r"'''(?:[^'\\]|\\(.|\n))*'''"))) {
-        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch!.start,
-            _scanner.lastMatch!.end));
+        _spans.add(HighlightSpan(HighlightType.string,
+            _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         continue;
       }
 
       /// "String" "value"
       if (_scanner.scan(RegExp(r'"(?:[^"\\]|\\.)*"'))) {
-        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch!.start,
-            _scanner.lastMatch!.end));
+        _spans.add(HighlightSpan(HighlightType.string,
+            _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         continue;
       }
 
       /// 'String' 'value'
       if (_scanner.scan(RegExp(r"'(?:[^'\\]|\\.)*'"))) {
-        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch!.start,
-            _scanner.lastMatch!.end));
+        _spans.add(HighlightSpan(HighlightType.string,
+            _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         continue;
       }
 
       /// Double value
       if (_scanner.scan(RegExp(r'\d+\.\d+'))) {
-        _spans.add(HighlightSpan(HighlightType.number, _scanner.lastMatch!.start,
-            _scanner.lastMatch!.end));
+        _spans.add(HighlightSpan(HighlightType.number,
+            _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         continue;
       }
 
       /// Integer value
       if (_scanner.scan(RegExp(r'\d+'))) {
-        _spans.add(HighlightSpan(HighlightType.number, _scanner.lastMatch!.start,
-            _scanner.lastMatch!.end));
+        _spans.add(HighlightSpan(HighlightType.number,
+            _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         continue;
       }
 

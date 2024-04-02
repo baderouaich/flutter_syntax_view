@@ -52,7 +52,9 @@ class SyntaxViewState extends State<SyntaxView> {
   Widget build(BuildContext context) {
     return Stack(alignment: AlignmentDirectional.bottomEnd, children: <Widget>[
       Container(
-          padding: widget.withLinesCount ? const EdgeInsets.only(left: 5, top: 10, right: 10, bottom: 10) : const EdgeInsets.all(10),
+          padding: widget.withLinesCount
+              ? const EdgeInsets.only(left: 5, top: 10, right: 10, bottom: 10)
+              : const EdgeInsets.all(10),
           color: widget.syntaxTheme!.backgroundColor,
           constraints: widget.expanded ? BoxConstraints.expand() : null,
           child: Scrollbar(
@@ -81,7 +83,10 @@ class SyntaxViewState extends State<SyntaxView> {
                 RichText(
                     textScaleFactor: _fontScaleFactor,
                     text: TextSpan(
-                      style: TextStyle(fontFamily: 'monospace', fontSize: widget.fontSize, color: widget.syntaxTheme!.linesCountColor),
+                      style: TextStyle(
+                          fontFamily: 'monospace',
+                          fontSize: widget.fontSize,
+                          color: widget.syntaxTheme!.linesCountColor),
                       text: "$i",
                     )),
             ]),
@@ -108,7 +113,9 @@ class SyntaxViewState extends State<SyntaxView> {
         /* formatted text */
         TextSpan(
           style: TextStyle(fontFamily: 'monospace', fontSize: widget.fontSize),
-          children: <TextSpan>[getSyntax(widget.syntax, widget.syntaxTheme).format(widget.code)],
+          children: <TextSpan>[
+            getSyntax(widget.syntax, widget.syntaxTheme).format(widget.code)
+          ],
         ),
         textScaleFactor: _fontScaleFactor,
       );
@@ -117,7 +124,9 @@ class SyntaxViewState extends State<SyntaxView> {
         textScaleFactor: _fontScaleFactor,
         text: /* formatted text */ TextSpan(
           style: TextStyle(fontFamily: 'monospace', fontSize: widget.fontSize),
-          children: <TextSpan>[getSyntax(widget.syntax, widget.syntaxTheme).format(widget.code)],
+          children: <TextSpan>[
+            getSyntax(widget.syntax, widget.syntaxTheme).format(widget.code)
+          ],
         ),
       );
     }
@@ -128,14 +137,17 @@ class SyntaxViewState extends State<SyntaxView> {
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         IconButton(
-            icon: Icon(Icons.zoom_out, color: widget.syntaxTheme!.zoomIconColor),
+            icon:
+                Icon(Icons.zoom_out, color: widget.syntaxTheme!.zoomIconColor),
             onPressed: () => setState(() {
-                  _fontScaleFactor = math.max(MIN_FONT_SCALE_FACTOR, _fontScaleFactor - 0.1);
+                  _fontScaleFactor =
+                      math.max(MIN_FONT_SCALE_FACTOR, _fontScaleFactor - 0.1);
                 })),
         IconButton(
             icon: Icon(Icons.zoom_in, color: widget.syntaxTheme!.zoomIconColor),
             onPressed: () => setState(() {
-                  _fontScaleFactor = math.min(MAX_FONT_SCALE_FACTOR, _fontScaleFactor + 0.1);
+                  _fontScaleFactor =
+                      math.min(MAX_FONT_SCALE_FACTOR, _fontScaleFactor + 0.1);
                 })),
       ],
     );

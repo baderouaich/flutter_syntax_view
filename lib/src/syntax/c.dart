@@ -154,36 +154,36 @@ class CSyntaxHighlighter extends SyntaxBase {
 
       /// Raw R"String"
       if (_scanner.scan(RegExp(r'R".*"'))) {
-        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch!.start,
-            _scanner.lastMatch!.end));
+        _spans.add(HighlightSpan(HighlightType.string,
+            _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         continue;
       }
 
       /// "String" "value"
       if (_scanner.scan(RegExp(r'"(?:[^"\\]|\\.)*"'))) {
-        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch!.start,
-            _scanner.lastMatch!.end));
+        _spans.add(HighlightSpan(HighlightType.string,
+            _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         continue;
       }
 
       /// Double value x.x .x
       if (_scanner.scan(RegExp(r'\d+\.\d+|.\d+'))) {
-        _spans.add(HighlightSpan(HighlightType.number, _scanner.lastMatch!.start,
-            _scanner.lastMatch!.end));
+        _spans.add(HighlightSpan(HighlightType.number,
+            _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         continue;
       }
 
       /// Float value x.xf .xf
       if (_scanner.scan(RegExp(r'\d+\.\d+f|.\d+f'))) {
-        _spans.add(HighlightSpan(HighlightType.number, _scanner.lastMatch!.start,
-            _scanner.lastMatch!.end));
+        _spans.add(HighlightSpan(HighlightType.number,
+            _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         continue;
       }
 
       /// Integer value
       if (_scanner.scan(RegExp(r'\d+'))) {
-        _spans.add(HighlightSpan(HighlightType.number, _scanner.lastMatch!.start,
-            _scanner.lastMatch!.end));
+        _spans.add(HighlightSpan(HighlightType.number,
+            _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         continue;
       }
 
