@@ -8,7 +8,7 @@ abstract class SyntaxBase {
 }
 
 /// Supported Syntaxes Enum
-enum Syntax { DART, C, CPP, JAVASCRIPT, KOTLIN, JAVA, SWIFT, YAML }
+enum Syntax { C, CPP, DART, JAVA, JAVASCRIPT, KOTLIN, PYTHON, SWIFT, YAML }
 
 /// Tokens
 enum HighlightType {
@@ -32,22 +32,31 @@ class HighlightSpan {
   }
 
   TextStyle? textStyle(SyntaxTheme? syntaxTheme) {
-    if (type == HighlightType.number)
-      return syntaxTheme!.numberStyle;
-    else if (type == HighlightType.comment)
-      return syntaxTheme!.commentStyle;
-    else if (type == HighlightType.keyword)
-      return syntaxTheme!.keywordStyle;
-    else if (type == HighlightType.string)
-      return syntaxTheme!.stringStyle;
-    else if (type == HighlightType.punctuation)
-      return syntaxTheme!.punctuationStyle;
-    else if (type == HighlightType.klass)
-      return syntaxTheme!.classStyle;
-    else if (type == HighlightType.constant)
-      return syntaxTheme!.constantStyle;
-    else
-      return syntaxTheme!.baseStyle;
+    switch (type) {
+      case HighlightType.number:
+        return syntaxTheme!.numberStyle;
+
+      case HighlightType.comment:
+        return syntaxTheme!.commentStyle;
+
+      case HighlightType.keyword:
+        return syntaxTheme!.keywordStyle;
+
+      case HighlightType.string:
+        return syntaxTheme!.stringStyle;
+
+      case HighlightType.punctuation:
+        return syntaxTheme!.punctuationStyle;
+
+      case HighlightType.klass:
+        return syntaxTheme!.classStyle;
+
+      case HighlightType.constant:
+        return syntaxTheme!.constantStyle;
+
+      default:
+        return syntaxTheme!.baseStyle;
+    }
   }
 }
 
