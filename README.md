@@ -1,6 +1,8 @@
 # flutter_syntax_view
 
-Flutter Syntax Highlighter
+A code view with syntax highlighting support for Flutter.
+
+Suitable to show short snippets.
 
 ## Usage
 
@@ -18,24 +20,25 @@ var result = fibonacci(20);
 """;
 
   SyntaxView(
-      code: code,	// Code text
-      syntax: Syntax.DART,	// Language
-      syntaxTheme: SyntaxTheme.vscodeDark(),	// Theme
-      fontSize: 12.0,	// Font size
-      withZoom: true,	// Enable/Disable zoom icon controls
-      withLinesCount: true,	// Enable/Disable line number
-      expanded: false,	// Enable/Disable container expansion
-      selectable: true // Enable/Disable code text selection
-    )
+    code: code,	// Code text
+    syntax: Syntax.DART,	// Language
+    syntaxTheme: SyntaxTheme.vscodeDark(),	// Theme
+    fontSize: 12.0,	// Font size
+    withZoom: true,	// Enable/Disable zoom icon controls
+    withLinesCount: true,	// Enable/Disable line number
+    expanded: false,	// Enable/Disable container expansion
+    selectable: true // Enable/Disable code text selection
+  )
 ```
 
-## Supported Syntax
+## Supported Languages
 
 - [x] Dart
 - [x] C
 - [x] C++
 - [x] Java
 - [x] Kotlin
+- [x] Python
 - [x] Swift
 - [x] JavaScript
 - [x] YAML
