@@ -2,20 +2,28 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math; // math.max & max
 
 import 'syntax/index.dart';
+import 'syntax/base.dart';
 
+/// A read-only code view with syntax highlight.
 class SyntaxView extends StatefulWidget {
-  SyntaxView(
-      {required this.code,
-      required this.syntax,
-      this.syntaxTheme,
-      this.withZoom = true,
-      this.withLinesCount = true,
-      this.fontSize = 12.0,
-      this.expanded = false,
-      this.selectable = true});
+  SyntaxView({
+    required this.code,
+    required this.syntax,
+    this.font = 'monospace',
+    this.syntaxTheme,
+    this.withZoom = true,
+    this.withLinesCount = true,
+    this.fontSize = 12.0,
+    this.expanded = false,
+    this.selectable = true
+  });
 
   /// Code text
   final String code;
+
+  /// Font for the editor.
+  /// Should be a monospace font.
+  final String font;
 
   /// Syntax/Language (Dart, C, C++...)
   final Syntax syntax;
@@ -50,9 +58,11 @@ class SyntaxViewState extends State<SyntaxView> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(alignment: AlignmentDirectional.bottomEnd, children: <Widget>[
+    return Stack(alignment: AlignmentDirectional.bottomEnd,
+                 children: <Widget>[
       Container(
-          padding: widget.withLinesCount
+          padding:
+            widget.withLinesCount
               ? const EdgeInsets.only(left: 5, top: 10, right: 10, bottom: 10)
               : const EdgeInsets.all(10),
           color: widget.syntaxTheme!.backgroundColor,
@@ -61,14 +71,19 @@ class SyntaxViewState extends State<SyntaxView> {
               child: SingleChildScrollView(
                   child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
-                      child: widget.withLinesCount
+                      child:
+                        widget.withLinesCount
                           ? buildCodeWithLinesCount() // Syntax view with line number to the left
                           : buildCode() // Syntax view
-                      )))),
-      if (widget.withZoom) zoomControls() // Zoom control icons
+                  )
+              )
+          )
+      ),
+      if (widget.withZoom) zoomControls() // Zoom controls
     ]);
   }
 
+  /// Build code view with line number bar
   Widget buildCodeWithLinesCount() {
     final int numLines = '\n'.allMatches(widget.code).length + 1;
     return Row(
@@ -84,12 +99,15 @@ class SyntaxViewState extends State<SyntaxView> {
                     textScaleFactor: _fontScaleFactor,
                     text: TextSpan(
                       style: TextStyle(
-                          fontFamily: 'monospace',
+                          fontFamily: widget.font,
                           fontSize: widget.fontSize,
-                          color: widget.syntaxTheme!.linesCountColor),
-                      text: "$i",
-                    )),
-            ]),
+                          color: widget.syntaxTheme!.linesCountColor
+                      ),
+                      text: i.toString(),
+                    )
+                ),
+            ]
+        ),
         VerticalDivider(width: 5),
         buildCode(),
         //Expanded(child: buildCode()),
@@ -97,58 +115,57 @@ class SyntaxViewState extends State<SyntaxView> {
     );
   }
 
-  // Code text
-  /*Widget buildCode() {
-    return RichText(
-        textScaleFactor: _fontScaleFactor,
-        text: /* formatted text */ TextSpan(
-          style: TextStyle(fontFamily: 'monospace', fontSize: widget.fontSize),
-          children: <TextSpan>[getSyntax(widget.syntax, widget.syntaxTheme).format(widget.code)],
-        ));
-  }*/
-
+  /// Create code view without line number bar
   Widget buildCode() {
-    if (widget.selectable) {
-      return SelectableText.rich(
-        /* formatted text */
-        TextSpan(
-          style: TextStyle(fontFamily: 'monospace', fontSize: widget.fontSize),
-          children: <TextSpan>[
-            getSyntax(widget.syntax, widget.syntaxTheme).format(widget.code)
-          ],
-        ),
-        textScaleFactor: _fontScaleFactor,
-      );
-    } else {
-      return RichText(
-        textScaleFactor: _fontScaleFactor,
-        text: /* formatted text */ TextSpan(
-          style: TextStyle(fontFamily: 'monospace', fontSize: widget.fontSize),
-          children: <TextSpan>[
-            getSyntax(widget.syntax, widget.syntaxTheme).format(widget.code)
-          ],
-        ),
-      );
-    }
+    return 
+      widget.selectable
+        ? SelectableText.rich(
+            TextSpan(
+              style: TextStyle(fontFamily: widget.font, fontSize: widget.fontSize),
+              children: <TextSpan>[
+                getSyntax(widget.syntax, widget.syntaxTheme).format(widget.code)
+              ],
+            ),
+            textScaleFactor: _fontScaleFactor,
+          )
+        : RichText(
+            textScaleFactor: _fontScaleFactor,
+            text: TextSpan(
+              style: TextStyle(fontFamily: widget.font, fontSize: widget.fontSize),
+              children: <TextSpan>[
+                getSyntax(widget.syntax, widget.syntaxTheme).format(widget.code)
+              ],
+            ),
+          );
   }
 
+  /// Create zoom in+out buttons.
   Widget zoomControls() {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
+        // Zoom out
         IconButton(
-            icon:
-                Icon(Icons.zoom_out, color: widget.syntaxTheme!.zoomIconColor),
-            onPressed: () => setState(() {
-                  _fontScaleFactor =
-                      math.max(MIN_FONT_SCALE_FACTOR, _fontScaleFactor - 0.1);
-                })),
+          icon:
+            Icon(Icons.zoom_out, color: widget.syntaxTheme!.zoomIconColor),
+          onPressed: 
+            () => setState(
+              () {
+                _fontScaleFactor =
+                    math.max(MIN_FONT_SCALE_FACTOR, _fontScaleFactor - 0.1);
+              }
+            )
+        ),
+        // Zoom in
         IconButton(
-            icon: Icon(Icons.zoom_in, color: widget.syntaxTheme!.zoomIconColor),
-            onPressed: () => setState(() {
-                  _fontScaleFactor =
-                      math.min(MAX_FONT_SCALE_FACTOR, _fontScaleFactor + 0.1);
-                })),
+          icon: Icon(Icons.zoom_in, color: widget.syntaxTheme!.zoomIconColor),
+          onPressed: () => setState(
+            () {
+              _fontScaleFactor =
+                  math.min(MAX_FONT_SCALE_FACTOR, _fontScaleFactor + 0.1);
+            }
+          )
+        ),
       ],
     );
   }

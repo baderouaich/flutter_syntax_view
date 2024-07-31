@@ -1,3 +1,4 @@
+import 'package:example/snippets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_syntax_view/flutter_syntax_view.dart';
 
@@ -20,185 +21,195 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
-  static const String code = r"""
-import 'dart:math' as math;
+  // The number is the number of
+  // the language in Syntax.values
+  int selected_language = 0;
 
-// Coffee class is the best!
-class Coffee {
-  late int _temperature;
+  // Whether to expand the view or not
+  bool expandView = true;
 
-  void heat() => _temperature = 100;
-  void chill() => _temperature = -5;
-
-  void sip() {
-    final bool isTooHot = math.max(37, _temperature) > 37;
-    if (isTooHot)
-      print("myyy liiips!");
-    else
-      print("mmmmm refreshing!");
+  String get code {
+    switch (selected_language) {
+      case 0:
+        return CCode;
+      case 1:
+        return CPPCode;
+      case 2:
+        return DartCode;
+      case 3:
+        return JavaCode;
+      case 4:
+        return JSCode;
+      case 5:
+        return KotlinCode;
+      case 6:
+        return PythonCode;
+      case 7:
+        return SwiftCode;
+      case 8:
+        return YAMLCode;
+      default:
+        throw Exception("Index out of bound");
+    }
   }
 
-  int? get temperature => temperature;
-}
-void main() {
-  var coffee = Coffee();
-  coffee.heat();
-  coffee.sip();
-  coffee.chill();
-  coffee.sip();
-}
-/* And there
-        you have it */""";
-
-  static final syntaxViews = {
-    "Standard": SyntaxView(
-      code: code,
-      syntax: Syntax.DART,
-      syntaxTheme: SyntaxTheme.standard(),
-      fontSize: 12.0,
-      withZoom: true,
-      withLinesCount: true,
-      expanded: true,
-      selectable: true,
-    ),
-    "Dracula": SyntaxView(
-      code: code,
-      syntax: Syntax.DART,
-      syntaxTheme: SyntaxTheme.dracula(),
-      fontSize: 12.0,
-      withZoom: true,
-      withLinesCount: false,
-      expanded: false,
-      selectable: true,
-    ),
-    "AyuLight": SyntaxView(
-      code: code,
-      syntax: Syntax.DART,
-      syntaxTheme: SyntaxTheme.ayuLight(),
-      fontSize: 12.0,
-      withZoom: false,
-      withLinesCount: true,
-      expanded: true,
-    ),
-    "AyuDark": SyntaxView(
-      code: code,
-      syntax: Syntax.DART,
-      syntaxTheme: SyntaxTheme.ayuDark(),
-      fontSize: 12.0,
-      withZoom: true,
-      withLinesCount: false,
-      expanded: false,
-    ),
-    "GravityLight": SyntaxView(
-      code: code,
-      syntax: Syntax.DART,
-      syntaxTheme: SyntaxTheme.gravityLight(),
-      fontSize: 12.0,
-      withZoom: true,
-      withLinesCount: true,
-      expanded: true,
-    ),
-    "GravityDark": SyntaxView(
+  Map<String, SyntaxView> get syntaxViews => {
+      "Standard": SyntaxView(
         code: code,
-        syntax: Syntax.DART,
-        syntaxTheme: SyntaxTheme.gravityDark(),
+        syntax: Syntax.values[selected_language],
+        syntaxTheme: SyntaxTheme.standard(),
+        fontSize: 12.0,
+        withZoom: true,
+        withLinesCount: true,
+        expanded: expandView,
+        selectable: true,
+      ),
+      "Dracula": SyntaxView(
+        code: code,
+        syntax: Syntax.values[selected_language],
+        syntaxTheme: SyntaxTheme.dracula(),
+        fontSize: 12.0,
+        withZoom: true,
+        withLinesCount: false,
+        expanded: expandView,
+        selectable: true,
+      ),
+      "Ayu Light": SyntaxView(
+        code: code,
+        syntax: Syntax.values[selected_language],
+        syntaxTheme: SyntaxTheme.ayuLight(),
         fontSize: 12.0,
         withZoom: false,
+        withLinesCount: true,
+        expanded: expandView,
+      ),
+      "Ayu Dark": SyntaxView(
+        code: code,
+        syntax: Syntax.values[selected_language],
+        syntaxTheme: SyntaxTheme.ayuDark(),
+        fontSize: 12.0,
+        withZoom: true,
         withLinesCount: false,
-        expanded: false,
-        selectable: true),
-    "MonokaiSublime": SyntaxView(
+        expanded: expandView,
+      ),
+      "Gravity Light": SyntaxView(
         code: code,
-        syntax: Syntax.DART,
-        syntaxTheme: SyntaxTheme.monokaiSublime(),
+        syntax: Syntax.values[selected_language],
+        syntaxTheme: SyntaxTheme.gravityLight(),
         fontSize: 12.0,
         withZoom: true,
         withLinesCount: true,
-        expanded: true,
-        selectable: true),
-    "Obsidian": SyntaxView(
+        expanded: expandView,
+      ),
+      "Gravity Dark": SyntaxView(
+          code: code,
+          syntax: Syntax.values[selected_language],
+          syntaxTheme: SyntaxTheme.gravityDark(),
+          fontSize: 12.0,
+          withZoom: false,
+          withLinesCount: false,
+          expanded: expandView,
+          selectable: true),
+      "Monokai Sublime": SyntaxView(
+          code: code,
+          syntax: Syntax.values[selected_language],
+          syntaxTheme: SyntaxTheme.monokaiSublime(),
+          fontSize: 12.0,
+          withZoom: true,
+          withLinesCount: true,
+          expanded: expandView,
+          selectable: true),
+      "Obsidian": SyntaxView(
+          code: code,
+          syntax: Syntax.values[selected_language],
+          syntaxTheme: SyntaxTheme.obsidian(),
+          fontSize: 12.0,
+          withZoom: true,
+          withLinesCount: true,
+          expanded: expandView,
+          selectable: true),
+      "Ocean Sunset": SyntaxView(
         code: code,
-        syntax: Syntax.DART,
-        syntaxTheme: SyntaxTheme.obsidian(),
+        syntax: Syntax.values[selected_language],
+        syntaxTheme: SyntaxTheme.oceanSunset(),
         fontSize: 12.0,
-        withZoom: true,
+        withZoom: false,
         withLinesCount: true,
-        expanded: false,
-        selectable: true),
-    "OceanSunset": SyntaxView(
-      code: code,
-      syntax: Syntax.DART,
-      syntaxTheme: SyntaxTheme.oceanSunset(),
-      fontSize: 12.0,
-      withZoom: false,
-      withLinesCount: true,
-      expanded: true,
-      selectable: true,
-    ),
-    "vscodeDark": SyntaxView(
-        code: code,
-        syntax: Syntax.DART,
-        syntaxTheme: SyntaxTheme.vscodeDark(),
-        fontSize: 12.0,
-        withZoom: true,
-        withLinesCount: true,
-        expanded: false,
-        selectable: true),
-    "vscodeLight": SyntaxView(
-        code: code,
-        syntax: Syntax.DART,
-        syntaxTheme: SyntaxTheme.vscodeLight(),
-        fontSize: 12.0,
-        withZoom: true,
-        withLinesCount: true,
-        expanded: true,
-        selectable: true)
+        expanded: expandView,
+        selectable: true,
+      ),
+      "VS Code Dark": SyntaxView(
+          code: code,
+          syntax: Syntax.values[selected_language],
+          syntaxTheme: SyntaxTheme.vscodeDark(),
+          fontSize: 12.0,
+          withZoom: true,
+          withLinesCount: true,
+          expanded: expandView,
+          selectable: true),
+      "VS Code Light": SyntaxView(
+          code: code,
+          syntax: Syntax.values[selected_language],
+          syntaxTheme: SyntaxTheme.vscodeLight(),
+          fontSize: 12.0,
+          withZoom: true,
+          withLinesCount: true,
+          expanded: expandView,
+          selectable: true)
   };
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Flutter Syntax View Example"),
-        backgroundColor: Colors.blueGrey[800],
-        elevation: 6,
-      ),
-      body: ListView.builder(
-          padding: const EdgeInsets.all(8),
-          itemCount: syntaxViews.length,
-          itemBuilder: (BuildContext context, int index) {
-            String themeName = syntaxViews.keys.elementAt(index);
-            SyntaxView syntaxView = syntaxViews.values.elementAt(index);
-            return Card(
-              margin: const EdgeInsets.all(10),
-              elevation: 6.0,
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(3.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.brush_sharp),
-                        Text(
-                          themeName,
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        Icon(Icons.brush_sharp),
-                      ],
-                    ),
-                  ),
-                  Divider(),
-                  if (syntaxView.expanded)
-                    Container(
-                        height: MediaQuery.of(context).size.height / 2.5,
-                        child: syntaxView)
-                  else
-                    syntaxView
-                ],
+    return DefaultTabController(
+      length: syntaxViews.keys.length,
+      child:
+        Scaffold(
+          appBar: AppBar(
+            title: Text("Flutter Syntax View Example"),
+            elevation: 6,
+            bottom: TabBar(
+                isScrollable: true,
+                tabs:
+                  syntaxViews.keys.map(
+                    (e) => Tab(text: e)
+                  ).toList(),
               ),
-            );
-          }),
+            actions: [
+              Switch(
+                onChanged: (value) => setState(() { expandView = value; }),
+                value: expandView
+              ),
+              Text("Expand view"),
+              DropdownMenu<int>(
+                initialSelection: selected_language,
+                dropdownMenuEntries: Syntax.values.map(
+                  (e) => DropdownMenuEntry(
+                    value: Syntax.values.indexOf(e),
+                    label: capitalize(e.toString().replaceAll(RegExp('Syntax.'), ''))
+                  )
+                ).toList(),
+                onSelected: (idx) => setState(() {
+                  selected_language = (idx ?? 0);
+                })
+              ),
+              Spacer()
+            ]
+          ),
+          body: TabBarView(
+                children: syntaxViews.values.map(
+                  (e) => Row(
+                      children: [
+                        if (e.expanded)
+                          Expanded(child: e)
+                        else
+                          e
+                      ]
+                    )
+                ).toList()
+              )
+        )
     );
   }
+
+  String capitalize(String original) => original[0].toUpperCase() + original.substring(1).toLowerCase();
 }
