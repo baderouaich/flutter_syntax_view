@@ -61,7 +61,6 @@ class SyntaxViewState extends State<SyntaxView> {
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Stack(alignment: AlignmentDirectional.bottomEnd, children: <Widget>[
@@ -72,9 +71,9 @@ class SyntaxViewState extends State<SyntaxView> {
           color: widget.syntaxTheme!.backgroundColor,
           constraints: widget.expanded ? BoxConstraints.expand() : null,
           child: Scrollbar(
-            controller: _verticalScrollController,
+              controller: _verticalScrollController,
               child: SingleChildScrollView(
-                controller: _verticalScrollController,
+                  controller: _verticalScrollController,
                   child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: widget.withLinesCount

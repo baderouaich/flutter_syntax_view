@@ -81,3 +81,8 @@
 ## [4.1.0] - 02/04/2024
 * Syntax view text is now selectable thanks to @shyam1s15 PR #14
 * Updated example
+
+
+## [4.1.1] - 26/12/2024
+* Fix scrollbar position attached in web thanks to @jhon2520 PR #19
+* Updated example
