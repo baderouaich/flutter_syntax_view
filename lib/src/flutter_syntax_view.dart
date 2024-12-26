@@ -96,7 +96,7 @@ class SyntaxViewState extends State<SyntaxView> {
             children: <Widget>[
               for (int i = 1; i <= numLines; i++)
                 RichText(
-                    textScaleFactor: _fontScaleFactor,
+                    textScaler: TextScaler.linear(_fontScaleFactor),
                     text: TextSpan(
                       style: TextStyle(
                           fontFamily: 'monospace',
@@ -132,11 +132,11 @@ class SyntaxViewState extends State<SyntaxView> {
             getSyntax(widget.syntax, widget.syntaxTheme).format(widget.code)
           ],
         ),
-        textScaleFactor: _fontScaleFactor,
+        textScaler: TextScaler.linear(_fontScaleFactor),
       );
     } else {
       return RichText(
-        textScaleFactor: _fontScaleFactor,
+        textScaler: TextScaler.linear(_fontScaleFactor),
         text: /* formatted text */ TextSpan(
           style: TextStyle(fontFamily: 'monospace', fontSize: widget.fontSize),
           children: <TextSpan>[

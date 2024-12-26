@@ -69,7 +69,5 @@ SyntaxBase getSyntax(Syntax syntax, SyntaxTheme? theme) {
       return JavaScriptSyntaxHighlighter(theme);
     case Syntax.YAML:
       return YamlSyntaxHighlighter(theme);
-    default:
-      return DartSyntaxHighlighter(theme);
   }
 }
