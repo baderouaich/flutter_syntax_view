@@ -95,15 +95,26 @@ class SyntaxViewState extends State<SyntaxView> {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               for (int i = 1; i <= numLines; i++)
-                RichText(
-                    textScaler: TextScaler.linear(_fontScaleFactor),
-                    text: TextSpan(
-                      style: TextStyle(
-                          fontFamily: 'monospace',
-                          fontSize: widget.fontSize,
-                          color: widget.syntaxTheme!.linesCountColor),
-                      text: "$i",
-                    )),
+                widget.selectable
+                    ? SelectableText.rich(
+                        TextSpan(
+                          style: TextStyle(
+                              fontFamily: 'monospace',
+                              fontSize: widget.fontSize,
+                              color: widget.syntaxTheme!.linesCountColor),
+                          text: "$i",
+                        ),
+                        textScaler: TextScaler.linear(_fontScaleFactor),
+                      )
+                    : RichText(
+                        textScaler: TextScaler.linear(_fontScaleFactor),
+                        text: TextSpan(
+                          style: TextStyle(
+                              fontFamily: 'monospace',
+                              fontSize: widget.fontSize,
+                              color: widget.syntaxTheme!.linesCountColor),
+                          text: "$i",
+                        )),
             ]),
         VerticalDivider(width: 5),
         buildCode(),
@@ -125,7 +136,6 @@ class SyntaxViewState extends State<SyntaxView> {
   Widget buildCode() {
     if (widget.selectable) {
       return SelectableText.rich(
-        /* formatted text */
         TextSpan(
           style: TextStyle(fontFamily: 'monospace', fontSize: widget.fontSize),
           children: <TextSpan>[
@@ -137,7 +147,7 @@ class SyntaxViewState extends State<SyntaxView> {
     } else {
       return RichText(
         textScaler: TextScaler.linear(_fontScaleFactor),
-        text: /* formatted text */ TextSpan(
+        text: TextSpan(
           style: TextStyle(fontFamily: 'monospace', fontSize: widget.fontSize),
           children: <TextSpan>[
             getSyntax(widget.syntax, widget.syntaxTheme).format(widget.code)
