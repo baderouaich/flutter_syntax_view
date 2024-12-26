@@ -43,7 +43,7 @@ class SyntaxView extends StatefulWidget {
 }
 
 class SyntaxViewState extends State<SyntaxView> {
-  /// For Zooming Controls
+  /// For zooming Controls
   static const double MAX_FONT_SCALE_FACTOR = 3.0;
   static const double MIN_FONT_SCALE_FACTOR = 0.5;
   double _fontScaleFactor = 1.0;
@@ -118,20 +118,9 @@ class SyntaxViewState extends State<SyntaxView> {
             ]),
         VerticalDivider(width: 5),
         buildCode(),
-        //Expanded(child: buildCode()),
       ],
     );
   }
-
-  // Code text
-  /*Widget buildCode() {
-    return RichText(
-        textScaleFactor: _fontScaleFactor,
-        text: /* formatted text */ TextSpan(
-          style: TextStyle(fontFamily: 'monospace', fontSize: widget.fontSize),
-          children: <TextSpan>[getSyntax(widget.syntax, widget.syntaxTheme).format(widget.code)],
-        ));
-  }*/
 
   Widget buildCode() {
     if (widget.selectable) {

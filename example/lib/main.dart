@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_syntax_view/flutter_syntax_view.dart';
 
-void main() => runApp(App());
+void main() => runApp(const App());
 
 class App extends StatelessWidget {
+  const App({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: MyApp(),
       debugShowCheckedModeBanner: false,
       title: "Flutter Syntax View Example",
@@ -15,6 +17,8 @@ class App extends StatelessWidget {
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
   State<StatefulWidget> createState() => MyAppState();
 }
@@ -159,7 +163,7 @@ void main() {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Flutter Syntax View Example"),
+        title: const Text("Flutter Syntax View Example"),
         backgroundColor: Colors.blueGrey[800],
         elevation: 6,
       ),
@@ -179,18 +183,18 @@ void main() {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.brush_sharp),
+                        const Icon(Icons.brush_sharp),
                         Text(
                           themeName,
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
-                        Icon(Icons.brush_sharp),
+                        const Icon(Icons.brush_sharp),
                       ],
                     ),
                   ),
-                  Divider(),
+                  const Divider(),
                   if (syntaxView.expanded)
-                    Container(
+                    SizedBox(
                         height: MediaQuery.of(context).size.height / 2.5,
                         child: syntaxView)
                   else

@@ -88,3 +88,6 @@
 
 ## [4.1.2] - 26/12/2024
 * Fix lines count are not aligned correctly with code when selection is on
+
+## [4.1.3] - 26/12/2024
+* Improve code documentation and styling

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:string_scanner/string_scanner.dart';
-
-import 'base.dart';
 import 'index.dart';
 
 class CPPSyntaxHighlighter extends SyntaxBase {

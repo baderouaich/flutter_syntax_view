@@ -15,18 +15,40 @@ class SyntaxTheme {
     this.zoomIconColor,
   });
 
+  /// Default style
   TextStyle? baseStyle;
+
+  /// Numbers style
   TextStyle? numberStyle;
+
+  /// Comments style
   TextStyle? commentStyle;
+
+  /// Keywords style, e.g. var, let, const...
   TextStyle? keywordStyle;
+
+  /// Strings style, e.g. "Hello"
   TextStyle? stringStyle;
+
+  /// Punctuation style
   TextStyle? punctuationStyle;
+
+  /// Class names style
   TextStyle? classStyle;
+
+  /// Constants style
   TextStyle? constantStyle;
+
+  /// Lines count to the left color
   Color? linesCountColor;
+
+  /// Background color
   Color? backgroundColor;
+
+  /// Zooming controls color
   Color? zoomIconColor;
 
+  /// Standard Theme
   static SyntaxTheme standard() {
     return SyntaxTheme(
       linesCountColor: const Color.fromARGB(179, 55, 71, 79),
@@ -43,6 +65,7 @@ class SyntaxTheme {
     );
   }
 
+  /// Darcula Theme (Here called dracula, only God knows why)
   static SyntaxTheme dracula() {
     return SyntaxTheme(
       linesCountColor: const Color.fromARGB(179, 255, 255, 255),
@@ -59,6 +82,7 @@ class SyntaxTheme {
     );
   }
 
+  // Ayu Light Theme
   static SyntaxTheme ayuLight() {
     return SyntaxTheme(
       linesCountColor: const Color.fromARGB(179, 55, 71, 79),
@@ -75,6 +99,7 @@ class SyntaxTheme {
     );
   }
 
+  /// Ayu Dark Theme
   static SyntaxTheme ayuDark() {
     return SyntaxTheme(
       linesCountColor: const Color.fromARGB(204, 255, 255, 255),
@@ -91,6 +116,7 @@ class SyntaxTheme {
     );
   }
 
+  /// Gravity Light Theme
   static SyntaxTheme gravityLight() {
     return SyntaxTheme(
       linesCountColor: const Color.fromARGB(179, 55, 71, 79),
@@ -107,6 +133,7 @@ class SyntaxTheme {
     );
   }
 
+  /// Gravity Dark Theme
   static SyntaxTheme gravityDark() {
     return SyntaxTheme(
       linesCountColor: const Color.fromARGB(204, 255, 255, 255),
@@ -123,6 +150,7 @@ class SyntaxTheme {
     );
   }
 
+  /// Monokai Sublime Theme
   static SyntaxTheme monokaiSublime() {
     return SyntaxTheme(
       linesCountColor: const Color.fromARGB(179, 255, 255, 255),
@@ -139,6 +167,7 @@ class SyntaxTheme {
     );
   }
 
+  /// Obsidian Theme
   static SyntaxTheme obsidian() {
     return SyntaxTheme(
       linesCountColor: const Color.fromARGB(179, 255, 255, 255),
@@ -155,6 +184,7 @@ class SyntaxTheme {
     );
   }
 
+  /// Ocean Sunset Theme
   static SyntaxTheme oceanSunset() {
     return SyntaxTheme(
       linesCountColor: const Color.fromARGB(179, 255, 255, 255),
@@ -171,6 +201,7 @@ class SyntaxTheme {
     );
   }
 
+  /// Visual Studio Dark Theme
   static SyntaxTheme vscodeDark() {
     return SyntaxTheme(
       linesCountColor: const Color.fromARGB(179, 255, 255, 255),
@@ -187,6 +218,7 @@ class SyntaxTheme {
     );
   }
 
+  /// Visual Studio Light Theme
   static SyntaxTheme vscodeLight() {
     return SyntaxTheme(
         linesCountColor: Color.fromARGB(179, 0, 0, 0),
