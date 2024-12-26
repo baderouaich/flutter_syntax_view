@@ -47,6 +47,20 @@ class SyntaxViewState extends State<SyntaxView> {
   static const double MAX_FONT_SCALE_FACTOR = 3.0;
   static const double MIN_FONT_SCALE_FACTOR = 0.5;
   double _fontScaleFactor = 1.0;
+  late ScrollController _verticalScrollController;
+
+  @override
+  void initState() {
+    super.initState();
+    _verticalScrollController = ScrollController();
+  }
+
+  @override
+  void dispose() {
+    _verticalScrollController.dispose();
+    super.dispose();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +72,9 @@ class SyntaxViewState extends State<SyntaxView> {
           color: widget.syntaxTheme!.backgroundColor,
           constraints: widget.expanded ? BoxConstraints.expand() : null,
           child: Scrollbar(
+            controller: _verticalScrollController,
               child: SingleChildScrollView(
+                controller: _verticalScrollController,
                   child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: widget.withLinesCount
