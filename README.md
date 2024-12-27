@@ -39,6 +39,7 @@ var result = fibonacci(20);
 - [x] Swift
 - [x] JavaScript
 - [x] YAML
+- [x] Rust
 
 ## Themes
 
