@@ -7,4 +7,5 @@ export 'javascript.dart';
 export 'kotlin.dart';
 export 'swift.dart';
 export 'yaml.dart';
+export 'rust.dart';
 export '../theme/theme.dart';

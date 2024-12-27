@@ -91,3 +91,6 @@
 
 ## [4.1.3] - 26/12/2024
 * Improve code documentation and styling
+* 
+## [4.1.4] - 27/12/2024
+* Added Rust Syntax Highlighter
