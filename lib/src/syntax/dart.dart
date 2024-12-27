@@ -96,7 +96,9 @@ class DartSyntaxHighlighter extends SyntaxBase {
       int currentPosition = 0;
 
       for (HighlightSpan span in _spans) {
-        if (currentPosition > span.start) continue;
+        if (currentPosition > span.start) {
+          continue;
+        }
         if (currentPosition != span.start) {
           formattedText.add(
             TextSpan(
@@ -113,10 +115,11 @@ class DartSyntaxHighlighter extends SyntaxBase {
         currentPosition = span.end;
       }
 
-      if (currentPosition != _src.length)
+      if (currentPosition != _src.length) {
         formattedText.add(TextSpan(
           text: _src.substring(currentPosition, _src.length),
         ));
+      }
 
       return TextSpan(style: syntaxTheme!.baseStyle, children: formattedText);
     } else {
@@ -153,7 +156,9 @@ class DartSyntaxHighlighter extends SyntaxBase {
         _spans.add(
             HighlightSpan(HighlightType.comment, startComment, endComment));
 
-        if (eof) break;
+        if (eof) {
+          break;
+        }
 
         continue;
       }
@@ -233,19 +238,21 @@ class DartSyntaxHighlighter extends SyntaxBase {
         HighlightType? type;
 
         String word = _scanner.lastMatch![0]!;
-        if (word.startsWith('_')) word = word.substring(1);
+        if (word.startsWith('_')) {
+          word = word.substring(1);
+        }
 
-        if (_keywords.contains(word))
+        if (_keywords.contains(word)) {
           type = HighlightType.keyword;
-        else if (_builtInTypes.contains(word))
+        } else if (_builtInTypes.contains(word)) {
           type = HighlightType.keyword;
-        else if (_firstLetterIsUpperCase(word))
+        } else if (_firstLetterIsUpperCase(word)) {
           type = HighlightType.klass;
-        else if (word.length >= 2 &&
+        } else if (word.length >= 2 &&
             word.startsWith('k') &&
-            _firstLetterIsUpperCase(word.substring(1)))
+            _firstLetterIsUpperCase(word.substring(1))) {
           type = HighlightType.constant;
-
+        }
         if (type != null) {
           _spans.add(HighlightSpan(
               type, _scanner.lastMatch!.start, _scanner.lastMatch!.end));

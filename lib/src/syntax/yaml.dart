@@ -36,7 +36,9 @@ class YamlSyntaxHighlighter extends SyntaxBase {
       int currentPosition = 0;
 
       for (HighlightSpan span in _spans) {
-        if (currentPosition > span.start) continue;
+        if (currentPosition > span.start) {
+          continue;
+        }
         if (currentPosition != span.start) {
           formattedText.add(
             TextSpan(
@@ -53,10 +55,11 @@ class YamlSyntaxHighlighter extends SyntaxBase {
         currentPosition = span.end;
       }
 
-      if (currentPosition != _src.length)
+      if (currentPosition != _src.length) {
         formattedText.add(TextSpan(
           text: _src.substring(currentPosition, _src.length),
         ));
+      }
 
       return TextSpan(style: syntaxTheme!.baseStyle, children: formattedText);
     } else {
@@ -128,7 +131,9 @@ class YamlSyntaxHighlighter extends SyntaxBase {
         _spans.add(
             HighlightSpan(HighlightType.comment, startComment, endComment));
 
-        if (eof) break;
+        if (eof) {
+          break;
+        }
 
         continue;
       }
