@@ -84,6 +84,20 @@ void main() {
       withLinesCount: true,
       expanded: true,
     ),
+    "Custom AyuLight":  SyntaxView(
+      code: code,
+      syntax: Syntax.DART,
+      syntaxTheme: SyntaxTheme.ayuLight().copyWith(
+        linesCountColor: Colors.teal,
+        keywordStyle: const TextStyle(
+          color: Colors.purple
+        )
+      ),
+      fontSize: 12.0,
+      withZoom: false,
+      withLinesCount: true,
+      expanded: true,
+    ),
     "AyuDark": SyntaxView(
       code: code,
       syntax: Syntax.DART,
