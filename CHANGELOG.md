@@ -94,3 +94,8 @@
 * 
 ## [4.1.4] - 27/12/2024
 * Added Rust Syntax Highlighter
+
+## [4.1.5] - 08/02/2025
+* Update README
+* Update example 
+* The copyWith method is created to allow developers to add custom SyntaxView styles

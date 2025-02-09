@@ -233,4 +233,32 @@ class SyntaxTheme {
         constantStyle: const TextStyle(color: Color(0xFF0070C1)),
         zoomIconColor: const Color(0xFF0D1429));
   }
+
+  SyntaxTheme copyWith({
+    TextStyle? baseStyle,
+    TextStyle? numberStyle,
+    TextStyle? commentStyle,
+    TextStyle? keywordStyle,
+    TextStyle? stringStyle,
+    TextStyle? punctuationStyle,
+    TextStyle? classStyle,
+    TextStyle? constantStyle,
+    Color? linesCountColor,
+    Color? backgroundColor,
+    Color? zoomIconColor,
+  }) {
+    return SyntaxTheme(
+      baseStyle: baseStyle ?? this.baseStyle,
+      numberStyle: numberStyle ?? this.numberStyle,
+      commentStyle: commentStyle ?? this.commentStyle,
+      keywordStyle: keywordStyle ?? this.keywordStyle,
+      stringStyle: stringStyle ?? this.stringStyle,
+      punctuationStyle: punctuationStyle ?? this.punctuationStyle,
+      classStyle: classStyle ?? this.classStyle,
+      constantStyle: constantStyle ?? this.constantStyle,
+      linesCountColor: linesCountColor ?? this.linesCountColor,
+      backgroundColor: backgroundColor ?? this.backgroundColor,
+      zoomIconColor: zoomIconColor ?? this.zoomIconColor,
+    );
+  }
 }
