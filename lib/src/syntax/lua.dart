@@ -118,51 +118,60 @@ class LuaSyntaxHighlighter extends SyntaxBase {
 
       /// Block comments
       if (_scanner.scan(RegExp(r'--\[(=*)\[[\s\S]*?\]\1\]'))) {
-        _spans.add(HighlightSpan(HighlightType.comment, _scanner.lastMatch!.start, _scanner.lastMatch!.end));
+        _spans.add(HighlightSpan(HighlightType.comment,
+            _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         continue;
       }
 
       /// Line comments
       if (_scanner.scan(RegExp(r'--(?!\[)[^\n]*'))) {
-        _spans.add(HighlightSpan(HighlightType.comment, _scanner.lastMatch!.start, _scanner.lastMatch!.end));
+        _spans.add(HighlightSpan(HighlightType.comment,
+            _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         continue;
       }
 
       /// String literals
       if (_scanner.scan(RegExp(r'\[(=*)\[[\s\S]*?\]\1\]'))) {
-        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch!.start, _scanner.lastMatch!.end));
+        _spans.add(HighlightSpan(HighlightType.string,
+            _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         continue;
       }
 
       /// Double quote Strings
       if (_scanner.scan(RegExp(r'"(?:[^"\\]|\\.)*"'))) {
-        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch!.start, _scanner.lastMatch!.end));
+        _spans.add(HighlightSpan(HighlightType.string,
+            _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         continue;
       }
 
       /// Single quote Strings
       if (_scanner.scan(RegExp(r"'(?:[^'\\]|\\.)*'"))) {
-        _spans.add(HighlightSpan(HighlightType.string, _scanner.lastMatch!.start, _scanner.lastMatch!.end));
+        _spans.add(HighlightSpan(HighlightType.string,
+            _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         continue;
       }
 
       /// Numbers
       if (_scanner.scan(RegExp(r'\d+\.\d+([eE][+-]?\d+)?'))) {
-        _spans.add(HighlightSpan(HighlightType.number, _scanner.lastMatch!.start, _scanner.lastMatch!.end));
+        _spans.add(HighlightSpan(HighlightType.number,
+            _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         continue;
       }
       if (_scanner.scan(RegExp(r'\.\d+([eE][+-]?\d+)?'))) {
-        _spans.add(HighlightSpan(HighlightType.number, _scanner.lastMatch!.start, _scanner.lastMatch!.end));
+        _spans.add(HighlightSpan(HighlightType.number,
+            _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         continue;
       }
       if (_scanner.scan(RegExp(r'\d+([eE][+-]?\d+)?'))) {
-        _spans.add(HighlightSpan(HighlightType.number, _scanner.lastMatch!.start, _scanner.lastMatch!.end));
+        _spans.add(HighlightSpan(HighlightType.number,
+            _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         continue;
       }
 
       /// Operators
       if (_scanner.scan(RegExp(r'[\[\]{}().,;:+\-*/%^#<>~=]'))) {
-        _spans.add(HighlightSpan(HighlightType.punctuation, _scanner.lastMatch!.start, _scanner.lastMatch!.end));
+        _spans.add(HighlightSpan(HighlightType.punctuation,
+            _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         continue;
       }
 
@@ -176,7 +185,8 @@ class LuaSyntaxHighlighter extends SyntaxBase {
           type = HighlightType.keyword;
         }
         if (type != null) {
-          _spans.add(HighlightSpan(type, _scanner.lastMatch!.start, _scanner.lastMatch!.end));
+          _spans.add(HighlightSpan(
+              type, _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         }
         continue;
       }
@@ -195,8 +205,10 @@ class LuaSyntaxHighlighter extends SyntaxBase {
 
   void _simplify() {
     for (int i = _spans.length - 2; i >= 0; i--) {
-      if (_spans[i].type == _spans[i + 1].type && _spans[i].end == _spans[i + 1].start) {
-        _spans[i] = HighlightSpan(_spans[i].type, _spans[i].start, _spans[i + 1].end);
+      if (_spans[i].type == _spans[i + 1].type &&
+          _spans[i].end == _spans[i + 1].start) {
+        _spans[i] =
+            HighlightSpan(_spans[i].type, _spans[i].start, _spans[i + 1].end);
         _spans.removeAt(i + 1);
       }
     }

@@ -99,3 +99,6 @@
 * Update README
 * Update example 
 * The copyWith method is created to allow developers to add custom SyntaxView styles
+
+## [4.1.6] - 08/03/2025
+* Added Lua Syntax Highlighter by @Binozo
