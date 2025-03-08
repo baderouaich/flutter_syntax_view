@@ -1,11 +1,12 @@
+export '../theme/theme.dart';
 export 'base.dart';
-export 'dart.dart';
 export 'c.dart';
 export 'cpp.dart';
+export 'dart.dart';
 export 'java.dart';
 export 'javascript.dart';
 export 'kotlin.dart';
+export 'lua.dart';
+export 'rust.dart';
 export 'swift.dart';
 export 'yaml.dart';
-export 'rust.dart';
-export '../theme/theme.dart';

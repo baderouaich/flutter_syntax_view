@@ -133,6 +133,7 @@ void main() {
 - [x] JavaScript
 - [x] YAML
 - [x] Rust
+- [x] Lua
 
 ## Themes
 
