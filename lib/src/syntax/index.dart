@@ -5,6 +5,7 @@ export 'cpp.dart';
 export 'java.dart';
 export 'javascript.dart';
 export 'kotlin.dart';
+export 'lua.dart';
 export 'swift.dart';
 export 'yaml.dart';
 export 'rust.dart';
