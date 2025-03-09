@@ -102,3 +102,6 @@
 
 ## [4.1.6] - 08/03/2025
 * Added Lua Syntax Highlighter by @Binozo
+
+## [4.1.7] - 09/03/2025
+* Added Python Syntax Highlighter by @lebao3105

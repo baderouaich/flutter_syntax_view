@@ -7,6 +7,7 @@ export 'java.dart';
 export 'javascript.dart';
 export 'kotlin.dart';
 export 'lua.dart';
+export 'python.dart';
 export 'rust.dart';
 export 'swift.dart';
 export 'yaml.dart';

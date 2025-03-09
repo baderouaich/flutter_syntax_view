@@ -134,6 +134,7 @@ void main() {
 - [x] YAML
 - [x] Rust
 - [x] Lua
+- [x] Python
 
 ## Themes
 
@@ -186,6 +187,11 @@ Thanks goes to these wonderful people!<br>
   <tr>
     <a href="https://github.com/Binozo">
       <img width="50" height="50" src="https://github.com/Binozo.png">
+    </a>
+  </tr>
+  <tr>
+    <a href="https://github.com/lebao3105">
+      <img width="50" height="50" src="https://github.com/lebao3105.png">
     </a>
   </tr>
 </table>

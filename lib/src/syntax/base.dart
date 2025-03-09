@@ -9,7 +9,19 @@ abstract class SyntaxBase {
 }
 
 /// Supported Syntaxes Enum
-enum Syntax { DART, C, CPP, JAVASCRIPT, KOTLIN, JAVA, SWIFT, YAML, RUST, LUA }
+enum Syntax {
+  DART,
+  C,
+  CPP,
+  JAVASCRIPT,
+  KOTLIN,
+  JAVA,
+  SWIFT,
+  YAML,
+  RUST,
+  LUA,
+  PYTHON
+}
 
 /// Tokens
 enum HighlightType {
@@ -85,5 +97,7 @@ SyntaxBase getSyntax(Syntax syntax, SyntaxTheme? theme) {
       return RustSyntaxHighlighter(theme);
     case Syntax.LUA:
       return LuaSyntaxHighlighter(theme);
+    case Syntax.PYTHON:
+      return PythonSyntaxHighlighter(theme);
   }
 }
