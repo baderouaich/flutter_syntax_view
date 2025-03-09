@@ -8,8 +8,20 @@ abstract class SyntaxBase {
   Syntax get type;
 }
 
-/// Supported Languages
-enum Syntax { C, CPP, DART, JAVA, JAVASCRIPT, KOTLIN, LUA, PYTHON, RUST, SWIFT, YAML }
+/// Supported Syntaxes Enum
+enum Syntax {
+  DART,
+  C,
+  CPP,
+  JAVASCRIPT,
+  KOTLIN,
+  JAVA,
+  SWIFT,
+  YAML,
+  RUST,
+  LUA,
+  PYTHON
+}
 
 /// Tokens
 enum HighlightType {
@@ -42,30 +54,22 @@ class HighlightSpan {
 
   /// Returns the appropriate styling based on current span type
   TextStyle? textStyle(SyntaxTheme? syntaxTheme) {
-    switch (type) {
-      case HighlightType.number:
-        return syntaxTheme!.numberStyle;
-
-      case HighlightType.comment:
-        return syntaxTheme!.commentStyle;
-
-      case HighlightType.keyword:
-        return syntaxTheme!.keywordStyle;
-
-      case HighlightType.string:
-        return syntaxTheme!.stringStyle;
-
-      case HighlightType.punctuation:
-        return syntaxTheme!.punctuationStyle;
-
-      case HighlightType.klass:
-        return syntaxTheme!.classStyle;
-
-      case HighlightType.constant:
-        return syntaxTheme!.constantStyle;
-
-      default:
-        return syntaxTheme!.baseStyle;
+    if (type == HighlightType.number) {
+      return syntaxTheme!.numberStyle;
+    } else if (type == HighlightType.comment) {
+      return syntaxTheme!.commentStyle;
+    } else if (type == HighlightType.keyword) {
+      return syntaxTheme!.keywordStyle;
+    } else if (type == HighlightType.string) {
+      return syntaxTheme!.stringStyle;
+    } else if (type == HighlightType.punctuation) {
+      return syntaxTheme!.punctuationStyle;
+    } else if (type == HighlightType.klass) {
+      return syntaxTheme!.classStyle;
+    } else if (type == HighlightType.constant) {
+      return syntaxTheme!.constantStyle;
+    } else {
+      return syntaxTheme!.baseStyle;
     }
   }
 }

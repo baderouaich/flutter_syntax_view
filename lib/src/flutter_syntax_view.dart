@@ -2,28 +2,20 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math; // math.max & max
 
 import 'syntax/index.dart';
-import 'syntax/base.dart';
 
-/// A read-only code view with syntax highlight.
 class SyntaxView extends StatefulWidget {
-  SyntaxView({
-    required this.code,
-    required this.syntax,
-    this.font = 'monospace',
-    this.syntaxTheme,
-    this.withZoom = true,
-    this.withLinesCount = true,
-    this.fontSize = 12.0,
-    this.expanded = false,
-    this.selectable = true
-  });
+  SyntaxView(
+      {required this.code,
+      required this.syntax,
+      this.syntaxTheme,
+      this.withZoom = true,
+      this.withLinesCount = true,
+      this.fontSize = 12.0,
+      this.expanded = false,
+      this.selectable = true});
 
   /// Code text
   final String code;
-
-  /// Font for the editor.
-  /// Should be a monospace font.
-  final String font;
 
   /// Syntax/Language (Dart, C, C++...)
   final Syntax syntax;
@@ -71,11 +63,9 @@ class SyntaxViewState extends State<SyntaxView> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(alignment: AlignmentDirectional.bottomEnd,
-                 children: <Widget>[
+    return Stack(alignment: AlignmentDirectional.bottomEnd, children: <Widget>[
       Container(
-          padding:
-            widget.withLinesCount
+          padding: widget.withLinesCount
               ? const EdgeInsets.only(left: 5, top: 10, right: 10, bottom: 10)
               : const EdgeInsets.all(10),
           color: widget.syntaxTheme!.backgroundColor,
@@ -86,19 +76,14 @@ class SyntaxViewState extends State<SyntaxView> {
                   controller: _verticalScrollController,
                   child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
-                      child:
-                        widget.withLinesCount
+                      child: widget.withLinesCount
                           ? buildCodeWithLinesCount() // Syntax view with line number to the left
                           : buildCode() // Syntax view
-                  )
-              )
-          )
-      ),
-      if (widget.withZoom) zoomControls() // Zoom controls
+                      )))),
+      if (widget.withZoom) zoomControls() // Zoom control icons
     ]);
   }
 
-  /// Build code view with line number bar
   Widget buildCodeWithLinesCount() {
     final int numLines = '\n'.allMatches(widget.code).length + 1;
     return Row(
@@ -161,33 +146,23 @@ class SyntaxViewState extends State<SyntaxView> {
     }
   }
 
-  /// Create zoom in+out buttons.
   Widget zoomControls() {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        // Zoom out
         IconButton(
-          icon:
-            Icon(Icons.zoom_out, color: widget.syntaxTheme!.zoomIconColor),
-          onPressed: 
-            () => setState(
-              () {
-                _fontScaleFactor =
-                    math.max(MIN_FONT_SCALE_FACTOR, _fontScaleFactor - 0.1);
-              }
-            )
-        ),
-        // Zoom in
+            icon:
+                Icon(Icons.zoom_out, color: widget.syntaxTheme!.zoomIconColor),
+            onPressed: () => setState(() {
+                  _fontScaleFactor =
+                      math.max(MIN_FONT_SCALE_FACTOR, _fontScaleFactor - 0.1);
+                })),
         IconButton(
-          icon: Icon(Icons.zoom_in, color: widget.syntaxTheme!.zoomIconColor),
-          onPressed: () => setState(
-            () {
-              _fontScaleFactor =
-                  math.min(MAX_FONT_SCALE_FACTOR, _fontScaleFactor + 0.1);
-            }
-          )
-        ),
+            icon: Icon(Icons.zoom_in, color: widget.syntaxTheme!.zoomIconColor),
+            onPressed: () => setState(() {
+                  _fontScaleFactor =
+                      math.min(MAX_FONT_SCALE_FACTOR, _fontScaleFactor + 0.1);
+                })),
       ],
     );
   }

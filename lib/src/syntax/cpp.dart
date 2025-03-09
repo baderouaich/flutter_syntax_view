@@ -101,8 +101,7 @@ class CPPSyntaxHighlighter extends SyntaxBase {
     'while',
     'xor',
     'xor_eq',
-    'import',
-    'module'
+    'void'
   ];
 
   static const List<String> _builtInTypes = const <String>[
@@ -114,7 +113,6 @@ class CPPSyntaxHighlighter extends SyntaxBase {
     'double',
     'float',
     'bool',
-    'void',
 
     // <cstdint> stuff
     "intmax_t", "uintmax_t",

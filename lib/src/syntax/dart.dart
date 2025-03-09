@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:string_scanner/string_scanner.dart';
 
 import 'index.dart';
-import 'base.dart';
 
 class DartSyntaxHighlighter extends SyntaxBase {
   DartSyntaxHighlighter([this.syntaxTheme]) {

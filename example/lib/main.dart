@@ -1,4 +1,3 @@
-import 'package:example/snippets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_syntax_view/flutter_syntax_view.dart';
 
@@ -25,210 +24,196 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
-  // The number is the number of
-  // the language in Syntax.values
-  int selected_language = 0;
+  static const String code = r"""
+import 'dart:math' as math;
 
-  // Whether to expand the view or not
-  bool expandView = true;
+// Coffee class is the best!
+class Coffee {
+  late int _temperature;
 
-  String get code {
-    switch (selected_language) {
-      case 0:
-        return CCode;
-      case 1:
-        return CPPCode;
-      case 2:
-        return DartCode;
-      case 3:
-        return JavaCode;
-      case 4:
-        return JSCode;
-      case 5:
-        return KotlinCode;
-      case 6:
-        return LuaCode;
-      case 7:
-        return PythonCode;
-      case 8:
-        return RustCode;
-      case 9:
-        return SwiftCode;
-      case 10:
-        return YAMLCode;
-      default:
-        throw Exception("Index out of bound");
-    }
+  void heat() => _temperature = 100;
+  void chill() => _temperature = -5;
+
+  void sip() {
+    final bool isTooHot = math.max(37, _temperature) > 37;
+    if (isTooHot)
+      print("myyy liiips!");
+    else
+      print("mmmmm refreshing!");
   }
 
-  Map<String, SyntaxView> get syntaxViews => {
+  int? get temperature => temperature;
+}
+void main() {
+  var coffee = Coffee();
+  coffee.heat();
+  coffee.sip();
+  coffee.chill();
+  coffee.sip();
+}
+/* And there
+        you have it */""";
+
+  static final syntaxViews = {
     "Standard": SyntaxView(
       code: code,
-      syntax: Syntax.values[selected_language],
+      syntax: Syntax.DART,
       syntaxTheme: SyntaxTheme.standard(),
       fontSize: 12.0,
       withZoom: true,
       withLinesCount: true,
-      expanded: expandView,
+      expanded: true,
       selectable: true,
     ),
     "Dracula": SyntaxView(
       code: code,
-      syntax: Syntax.values[selected_language],
+      syntax: Syntax.DART,
       syntaxTheme: SyntaxTheme.dracula(),
       fontSize: 12.0,
       withZoom: true,
       withLinesCount: false,
-      expanded: expandView,
+      expanded: false,
       selectable: true,
     ),
-    "Ayu Light": SyntaxView(
-      code: code,
-      syntax: Syntax.values[selected_language],
-      syntaxTheme: SyntaxTheme.ayuLight(),
-      fontSize: 12.0,
-      withZoom: false,
-      withLinesCount: true,
-      expanded: expandView,
-    ),
-    "Custom AyuLight": SyntaxView(
+    "AyuLight": SyntaxView(
       code: code,
       syntax: Syntax.DART,
-      syntaxTheme: SyntaxTheme.ayuLight().copyWith(
-      linesCountColor: Colors.teal,
-      keywordStyle: const TextStyle(color: Colors.purple)),
+      syntaxTheme: SyntaxTheme.ayuLight(),
       fontSize: 12.0,
       withZoom: false,
       withLinesCount: true,
       expanded: true,
     ),
-    "Ayu Dark": SyntaxView(
+    "Custom AyuLight": SyntaxView(
       code: code,
-      syntax: Syntax.values[selected_language],
+      syntax: Syntax.DART,
+      syntaxTheme: SyntaxTheme.ayuLight().copyWith(
+          linesCountColor: Colors.teal,
+          keywordStyle: const TextStyle(color: Colors.purple)),
+      fontSize: 12.0,
+      withZoom: false,
+      withLinesCount: true,
+      expanded: true,
+    ),
+    "AyuDark": SyntaxView(
+      code: code,
+      syntax: Syntax.DART,
       syntaxTheme: SyntaxTheme.ayuDark(),
       fontSize: 12.0,
       withZoom: true,
       withLinesCount: false,
-      expanded: expandView,
+      expanded: false,
     ),
-    "Gravity Light": SyntaxView(
+    "GravityLight": SyntaxView(
       code: code,
-      syntax: Syntax.values[selected_language],
+      syntax: Syntax.DART,
       syntaxTheme: SyntaxTheme.gravityLight(),
       fontSize: 12.0,
       withZoom: true,
       withLinesCount: true,
-      expanded: expandView,
+      expanded: true,
     ),
-    "Gravity Dark": SyntaxView(
+    "GravityDark": SyntaxView(
         code: code,
-        syntax: Syntax.values[selected_language],
+        syntax: Syntax.DART,
         syntaxTheme: SyntaxTheme.gravityDark(),
         fontSize: 12.0,
         withZoom: false,
         withLinesCount: false,
-        expanded: expandView,
+        expanded: false,
         selectable: true),
-    "Monokai Sublime": SyntaxView(
+    "MonokaiSublime": SyntaxView(
         code: code,
-        syntax: Syntax.values[selected_language],
+        syntax: Syntax.DART,
         syntaxTheme: SyntaxTheme.monokaiSublime(),
         fontSize: 12.0,
         withZoom: true,
         withLinesCount: true,
-        expanded: expandView,
+        expanded: true,
         selectable: true),
     "Obsidian": SyntaxView(
         code: code,
-        syntax: Syntax.values[selected_language],
+        syntax: Syntax.DART,
         syntaxTheme: SyntaxTheme.obsidian(),
         fontSize: 12.0,
         withZoom: true,
         withLinesCount: true,
-        expanded: expandView,
+        expanded: false,
         selectable: true),
-    "Ocean Sunset": SyntaxView(
+    "OceanSunset": SyntaxView(
       code: code,
-      syntax: Syntax.values[selected_language],
+      syntax: Syntax.DART,
       syntaxTheme: SyntaxTheme.oceanSunset(),
       fontSize: 12.0,
       withZoom: false,
       withLinesCount: true,
-      expanded: expandView,
+      expanded: true,
       selectable: true,
     ),
-    "VS Code Dark": SyntaxView(
+    "vscodeDark": SyntaxView(
         code: code,
-        syntax: Syntax.values[selected_language],
+        syntax: Syntax.DART,
         syntaxTheme: SyntaxTheme.vscodeDark(),
         fontSize: 12.0,
         withZoom: true,
         withLinesCount: true,
-        expanded: expandView,
+        expanded: false,
         selectable: true),
-    "VS Code Light": SyntaxView(
+    "vscodeLight": SyntaxView(
         code: code,
-        syntax: Syntax.values[selected_language],
+        syntax: Syntax.DART,
         syntaxTheme: SyntaxTheme.vscodeLight(),
         fontSize: 12.0,
         withZoom: true,
         withLinesCount: true,
-        expanded: expandView,
+        expanded: true,
         selectable: true)
   };
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: syntaxViews.keys.length,
-      child:
-        Scaffold(
-          appBar: AppBar(
-            title: const Text("Flutter Syntax View Example"),
-            elevation: 6,
-            bottom: TabBar(
-                isScrollable: true,
-                tabs:
-                  syntaxViews.keys.map(
-                    (e) => Tab(text: e)
-                  ).toList(),
-              ),
-            actions: [
-              Switch(
-                onChanged: (value) => setState(() { expandView = value; }),
-                value: expandView
-              ),
-              Text("Expand view"),
-              DropdownMenu<int>(
-                initialSelection: selected_language,
-                dropdownMenuEntries: Syntax.values.map(
-                  (e) => DropdownMenuEntry(
-                    value: Syntax.values.indexOf(e),
-                    label: capitalize(e.toString().replaceAll(RegExp('Syntax.'), ''))
-                  )
-                ).toList(),
-                onSelected: (idx) => setState(() {
-                  selected_language = (idx ?? 0);
-                })
-              ),
-              Spacer()
-            ]
-          ),
-          body: TabBarView(
-                children: syntaxViews.values.map(
-                  (e) => Row(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Flutter Syntax View Example"),
+        backgroundColor: Colors.blueGrey[800],
+        elevation: 6,
+      ),
+      body: ListView.builder(
+          padding: const EdgeInsets.all(8),
+          itemCount: syntaxViews.length,
+          itemBuilder: (BuildContext context, int index) {
+            String themeName = syntaxViews.keys.elementAt(index);
+            SyntaxView syntaxView = syntaxViews.values.elementAt(index);
+            return Card(
+              margin: const EdgeInsets.all(10),
+              elevation: 6.0,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(3.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        if (e.expanded)
-                          Expanded(child: e)
-                        else
-                          e
-                      ]
-                    )
-                ).toList()
-              )
-        )
+                        const Icon(Icons.brush_sharp),
+                        Text(
+                          themeName,
+                          style: const TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        const Icon(Icons.brush_sharp),
+                      ],
+                    ),
+                  ),
+                  const Divider(),
+                  if (syntaxView.expanded)
+                    SizedBox(
+                        height: MediaQuery.of(context).size.height / 2.5,
+                        child: syntaxView)
+                  else
+                    syntaxView
+                ],
+              ),
+            );
+          }),
     );
   }
-
-  String capitalize(String original) => original[0].toUpperCase() + original.substring(1).toLowerCase();
 }
