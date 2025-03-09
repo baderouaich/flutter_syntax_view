@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:string_scanner/string_scanner.dart';
-
-import 'base.dart';
 import 'index.dart';
 
-class PythonSyntaxHighliigher extends SyntaxBase {
-  PythonSyntaxHighliigher([this.syntaxTheme]) {
+class PythonSyntaxHighlighter extends SyntaxBase {
+  PythonSyntaxHighlighter([this.syntaxTheme]) {
     _spans = <HighlightSpan>[];
     syntaxTheme ??= SyntaxTheme.dracula();
   }

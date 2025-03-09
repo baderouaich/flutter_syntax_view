@@ -1,8 +1,6 @@
 # flutter_syntax_view
 
-A code VIEW (repeat, a code VIEW) with syntax highlighting support for Flutter.
-
-Suitable to show short snippets.
+Flutter Syntax Highlighter
 
 ## Basic Usage
 
@@ -27,15 +25,15 @@ final int result = fibonacci(20);
     return Scaffold(
       body: Center(
         child: SyntaxView(
-          code: code, // Code text
-          syntax: Syntax.DART, // Language
-          syntaxTheme: SyntaxTheme.vscodeDark(), // Theme
-          fontSize: 12.0, // Font size
-          withZoom: true, // Enable/Disable zoom icon controls
-          withLinesCount: true, // Enable/Disable line number
-          expanded: false, // Enable/Disable container expansion
-          selectable: true // Enable/Disable code text selection
-        ),
+            code: code, // Code text
+            syntax: Syntax.DART, // Language
+            syntaxTheme: SyntaxTheme.vscodeDark(), // Theme
+            fontSize: 12.0, // Font size
+            withZoom: true, // Enable/Disable zoom icon controls
+            withLinesCount: true, // Enable/Disable line number
+            expanded: false, // Enable/Disable container expansion
+            selectable: true // Enable/Disable code text selection
+            ),
       ),
     );
   }
@@ -97,11 +95,11 @@ void main() {
     linesCountColor : AppColors.linesCountColor,
     commentStyle    : const TextStyle(color: AppColors.commentStyle),
     zoomIconColor   : AppColors.zoomIconColor,
-    stringStyle     : const TextStyle(color: AppColors.stringStyle),
+    stringStyle     :  const TextStyle(color: AppColors.stringStyle),
     baseStyle       : const TextStyle(color: AppColors.baseStyle),
-    keywordStyle    : const TextStyle(color: AppColors.keywordStyle),
-    punctuationStyle: const TextStyle(color: AppColors.keywordStyle),
-    classStyle      : const TextStyle(color: AppColors.classStyle),
+    keywordStyle    :  const TextStyle(color: AppColors.keywordStyle),
+    punctuationStyle:  const TextStyle(color: AppColors.keywordStyle),
+    classStyle      :  const TextStyle(color: AppColors.classStyle),
   );
 
   @override
@@ -109,51 +107,43 @@ void main() {
     return Scaffold(
       body: Center(
         child: SyntaxView(
-          code: code, // Code text
-          syntax: Syntax.DART, // Language
-          syntaxTheme: myCustomTheme, // Theme
-          fontSize: 12.0, // Font size
-          withZoom: true, // Enable/Disable zoom icon controls
-          withLinesCount: true, // Enable/Disable line number
-          expanded: false, // Enable/Disable container expansion
-          selectable: true // Enable/Disable code text selection
-        ),
+            code: code, // Code text
+            syntax: Syntax.DART, // Language
+            syntaxTheme: myCustomTheme, // Theme
+            fontSize: 12.0, // Font size
+            withZoom: true, // Enable/Disable zoom icon controls
+            withLinesCount: true, // Enable/Disable line number
+            expanded: false, // Enable/Disable container expansion
+            selectable: true // Enable/Disable code text selection
+          ),
       ),
     );
   }
 }
 ```
 
-## Supported Languages
+## Supported Syntax
 
 - [x] Dart
 - [x] C
 - [x] C++
 - [x] Java
 - [x] Kotlin
-- [x] Python
 - [x] Swift
 - [x] JavaScript
 - [x] YAML
 - [x] Rust
 - [x] Lua
+- [x] Python
 
 ## Themes
 
-<img width="270" src="theme_shots/ayuDark.png"><img width="270" src="theme_shots/ayuLight.png"><img width="270" src="theme_shots/dracula.png"><img width="270" src="theme_shots/gravityDark.png"><img width="270" src="theme_shots/gravityLight.png"><img width="270" src="theme_shots/monokaiSublime.png"><img width="270" src="theme_shots/obsidian.png"><img width="270" src="theme_shots/oceanSunset.png"><img width="270" src="theme_shots/standard.png"><img width="270" src="theme_shots/vscodeDark.png"><img width="270" src="theme_shots/vscodeLight.png">
+<img width="270" src="https://raw.githubusercontent.com/baderouaich/flutter_syntax_view/master/theme_shots/ayuDark.png"> <img width="270" src="https://raw.githubusercontent.com/baderouaich/flutter_syntax_view/master/theme_shots/ayuLight.png"><img width="270" src="https://raw.githubusercontent.com/baderouaich/flutter_syntax_view/master/theme_shots/dracula.png"><img width="270" src="https://raw.githubusercontent.com/baderouaich/flutter_syntax_view/master/theme_shots/gravityDark.png"><img width="270" src="https://raw.githubusercontent.com/baderouaich/flutter_syntax_view/master/theme_shots/gravityLight.png"><img width="270" src="https://raw.githubusercontent.com/baderouaich/flutter_syntax_view/master/theme_shots/monokaiSublime.png"><img width="270" src="https://raw.githubusercontent.com/baderouaich/flutter_syntax_view/master/theme_shots/obsidian.png"><img width="270" src="https://raw.githubusercontent.com/baderouaich/flutter_syntax_view/master/theme_shots/oceanSunset.png"><img width="270" src="https://raw.githubusercontent.com/baderouaich/flutter_syntax_view/master/theme_shots/standard.png"><img width="270" src="https://raw.githubusercontent.com/baderouaich/flutter_syntax_view/master/theme_shots/vscodeDark.png"><img width="270" src="https://raw.githubusercontent.com/baderouaich/flutter_syntax_view/master/theme_shots/vscodeLight.png">
 
 
 ## Installing
 
-```bash
-$ flutter pub add flutter_syntax_view
-```
-
-Import:
-
-```dart
-import 'package:flutter_syntax_view/flutter_syntax_view.dart';
-```
+[Package](https://pub.dartlang.org/packages/flutter_syntax_view)
 
 
 ## Contributing
@@ -197,6 +187,11 @@ Thanks goes to these wonderful people!<br>
   <tr>
     <a href="https://github.com/Binozo">
       <img width="50" height="50" src="https://github.com/Binozo.png">
+    </a>
+  </tr>
+  <tr>
+    <a href="https://github.com/lebao3105">
+      <img width="50" height="50" src="https://github.com/lebao3105.png">
     </a>
   </tr>
 </table>
