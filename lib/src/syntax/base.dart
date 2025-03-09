@@ -9,7 +9,7 @@ abstract class SyntaxBase {
 }
 
 /// Supported Syntaxes Enum
-enum Syntax { DART, C, CPP, JAVASCRIPT, KOTLIN, JAVA, SWIFT, YAML, RUST }
+enum Syntax { DART, C, CPP, JAVASCRIPT, KOTLIN, JAVA, SWIFT, YAML, RUST,JSON}
 
 /// Tokens
 enum HighlightType {
@@ -83,5 +83,7 @@ SyntaxBase getSyntax(Syntax syntax, SyntaxTheme? theme) {
       return YamlSyntaxHighlighter(theme);
     case Syntax.RUST:
       return RustSyntaxHighlighter(theme);
+    case Syntax.JSON:
+      return JsonSyntaxHighLighter(theme);
   }
 }
