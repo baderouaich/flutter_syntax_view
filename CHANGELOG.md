@@ -81,3 +81,24 @@
 ## [4.1.0] - 02/04/2024
 * Syntax view text is now selectable thanks to @shyam1s15 PR #14
 * Updated example
+
+## [4.1.1] - 26/12/2024
+* Fix scrollbar position attached in web thanks to @jhon2520 PR #19
+* Updated example
+
+## [4.1.2] - 26/12/2024
+* Fix lines count are not aligned correctly with code when selection is on
+
+## [4.1.3] - 26/12/2024
+* Improve code documentation and styling
+* 
+## [4.1.4] - 27/12/2024
+* Added Rust Syntax Highlighter
+
+## [4.1.5] - 08/02/2025
+* Update README
+* Update example 
+* The copyWith method is created to allow developers to add custom SyntaxView styles
+
+## [4.1.6] - 08/03/2025
+* Added Lua Syntax Highlighter by @Binozo

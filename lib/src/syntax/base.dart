@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'index.dart';
 
+/// The base class of all syntax highlighters
 abstract class SyntaxBase {
   SyntaxTheme? get syntaxTheme;
   TextSpan format(String src);
   Syntax get type;
 }
 
-/// Supported Syntaxes Enum
-enum Syntax { C, CPP, DART, JAVA, JAVASCRIPT, KOTLIN, PYTHON, SWIFT, YAML }
+/// Supported Languages
+enum Syntax { C, CPP, DART, JAVA, JAVASCRIPT, KOTLIN, LUA, PYTHON, RUST, SWIFT, YAML }
 
 /// Tokens
 enum HighlightType {
@@ -21,16 +22,25 @@ enum HighlightType {
   constant
 }
 
+/// Rich text span highlighter
 class HighlightSpan {
   HighlightSpan(this.type, this.start, this.end);
+
+  /// Highlight type (number, comment...)
   final HighlightType type;
+
+  /// Starting offset of the token
   final int start;
+
+  /// Ending offset of the token
   final int end;
 
+  /// Extracts token from String src
   String textForSpan(String src) {
     return src.substring(start, end);
   }
 
+  /// Returns the appropriate styling based on current span type
   TextStyle? textStyle(SyntaxTheme? syntaxTheme) {
     switch (type) {
       case HighlightType.number:
@@ -60,6 +70,7 @@ class HighlightSpan {
   }
 }
 
+/// Returns the appropriate syntax highlighter for a programming language syntax
 SyntaxBase getSyntax(Syntax syntax, SyntaxTheme? theme) {
   switch (syntax) {
     case Syntax.DART:
@@ -78,7 +89,11 @@ SyntaxBase getSyntax(Syntax syntax, SyntaxTheme? theme) {
       return JavaScriptSyntaxHighlighter(theme);
     case Syntax.YAML:
       return YamlSyntaxHighlighter(theme);
-    default:
-      return DartSyntaxHighlighter(theme);
+    case Syntax.RUST:
+      return RustSyntaxHighlighter(theme);
+    case Syntax.LUA:
+      return LuaSyntaxHighlighter(theme);
+    case Syntax.PYTHON:
+      return PythonSyntaxHighlighter(theme);
   }
 }

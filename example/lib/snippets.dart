@@ -157,8 +157,26 @@ class RepoBtnClickHandler extends CommandHandler
 }
 """;
 
+// The code below and above are taken from my (lebao3105) repositories
 const String JSCode = r"""
-/* I dont know JaveScript */
+function getHTMLTitleAndLastModified(path)
+{
+    var xmlHttp = new XMLHttpRequest();
+    var result = [];
+
+    xmlHttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200)
+        {
+            var htmlDoc = new DOMParser().parseFromString(this.responseText, 'text/html')
+            result.push(htmlDoc.getElementsByTagName('title')[0].innerText);
+            result.push(htmlDoc.getElementById('last-updated').innerText);
+        }
+    }
+    xmlHttp.open('GET', '/content/' + path, false);
+    xmlHttp.send(null);
+
+    return result;
+}
 """;
 
 const String KotlinCode = r"""

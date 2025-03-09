@@ -1,4 +1,4 @@
-package com.flutter_syntax_view.example.example
+package com.flutter_syntax_view.example
 
 import io.flutter.embedding.android.FlutterActivity
 

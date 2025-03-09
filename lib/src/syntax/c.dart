@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:string_scanner/string_scanner.dart';
-
-import 'base.dart';
 import 'index.dart';
 
 class CSyntaxHighlighter extends SyntaxBase {
@@ -107,11 +105,11 @@ class CSyntaxHighlighter extends SyntaxBase {
         currentPosition = span.end;
       }
 
-      if (currentPosition != _src.length)
+      if (currentPosition != _src.length) {
         formattedText.add(TextSpan(
           text: _src.substring(currentPosition, _src.length),
         ));
-
+      }
       return TextSpan(style: syntaxTheme!.baseStyle, children: formattedText);
     } else {
       /// Parsing failed, return with only basic formatting
@@ -216,17 +214,17 @@ class CSyntaxHighlighter extends SyntaxBase {
         String word = _scanner.lastMatch![0]!;
         if (word.startsWith('_')) word = word.substring(1);
 
-        if (_keywords.contains(word))
+        if (_keywords.contains(word)) {
           type = HighlightType.keyword;
-        else if (_builtInTypes.contains(word))
+        } else if (_builtInTypes.contains(word)) {
           type = HighlightType.keyword;
-        else if (_firstLetterIsUpperCase(word))
+        } else if (_firstLetterIsUpperCase(word)) {
           type = HighlightType.klass;
-        else if (word.length >= 2 &&
+        } else if (word.length >= 2 &&
             word.startsWith('k') &&
-            _firstLetterIsUpperCase(word.substring(1)))
+            _firstLetterIsUpperCase(word.substring(1))) {
           type = HighlightType.constant;
-
+        }
         if (type != null) {
           _spans.add(HighlightSpan(
               type, _scanner.lastMatch!.start, _scanner.lastMatch!.end));

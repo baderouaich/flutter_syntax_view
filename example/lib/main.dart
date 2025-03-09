@@ -2,12 +2,14 @@ import 'package:example/snippets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_syntax_view/flutter_syntax_view.dart';
 
-void main() => runApp(App());
+void main() => runApp(const App());
 
 class App extends StatelessWidget {
+  const App({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: MyApp(),
       debugShowCheckedModeBanner: false,
       title: "Flutter Syntax View Example",
@@ -16,6 +18,8 @@ class App extends StatelessWidget {
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
   State<StatefulWidget> createState() => MyAppState();
 }
@@ -43,10 +47,14 @@ class MyAppState extends State<MyApp> {
       case 5:
         return KotlinCode;
       case 6:
-        return PythonCode;
+        return LuaCode;
       case 7:
-        return SwiftCode;
+        return PythonCode;
       case 8:
+        return RustCode;
+      case 9:
+        return SwiftCode;
+      case 10:
         return YAMLCode;
       default:
         throw Exception("Index out of bound");
@@ -54,108 +62,119 @@ class MyAppState extends State<MyApp> {
   }
 
   Map<String, SyntaxView> get syntaxViews => {
-      "Standard": SyntaxView(
+    "Standard": SyntaxView(
+      code: code,
+      syntax: Syntax.values[selected_language],
+      syntaxTheme: SyntaxTheme.standard(),
+      fontSize: 12.0,
+      withZoom: true,
+      withLinesCount: true,
+      expanded: expandView,
+      selectable: true,
+    ),
+    "Dracula": SyntaxView(
+      code: code,
+      syntax: Syntax.values[selected_language],
+      syntaxTheme: SyntaxTheme.dracula(),
+      fontSize: 12.0,
+      withZoom: true,
+      withLinesCount: false,
+      expanded: expandView,
+      selectable: true,
+    ),
+    "Ayu Light": SyntaxView(
+      code: code,
+      syntax: Syntax.values[selected_language],
+      syntaxTheme: SyntaxTheme.ayuLight(),
+      fontSize: 12.0,
+      withZoom: false,
+      withLinesCount: true,
+      expanded: expandView,
+    ),
+    "Custom AyuLight": SyntaxView(
+      code: code,
+      syntax: Syntax.DART,
+      syntaxTheme: SyntaxTheme.ayuLight().copyWith(
+      linesCountColor: Colors.teal,
+      keywordStyle: const TextStyle(color: Colors.purple)),
+      fontSize: 12.0,
+      withZoom: false,
+      withLinesCount: true,
+      expanded: true,
+    ),
+    "Ayu Dark": SyntaxView(
+      code: code,
+      syntax: Syntax.values[selected_language],
+      syntaxTheme: SyntaxTheme.ayuDark(),
+      fontSize: 12.0,
+      withZoom: true,
+      withLinesCount: false,
+      expanded: expandView,
+    ),
+    "Gravity Light": SyntaxView(
+      code: code,
+      syntax: Syntax.values[selected_language],
+      syntaxTheme: SyntaxTheme.gravityLight(),
+      fontSize: 12.0,
+      withZoom: true,
+      withLinesCount: true,
+      expanded: expandView,
+    ),
+    "Gravity Dark": SyntaxView(
         code: code,
         syntax: Syntax.values[selected_language],
-        syntaxTheme: SyntaxTheme.standard(),
-        fontSize: 12.0,
-        withZoom: true,
-        withLinesCount: true,
-        expanded: expandView,
-        selectable: true,
-      ),
-      "Dracula": SyntaxView(
-        code: code,
-        syntax: Syntax.values[selected_language],
-        syntaxTheme: SyntaxTheme.dracula(),
-        fontSize: 12.0,
-        withZoom: true,
-        withLinesCount: false,
-        expanded: expandView,
-        selectable: true,
-      ),
-      "Ayu Light": SyntaxView(
-        code: code,
-        syntax: Syntax.values[selected_language],
-        syntaxTheme: SyntaxTheme.ayuLight(),
-        fontSize: 12.0,
-        withZoom: false,
-        withLinesCount: true,
-        expanded: expandView,
-      ),
-      "Ayu Dark": SyntaxView(
-        code: code,
-        syntax: Syntax.values[selected_language],
-        syntaxTheme: SyntaxTheme.ayuDark(),
-        fontSize: 12.0,
-        withZoom: true,
-        withLinesCount: false,
-        expanded: expandView,
-      ),
-      "Gravity Light": SyntaxView(
-        code: code,
-        syntax: Syntax.values[selected_language],
-        syntaxTheme: SyntaxTheme.gravityLight(),
-        fontSize: 12.0,
-        withZoom: true,
-        withLinesCount: true,
-        expanded: expandView,
-      ),
-      "Gravity Dark": SyntaxView(
-          code: code,
-          syntax: Syntax.values[selected_language],
-          syntaxTheme: SyntaxTheme.gravityDark(),
-          fontSize: 12.0,
-          withZoom: false,
-          withLinesCount: false,
-          expanded: expandView,
-          selectable: true),
-      "Monokai Sublime": SyntaxView(
-          code: code,
-          syntax: Syntax.values[selected_language],
-          syntaxTheme: SyntaxTheme.monokaiSublime(),
-          fontSize: 12.0,
-          withZoom: true,
-          withLinesCount: true,
-          expanded: expandView,
-          selectable: true),
-      "Obsidian": SyntaxView(
-          code: code,
-          syntax: Syntax.values[selected_language],
-          syntaxTheme: SyntaxTheme.obsidian(),
-          fontSize: 12.0,
-          withZoom: true,
-          withLinesCount: true,
-          expanded: expandView,
-          selectable: true),
-      "Ocean Sunset": SyntaxView(
-        code: code,
-        syntax: Syntax.values[selected_language],
-        syntaxTheme: SyntaxTheme.oceanSunset(),
+        syntaxTheme: SyntaxTheme.gravityDark(),
         fontSize: 12.0,
         withZoom: false,
+        withLinesCount: false,
+        expanded: expandView,
+        selectable: true),
+    "Monokai Sublime": SyntaxView(
+        code: code,
+        syntax: Syntax.values[selected_language],
+        syntaxTheme: SyntaxTheme.monokaiSublime(),
+        fontSize: 12.0,
+        withZoom: true,
         withLinesCount: true,
         expanded: expandView,
-        selectable: true,
-      ),
-      "VS Code Dark": SyntaxView(
-          code: code,
-          syntax: Syntax.values[selected_language],
-          syntaxTheme: SyntaxTheme.vscodeDark(),
-          fontSize: 12.0,
-          withZoom: true,
-          withLinesCount: true,
-          expanded: expandView,
-          selectable: true),
-      "VS Code Light": SyntaxView(
-          code: code,
-          syntax: Syntax.values[selected_language],
-          syntaxTheme: SyntaxTheme.vscodeLight(),
-          fontSize: 12.0,
-          withZoom: true,
-          withLinesCount: true,
-          expanded: expandView,
-          selectable: true)
+        selectable: true),
+    "Obsidian": SyntaxView(
+        code: code,
+        syntax: Syntax.values[selected_language],
+        syntaxTheme: SyntaxTheme.obsidian(),
+        fontSize: 12.0,
+        withZoom: true,
+        withLinesCount: true,
+        expanded: expandView,
+        selectable: true),
+    "Ocean Sunset": SyntaxView(
+      code: code,
+      syntax: Syntax.values[selected_language],
+      syntaxTheme: SyntaxTheme.oceanSunset(),
+      fontSize: 12.0,
+      withZoom: false,
+      withLinesCount: true,
+      expanded: expandView,
+      selectable: true,
+    ),
+    "VS Code Dark": SyntaxView(
+        code: code,
+        syntax: Syntax.values[selected_language],
+        syntaxTheme: SyntaxTheme.vscodeDark(),
+        fontSize: 12.0,
+        withZoom: true,
+        withLinesCount: true,
+        expanded: expandView,
+        selectable: true),
+    "VS Code Light": SyntaxView(
+        code: code,
+        syntax: Syntax.values[selected_language],
+        syntaxTheme: SyntaxTheme.vscodeLight(),
+        fontSize: 12.0,
+        withZoom: true,
+        withLinesCount: true,
+        expanded: expandView,
+        selectable: true)
   };
 
   @override
@@ -165,7 +184,7 @@ class MyAppState extends State<MyApp> {
       child:
         Scaffold(
           appBar: AppBar(
-            title: Text("Flutter Syntax View Example"),
+            title: const Text("Flutter Syntax View Example"),
             elevation: 6,
             bottom: TabBar(
                 isScrollable: true,

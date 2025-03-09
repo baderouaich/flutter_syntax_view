@@ -51,10 +51,23 @@ class SyntaxView extends StatefulWidget {
 }
 
 class SyntaxViewState extends State<SyntaxView> {
-  /// For Zooming Controls
+  /// For zooming Controls
   static const double MAX_FONT_SCALE_FACTOR = 3.0;
   static const double MIN_FONT_SCALE_FACTOR = 0.5;
   double _fontScaleFactor = 1.0;
+  late ScrollController _verticalScrollController;
+
+  @override
+  void initState() {
+    super.initState();
+    _verticalScrollController = ScrollController();
+  }
+
+  @override
+  void dispose() {
+    _verticalScrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +81,9 @@ class SyntaxViewState extends State<SyntaxView> {
           color: widget.syntaxTheme!.backgroundColor,
           constraints: widget.expanded ? BoxConstraints.expand() : null,
           child: Scrollbar(
+              controller: _verticalScrollController,
               child: SingleChildScrollView(
+                  controller: _verticalScrollController,
                   child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child:
@@ -95,48 +110,55 @@ class SyntaxViewState extends State<SyntaxView> {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               for (int i = 1; i <= numLines; i++)
-                RichText(
-                    textScaleFactor: _fontScaleFactor,
-                    text: TextSpan(
-                      style: TextStyle(
-                          fontFamily: widget.font,
-                          fontSize: widget.fontSize,
-                          color: widget.syntaxTheme!.linesCountColor
-                      ),
-                      text: i.toString(),
-                    )
-                ),
-            ]
-        ),
+                widget.selectable
+                    ? SelectableText.rich(
+                        TextSpan(
+                          style: TextStyle(
+                              fontFamily: 'monospace',
+                              fontSize: widget.fontSize,
+                              color: widget.syntaxTheme!.linesCountColor),
+                          text: "$i",
+                        ),
+                        textScaler: TextScaler.linear(_fontScaleFactor),
+                      )
+                    : RichText(
+                        textScaler: TextScaler.linear(_fontScaleFactor),
+                        text: TextSpan(
+                          style: TextStyle(
+                              fontFamily: 'monospace',
+                              fontSize: widget.fontSize,
+                              color: widget.syntaxTheme!.linesCountColor),
+                          text: "$i",
+                        )),
+            ]),
         VerticalDivider(width: 5),
         buildCode(),
-        //Expanded(child: buildCode()),
       ],
     );
   }
 
-  /// Create code view without line number bar
   Widget buildCode() {
-    return 
-      widget.selectable
-        ? SelectableText.rich(
-            TextSpan(
-              style: TextStyle(fontFamily: widget.font, fontSize: widget.fontSize),
-              children: <TextSpan>[
-                getSyntax(widget.syntax, widget.syntaxTheme).format(widget.code)
-              ],
-            ),
-            textScaleFactor: _fontScaleFactor,
-          )
-        : RichText(
-            textScaleFactor: _fontScaleFactor,
-            text: TextSpan(
-              style: TextStyle(fontFamily: widget.font, fontSize: widget.fontSize),
-              children: <TextSpan>[
-                getSyntax(widget.syntax, widget.syntaxTheme).format(widget.code)
-              ],
-            ),
-          );
+    if (widget.selectable) {
+      return SelectableText.rich(
+        TextSpan(
+          style: TextStyle(fontFamily: 'monospace', fontSize: widget.fontSize),
+          children: <TextSpan>[
+            getSyntax(widget.syntax, widget.syntaxTheme).format(widget.code)
+          ],
+        ),
+        textScaler: TextScaler.linear(_fontScaleFactor),
+      );
+    } else {
+      return RichText(
+        textScaler: TextScaler.linear(_fontScaleFactor),
+        text: TextSpan(
+          style: TextStyle(fontFamily: 'monospace', fontSize: widget.fontSize),
+          children: <TextSpan>[
+            getSyntax(widget.syntax, widget.syntaxTheme).format(widget.code)
+          ],
+        ),
+      );
+    }
   }
 
   /// Create zoom in+out buttons.
